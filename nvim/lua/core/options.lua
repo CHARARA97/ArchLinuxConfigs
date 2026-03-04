@@ -1,0 +1,16 @@
+vim.opt.number = true                 -- 显示行号
+vim.opt.relativenumber = true         -- 显示相对行号（方便跳转）
+vim.opt.tabstop = 4                   -- Tab键显示为4个空格宽度
+vim.opt.shiftwidth = 4                -- 自动缩进时为4个空格
+vim.opt.expandtab = true              -- 将Tab转换为空格
+vim.opt.smartindent = true            -- 智能缩进
+vim.opt.ignorecase = true             -- 搜索时忽略大小写
+vim.opt.smartcase = true              -- 如果搜索包含大写，则开启大小写敏感[citation:1]
+vim.opt.mouse = 'a'                   -- 启用鼠标支持
+vim.opt.cursorline = true             -- 高亮当前行
+vim.opt.signcolumn = "yes"            -- 显示标记栏
+vim.opt.clipboard = "unnamedplus"     -- 与系统共享剪切板
+vim.opt.scrolloff = 8                 -- 光标上下最少保留八行
+vim.opt.undofile = true               -- 保存撤销历史
+vim.opt.splitright = true             -- 分窗时分到右侧
+vim.opt.splitbelow = true             -- 分窗时分到下面

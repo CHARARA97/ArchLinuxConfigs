@@ -1,0 +1,131 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "type": "file",
+    "source": "~/.config/fastfetch/ascii.txt",
+    "width": 1,
+    "height":17,
+    "color": {             // Override logo colors
+        "1": "#FFFFFF",
+    },
+    "padding": {
+      "top": 1, // Top padding
+      "left": 1, // Left padding
+      "right": 1, // Right padding
+    },
+  },
+  "display": {
+    "separator": " ", // Separator between keys and values
+    "color": {
+      //"keys": "#e6beab", // Key color module名字的颜色
+      "title": "#d7c2b9", // Title color 主机名的颜色
+      "output": "#d7c2b9"
+    },
+  },
+  "modules": [
+    "break",
+    {
+      "type": "os", //这是哪个module
+      "key": "OS", //module名字的显示
+      // "keyColor": "#00ff00",      //module名字颜色
+      // "format": "{name} {version}",    //具体内容
+      "keyColor": "#ffb68f",
+   
+    },
+    {
+      "type": "kernel",
+      "key": " ├   KER ",
+      "keyColor": "#ffb68f",
+
+    },
+    {
+      "type": "packages",
+      "key": " ├   PAK ",
+      "format": "{all}",
+      "keyColor": "#ffb68f",
+    },
+    {
+      "type": "title",
+      "key": " └   USR ",
+      "keyColor": "#ffb68f",
+    },
+    "break",
+    "break",
+    {
+      "type": "wm",
+      "key": "WM",
+      "keyColor": "#cec891",
+    },
+    {
+      "type": "de",
+      "key": " ├ 󱈹  DES ",
+      "keyColor": "#cec891",
+     //"outputColor": "#cec891"
+    },
+    {
+      "type": "shell",
+      "key": " ├   SHE ",
+      "keyColor": "#cec891",
+      //"outputColor": "#cec891"
+    },
+    {
+      "type": "terminal",
+      "key": " ├   TER ",
+      "keyColor": "#cec891",
+      //"outputColor": "#cec891"
+    },
+    {
+      "type": "terminalfont",
+      "key": " └   TFO ",
+      "keyColor": "#cec891",
+      //"outputColor": "#cec891"
+    },
+    "break",
+    "break",
+    {
+      "type": "host",
+      "condition": {
+              "succeeded": false
+      },
+      "key": "CHARARA97's PC",
+      "format": "CHARARA97's PC | {os-name}",
+      "keyColor": "#ffdbca",
+      //"outputColor": "#e6beab"
+    },
+    {
+      "type": "cpu",
+      "key": " ├   CPU ",
+      "keyColor": "#ffdbca",
+      //"outputColor": "#e6beab"
+    },
+    {
+      "type": "memory",
+      "key": " ├   MEM ",
+      "keyColor": "#ffdbca",
+      //"outputColor": "#e6beab"
+    },
+    {
+      "type": "gpu",
+      "key": " ├ 󰢮  GPU ",
+      "format": "{1} {2}",
+      "keyColor": "#ffdbca",
+      //"outputColor": "#e6beab"
+    },
+    {
+      "type": "display",
+      "key": " ├   MON ",
+      "format": "{name} {width}x{height}@{refresh-rate} ",
+      "keyColor": "#ffdbca",
+      //"outputColor": "#e6beab"
+    },
+    {
+      "type": "disk",
+      "key": " └ 󰋊  DIS ",
+      "keyColor": "#ffdbca",
+      //"outputColor": "#e6beab"
+    },
+    "break",
+    "break",
+    "colors"
+  ]
+}
