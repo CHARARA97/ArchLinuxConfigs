@@ -1,3 +1,5 @@
+vim.opt.termguicolors = true
+
 local function bootstrap_pckr()
     local pckr_path = vim.fn.stdpath("data") .. "/pckr/pckr.nvim"
     if not (vim.uv or vim.loop).fs_stat(pckr_path) then
@@ -29,6 +31,19 @@ require('plugins.init')
 require('plugins.config.lualine')
 require('plugins.config.neo-tree')
 require('plugins.config.telescope')
+require('plugins.config.colorizer')
+require('plugins.config.colorpicker')
+require('plugins.config.toggleterm')
+require('plugins.config.code_runner')
+require('plugins.config.flash')
+require('plugins.config.aerial')
 
 -- 加载主题
 require('plugins.config.tokyonight')
+vim.cmd("highlight ColorColumn guibg=#222233")
+
+-- 为所有 .conf 文件自动设置文件类型为 dosini
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = "*.conf",
+  command = "set filetype=dosini"
+})

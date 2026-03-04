@@ -8,10 +8,29 @@ pckr.add('nvim-neo-tree/neo-tree.nvim')             -- NeoTree
 pckr.add('nvim-lua/plenary.nvim')                   -- NeoTree的工具库
 pckr.add('MunifTanjim/nui.nvim')                    -- NeoTree的UI框架
 pckr.add('christoomey/vim-tmux-navigator')          -- 窗口间转换
+pckr.add('norcalli/nvim-colorizer.lua')             -- 颜色代码预览
+pckr.add('ziontee113/color-picker.nvim')            -- ColorPicker
+pckr.add('folke/flash.nvim')                        -- 光标跳转
+pckr.add('stevearc/aerial.nvim')                    -- 代码大纲
+-- Toggletrem
+pckr.add({
+    'akinsho/toggleterm.nvim',
+    tag = 'v2.*',
+    config = function()
+    end
+})
+-- CodeRunner
+pckr.add({
+    'CRAG666/code_runner.nvim',
+    requires = { 'akinsho/toggleterm.nvim' },
+    config = function() require('plugins.config.code_runner') end
+})
+-- Telescope
 pckr.add({
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/[lenary.nvim' }
 })
+-- Treesitter
 pckr.add({
     'nvim-treesitter/nvim-treesitter',
     opt = true,

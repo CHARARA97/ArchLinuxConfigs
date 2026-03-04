@@ -1,11 +1,13 @@
 vim.opt.number = true                 -- 显示行号
 vim.opt.relativenumber = true         -- 显示相对行号（方便跳转）
-vim.opt.tabstop = 4                   -- Tab键显示为4个空格宽度
-vim.opt.shiftwidth = 4                -- 自动缩进时为4个空格
+vim.opt.tabstop = 8                   -- Tab键显示为8个空格宽度
+vim.opt.shiftwidth = 8                -- 自动缩进时为8个空格
+vim.opt.wrap = false                  -- 禁用软换行
+vim.opt.colorcolumn = "80,100"        -- 列宽提示线
 vim.opt.expandtab = true              -- 将Tab转换为空格
 vim.opt.smartindent = true            -- 智能缩进
 vim.opt.ignorecase = true             -- 搜索时忽略大小写
-vim.opt.smartcase = true              -- 如果搜索包含大写，则开启大小写敏感[citation:1]
+vim.opt.smartcase = true              -- 如果搜索包含大写，则开启大小写敏感
 vim.opt.mouse = 'a'                   -- 启用鼠标支持
 vim.opt.cursorline = true             -- 高亮当前行
 vim.opt.signcolumn = "yes"            -- 显示标记栏
