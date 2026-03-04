@@ -1,12 +1,12 @@
 require('nvim-treesitter.configs').setup({
   -- 指定需要安装的语言解析器
-  ensure_installed = { "lua", "vim", "python", "c", "cpp", "javascript", "bash", "markdown" },
+  ensure_installed = { "lua", "vim", "python", "c", "cpp", "javascript", "bash", "markdown", "python", "csharp", "rust" },
   
   -- 自动更新  
-  sync_install = false
+  sync_install = true
 
   -- 自动安装 `ensure_installed` 列表中缺失的解析器
-  auto_install = false,
+  auto_install = true,
   
   -- 启用并配置代码高亮
   highlight = {
