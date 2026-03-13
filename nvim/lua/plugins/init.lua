@@ -12,6 +12,7 @@ pckr.add('norcalli/nvim-colorizer.lua')             -- 颜色代码预览
 pckr.add('ziontee113/color-picker.nvim')            -- ColorPicker
 pckr.add('folke/flash.nvim')                        -- 光标跳转
 pckr.add('stevearc/aerial.nvim')                    -- 代码大纲
+pckr.add('keaising/im-select.nvim')
 -- Toggletrem
 pckr.add({
     'akinsho/toggleterm.nvim',
