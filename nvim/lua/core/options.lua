@@ -16,3 +16,6 @@ vim.opt.scrolloff = 8                 -- 光标上下最少保留八行
 vim.opt.undofile = true               -- 保存撤销历史
 vim.opt.splitright = true             -- 分窗时分到右侧
 vim.opt.splitbelow = true             -- 分窗时分到下面
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+vim.opt.fileencodings = "ucs-bom,utf-8,gbk,gb2312,cp936,latin1"

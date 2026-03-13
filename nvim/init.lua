@@ -37,6 +37,7 @@ require('plugins.config.toggleterm')
 require('plugins.config.code_runner')
 require('plugins.config.flash')
 require('plugins.config.aerial')
+require('plugins.config.im-select')
 
 -- 加载主题
 require('plugins.config.tokyonight')

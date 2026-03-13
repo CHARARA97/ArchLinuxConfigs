@@ -14,13 +14,13 @@ require('aerial').setup({
     min_width = 30,
   },
   -- 显示哪些符号类型（默认显示所有，但可以按需过滤）
-  filter_kind = {
-    'Array', 'Boolean', 'Class', 'Constant', 'Constructor', 'Enum',
-    'EnumMember', 'Event', 'Field', 'File', 'Function', 'Interface',
-    'Key', 'Method', 'Module', 'Namespace', 'Null', 'Number', 'Object',
-    'Operator', 'Package', 'Property', 'String', 'Struct', 'TypeParameter',
-    'Variable',
-  },
+  -- filter_kind = {
+  --  'Array', 'Boolean', 'Class', 'Constant', 'Constructor', 'Enum',
+  --  'EnumMember', 'Event', 'Field', 'File', 'Function', 'Interface',
+  --  'Key', 'Method', 'Module', 'Namespace', 'Null', 'Number', 'Object',
+  --  'Operator', 'Package', 'Property', 'String', 'Struct', 'TypeParameter',
+  --  'Variable',
+  --},
   -- 窗口内按键映射
   keymaps = {
     ['<CR>'] = 'actions.jump',      -- 回车跳转
