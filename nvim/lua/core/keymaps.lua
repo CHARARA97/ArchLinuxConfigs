@@ -34,15 +34,19 @@ keymap('n', '<leader>crp', ':CRProjects<CR>', { noremap = true, silent = false }
 
 -- 普通模式下，快速移动当前行
 -- Alt + j 向下移动
-vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { noremap = true, silent = true, desc = 'Move line down' })
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { noremap = true, silent = true, 
+                                                desc = 'Move line down' })
 -- Alt + k 向上移动
-vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { noremap = true, silent = true, desc = 'Move line up' })
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { noremap = true, silent = true, 
+                                                desc = 'Move line up' })
 
 -- 可视模式下，移动选中行
 -- Alt + j 向下移动
-vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { noremap = true, silent = true, desc = 'Move selected lines down' })
+vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { noremap = true, silent = true, 
+                                                desc = 'Move selected lines down' })
 -- Alt + k 向上移动
-vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = 'Move selected lines up' })
+vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { noremap = true, silent = true, 
+                                                desc = 'Move selected lines up' })
 
 -- 跳转窗口
 keymap('n', '<C-h>', '<cmd>TmuxNavigateLeft<CR>')       -- ctrl + hjkl 跳转窗口
