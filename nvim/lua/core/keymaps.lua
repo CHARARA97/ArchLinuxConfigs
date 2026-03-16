@@ -12,6 +12,14 @@ keymap('n', '<leader>e', ':Neotree toggle<CR>')         -- 空格 + e 打开Neot
 keymap('n', '<leader>sv', '<C-w>v')                     -- 空格 + sv 新增水平窗口
 keymap('n', '<leader>sh', '<C-w>s')                     -- 空格 + sh 新增垂直窗口
 
+-- 行首/行尾
+keymap('n', '<leader>h', '0', { desc = 'Go to start of line' })
+keymap('n', '<leader>l', '$', { desc = 'Go to end of line' })
+
+-- 文件头/文件尾
+keymap('n', '<leader>k', 'gg', { desc = 'Go to top of file' })
+keymap('n', '<leader>j', 'G', { desc = 'Go to bottom of file' })
+
                                                         -- 空格 + c 打开ColorPicker
 keymap('n', '<leader>pc', '<cmd>PickColor<CR>',{ noremap = true, silent = true })
 
