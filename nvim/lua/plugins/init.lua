@@ -12,9 +12,9 @@ pckr.add('norcalli/nvim-colorizer.lua')             -- 颜色代码预览
 pckr.add('ziontee113/color-picker.nvim')            -- ColorPicker
 pckr.add('folke/flash.nvim')                        -- 光标跳转
 pckr.add('stevearc/aerial.nvim')                    -- 代码大纲
-pckr.add('keaising/im-select.nvim')
-pckr.add('williamboman/mason.nvim')
-pckr.add('williamboman/mason-lspconfig.nvim')
+pckr.add('keaising/im-select.nvim')                 -- 输入法智能切换
+pckr.add('williamboman/mason.nvim')                 -- Mason
+pckr.add('williamboman/mason-lspconfig.nvim')       -- Mason-LSPConfig
 pckr.add('neovim/nvim-lspconfig')
 pckr.add('hrsh7th/nvim-cmp')                 -- 补全引擎
 pckr.add('hrsh7th/cmp-nvim-lsp')             -- LSP 补全源
@@ -23,10 +23,10 @@ pckr.add('hrsh7th/cmp-path')                  -- 文件路径补全
 pckr.add('hrsh7th/cmp-cmdline')               -- 命令行补全
 pckr.add('L3MON4D3/LuaSnip')                  -- 代码片段引擎
 pckr.add('saadparwaiz1/cmp_luasnip')          -- 片段补全源
-
--- （可选）LSP 增强 UI
 pckr.add('folke/lsp-colors.nvim')             -- 为 LSP 诊断提供颜色
 pckr.add('ray-x/lsp_signature.nvim')          -- 函数签名提示
+pckr.add('max397574/colortils.nvim')
+
 -- Toggletrem
 pckr.add({
     'akinsho/toggleterm.nvim',
@@ -34,17 +34,20 @@ pckr.add({
     config = function()
     end
 })
+
 -- CodeRunner
 pckr.add({
     'CRAG666/code_runner.nvim',
     requires = { 'akinsho/toggleterm.nvim' },
     config = function() require('plugins.config.code_runner') end
 })
+
 -- Telescope
 pckr.add({
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' }
 })
+
 -- Treesitter
 pckr.add({
     'nvim-treesitter/nvim-treesitter',
