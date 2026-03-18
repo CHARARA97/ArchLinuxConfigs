@@ -29,7 +29,6 @@ require('mason-lspconfig').setup({
     'lua_ls',          -- Lua
     'pyright',         -- Python
     'rust_analyzer',   -- Rust
-    'gopls',           -- Go
     'clangd',          -- C/C++
     -- 按需添加更多
   },
