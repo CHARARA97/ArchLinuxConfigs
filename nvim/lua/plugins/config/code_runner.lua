@@ -38,7 +38,7 @@ require('code_runner').setup({
                 -- C++: 使用 g++，支持 C++17
                 cpp = {
                         "cd $dir &&",
-                        "g++ -std=c++17 $fileName -o /tmp/$fileNameWithoutExt &&",
+                        "g++ -std=c++17 *.cpp -o /tmp/$fileNameWithoutExt &&",
                         "/tmp/$fileNameWithoutExt",
                         "&& rm /tmp/$fileNameWithoutExt"
                 },
@@ -50,10 +50,9 @@ require('code_runner').setup({
                         "./$fileNameWithoutExt",
                         "&& rm ./$fileNameWithoutExt"
                 },
-                -- 若项目使用 Cargo，建议通过项目级配置调用 `cargo run`
 
                 -- Go: 直接 go run
-                go = "go run",
+                go = "go run $fileName",
 
                 -- Java: 注意：文件必须和类名一致，且无包声明时有效
                 java = {
@@ -61,13 +60,12 @@ require('code_runner').setup({
                         "javac $fileName &&",
                         "java $fileNameWithoutExt"
                 },
-                -- 如需处理带包名的 Java，请参考下文“函数式动态命令”
 
                 -- Zig: 直接运行
-                zig = "zig run",
+                zig = "zig run $fileName",
 
                 -- Haskell: 使用 runhaskell
-                haskell = "runhaskell",
+                haskell = "runhaskell $fileName",
 
                 -- Kotlin: 需先编译再运行
                 kotlin = {
@@ -78,7 +76,7 @@ require('code_runner').setup({
                 },
 
                 -- Scala: 简单脚本用 scala-cli
-                scala = "scala-cli run .",
+                scala = "scala-cli run $fileName",
 
                 ------------------- 标记语言/预览型 -------------------
                 -- 配合钩子函数可实现自动刷新，此处仅示例

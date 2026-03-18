@@ -15,11 +15,6 @@ local function bootstrap_pckr()
 end
 
 bootstrap_pckr()
-require('pckr').add{
-  -- My plugins here
-  -- 'foo1/bar1.nvim';
-  -- 'foo2/bar2.nvim';
-}
 
 -- 加载核心配置
 require('core.options')
@@ -38,6 +33,10 @@ require('plugins.config.code_runner')
 require('plugins.config.flash')
 require('plugins.config.aerial')
 require('plugins.config.im-select')
+require('plugins.config.mason')
+require('plugins.config.lsp')
+require('plugins.config.cmp')
+require('plugins.config.colortils')
 
 -- 加载主题
 require('plugins.config.tokyonight')
