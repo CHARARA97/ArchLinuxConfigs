@@ -29,10 +29,10 @@ require('code_runner').setup({
                 ------------------- 编译型语言 -------------------
                 -- C: 编译并运行，生成可执行文件到 /tmp 并自动删除
                 c = {
-                        "cd $dir &&",
-                        "gcc $fileName -o /tmp/$fileNameWithoutExt &&",
-                        "/tmp/$fileNameWithoutExt",
-                        "&& rm /tmp/$fileNameWithoutExt"   -- 运行后清理
+                    "cd $dir &&",
+                    "gcc -std=c99 -Wall *.c -o /tmp/$fileNameWithoutExt &&",
+                    "/tmp/$fileNameWithoutExt",
+                    "&& rm /tmp/$fileNameWithoutExt"
                 },
 
                 -- C++: 使用 g++，支持 C++17
