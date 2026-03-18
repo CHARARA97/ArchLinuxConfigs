@@ -21,7 +21,9 @@ keymap('n', '<leader>k', 'gg', { desc = 'Go to top of file' })
 keymap('n', '<leader>j', 'G', { desc = 'Go to bottom of file' })
 
                                                         -- 空格 + c 打开ColorPicker
-keymap('n', '<leader>pc', '<cmd>PickColor<CR>',{ noremap = true, silent = true })
+-- keymap('n', '<leader>pc', '<cmd>PickColor<CR>',{ noremap = true, silent = true })
+keymap('n', '<leader>cp', '<cmd>Colortils<CR>', { desc = 'Open Colortils picker' })
+keymap('n', '<leader>cg', '<cmd>Colortils gradient<CR>', { desc = 'Generate gradient' })
 
                                                         -- CodeRunner
 keymap('n', '<leader>rr', ':RunCode<CR>', { noremap = true, silent = false })
