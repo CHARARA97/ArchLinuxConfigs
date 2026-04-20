@@ -1,11 +1,11 @@
 local cmd = vim.cmd
 
 ------------------ 加载核心配置 ----------------------
+require('plugins')
+
 require('config.options')
 require('config.keymaps')
 require('config.autocmds')
-
-require('plugins')
 
 cmd.colorscheme("tokyonight-night")
 
