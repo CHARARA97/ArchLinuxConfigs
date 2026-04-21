@@ -24,8 +24,11 @@ km("n", "<leader>ff", "<cmd>Telescope find_files<CR>",  { desc = "查找文件" 
 km("n", "<leader>fg", "<cmd>Telescope live_grep<CR>",   { desc = "全文搜索" })
 km("n", "<leader>fb", "<cmd>Telescope buffers<CR>",     { desc = "切换缓冲区" })
 km("n", "<leader>fh", "<cmd>Telescope help_tags<CR>",   { desc = "帮助标签" })
--- lua/config/keymaps.lua
 km("n", "<leader>b", ":lua require('bufswi').open()<CR>", { desc = "打开缓冲区切换器" })
+km("n", "<leader>rr", ":RunCode<CR>",                   { desc = "根据文件类型运行代码" })
+km("n", "<leader>rf", ":RunFile<CR>",                   { desc = "运行当前文件" })
+km("n", "<leader>rp", ":RunProject<CR>",                { desc = "运行当前项目" })
+km("n", "<leader>rc", ":RunClose<CR>",                  { desc = "关闭运行窗口" })
 -- km('n', '<leader>fq', _G.toggle_qf,                     { desc = '切换 Quickfix 窗口' })
 
 km('n', '-', '<cmd>Oil<CR>',                    { desc = 'Open parent directory with Oil' })
