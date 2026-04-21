@@ -1,3 +1,4 @@
+local cmd = vim.cmd
 vim.pack.add({
 
         "https://github.com/nvim-lua/plenary.nvim.git",
@@ -36,3 +37,5 @@ require("plugins.config.telescope")
 require("plugins.config.treesitter")
 require("plugins.config.bufswi")
 require("plugins.config.code_runner")
+
+cmd.colorscheme("tokyonight-night")
