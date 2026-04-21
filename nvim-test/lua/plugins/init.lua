@@ -11,6 +11,9 @@ vim.pack.add({
         "https://github.com/nvim-lualine/lualine.nvim",
         "https://github.com/nvim-telescope/telescope.nvim.git",
         "https://github.com/nvim-treesitter/nvim-treesitter",
+        "https://github.com/zeroicey/bufswi.nvim.git",
+        "https://github.com/akinsho/toggleterm.nvim",
+        "https://github.com/CRAG666/code_runner.nvim.git",
 })
 
 -- vim.cmd("packadd nvim-treesitter")
@@ -31,3 +34,4 @@ require("plugins.config.smart-splits")
 require("plugins.config.lualine")
 require("plugins.config.telescope")
 require("plugins.config.treesitter")
+require("plugins.config.bufswi")
