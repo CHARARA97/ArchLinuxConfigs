@@ -1,6 +1,6 @@
 require('lualine').setup({
         options = {
-                theme = 'tokyonight', -- 替换为你使用的主题，如 'auto' 可自动匹配
+                theme = 'tokyonight',
                 component_separators = { left = '|', right = '|' },
                 section_separators = { left = '', right = '' },
         },
