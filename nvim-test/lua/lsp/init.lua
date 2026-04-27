@@ -46,6 +46,23 @@ vim.lsp.enable(enabled_servers)
 vim.lsp.completion.enable(true)
 
 -- ==================== LSP 快捷键统一绑定 ====================
+vim.lsp.completion.config({
+        keymap = {
+                -- 用 Tab 确认当前选中的补全项
+                ['<Tab>']   = 'confirm',
+                -- Shift+Tab 选择上一个补全项
+                ['<S-Tab>'] = 'select_prev',
+                -- Ctrl+n / Ctrl+p 遍历补全项（可保留默认行为）
+                ['<C-n>']   = 'select_next',
+                ['<C-p>']   = 'select_prev',
+                -- Ctrl+e 关闭补全菜单，不插入
+                ['<C-e>']   = 'abort',
+                -- 关键：将 Enter 设置为 abort（关闭菜单但不插入），从而正常换行
+                ['<CR>']    = 'abort',
+                -- 如果你希望保留手动触发，可将快捷键改为不冲突的键（如 <C-.>）
+                -- ['<C-.>']  = 'complete',
+        },
+})
 vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
                 local client = vim.lsp.get_client_by_id(args.data.client_id)
