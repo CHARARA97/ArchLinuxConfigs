@@ -15,6 +15,7 @@ vim.pack.add({
         "https://github.com/zeroicey/bufswi.nvim.git",
         "https://github.com/akinsho/toggleterm.nvim",
         "https://github.com/CRAG666/code_runner.nvim.git",
+        "https://github.com/Julian/lean.nvim",
 })
 
 -- vim.cmd("packadd nvim-treesitter")
@@ -37,5 +38,6 @@ require("plugins.config.telescope")
 require("plugins.config.treesitter")
 require("plugins.config.bufswi")
 require("plugins.config.code_runner")
+require("plugins.config.lean")
 
 cmd.colorscheme("tokyonight-night")
