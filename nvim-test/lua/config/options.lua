@@ -31,6 +31,7 @@ opt.undofile = true               -- 保存撤销历史
 opt.splitright = true             -- 分窗时分到右侧
 opt.splitbelow = true             -- 分窗时分到下面
 
+-- opt.completeopt = 'menuone,noselect'   -- 显示菜单但不自动选中
 -- opt.encoding = "UTF-8"
 -- opt.fileencoding = "UTF-8"
 -- opt.fileencodings = "ucs-bom,utf-8,gbk,gb2312,cp936,latin1"

@@ -1,6 +1,7 @@
 local cmd = vim.cmd
 
 ------------------ 加载核心配置 ----------------------
+require('lsp')
 require('plugins')
 require('config.options')
 require('config.autocmds')
