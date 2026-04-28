@@ -1,37 +1,48 @@
 local km = vim.keymap.set
+
+-- 安全 require，加载失败时打印错误
+local function safe_require(module)
+        local ok, result = pcall(require, module)
+        if not ok then
+                vim.notify("LSP 模块加载失败: " .. module .. "\n" .. tostring(result), vim.log.levels.ERROR)
+                return nil
+        end
+        return result
+end
+
 -- ==================== 加载所有服务器配置模块 ====================
 local servers = {
         -- 编译语言
-        require("lsp.servers.c_cpp"),           -- C / C++
-        require("lsp.servers.rust"),            -- Rust
-        require("lsp.servers.csharp"),          -- C#
-        require("lsp.servers.java"),            -- Java
+        safe_require("lsp.servers.c_cpp"),
+        safe_require("lsp.servers.rust"),
+        safe_require("lsp.servers.csharp"),
+        safe_require("lsp.servers.java"),
 
         -- 脚本/动态语言
-        require("lsp.servers.lua"),             -- Lua
-        require("lsp.servers.python"),          -- Python
-        require("lsp.servers.php"),             -- PHP
-        require("lsp.servers.typescript"),      -- JavaScript / TypeScript
+        safe_require("lsp.servers.lua"),
+        safe_require("lsp.servers.python"),
+        safe_require("lsp.servers.php"),
+        safe_require("lsp.servers.typescript"),
 
         -- Shell
-        require("lsp.servers.bash"),            -- Bash / Zsh
+        safe_require("lsp.servers.bash"),
 
         -- Web 前端
-        require("lsp.servers.html"),            -- HTML
-        require("lsp.servers.css"),             -- CSS
-        require("lsp.servers.json"),            -- JSON
-        require("lsp.servers.yaml"),            -- YAML
-        require("lsp.servers.xml"),             -- XML
+        safe_require("lsp.servers.html"),
+        safe_require("lsp.servers.css"),
+        safe_require("lsp.servers.json"),
+        safe_require("lsp.servers.yaml"),
+        safe_require("lsp.servers.xml"),
 
         -- 配置/标记/数据
-        require("lsp.servers.markdown"),        -- Markdown
-        require("lsp.servers.toml"),            -- TOML
-        require("lsp.servers.ini"),             -- INI
-        require("lsp.servers.sql"),             -- SQL
-        require("lsp.servers.vim"),             -- VimScript
+        safe_require("lsp.servers.markdown"),
+        safe_require("lsp.servers.toml"),
+        safe_require("lsp.servers.ini"),
+        safe_require("lsp.servers.sql"),
+        safe_require("lsp.servers.vim"),
 }
 
--- ==================== 注册并启用所有服务器 ====================
+-- 后续注册逻辑保持不变
 local enabled_servers = {}
 for _, server in ipairs(servers) do
         if server then
@@ -42,46 +53,21 @@ end
 
 vim.lsp.enable(enabled_servers)
 
--- ==================== 启用 LSP 补全 ====================
-vim.lsp.completion.enable(true)
-
--- ==================== LSP 快捷键统一绑定 ====================
-vim.lsp.completion.config({
-        keymap = {
-                -- 用 Tab 确认当前选中的补全项
-                ['<Tab>']   = 'confirm',
-                -- Shift+Tab 选择上一个补全项
-                ['<S-Tab>'] = 'select_prev',
-                -- Ctrl+n / Ctrl+p 遍历补全项（可保留默认行为）
-                ['<C-n>']   = 'select_next',
-                ['<C-p>']   = 'select_prev',
-                -- Ctrl+e 关闭补全菜单，不插入
-                ['<C-e>']   = 'abort',
-                -- 关键：将 Enter 设置为 abort（关闭菜单但不插入），从而正常换行
-                ['<CR>']    = 'abort',
-                -- 如果你希望保留手动触发，可将快捷键改为不冲突的键（如 <C-.>）
-                -- ['<C-.>']  = 'complete',
-        },
-})
+-- LspAttach 快捷键保持不变…
 vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
                 local client = vim.lsp.get_client_by_id(args.data.client_id)
-                if not client then
-                        return
-                end
+                if not client then return end
+                vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
                 local buf = args.buf
                 local opts = { buffer = buf }
-
-                -- 导航
-                km("n", "gd", vim.lsp.buf.definition, opts)      -- 跳转到定义
-                km("n", "gr", vim.lsp.buf.references, opts)      -- 查找引用
-                km("n", "gi", vim.lsp.buf.implementation, opts)  -- 跳转到实现
-                -- 代码操作
-                km("n", "<leader>rn", vim.lsp.buf.rename, opts)  -- 重命名
-                km("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- 代码操作
-                -- 信息显示
-                km("n", "K", vim.lsp.buf.hover, opts)            -- 悬停文档
-                km("n", "[d", vim.diagnostic.goto_prev, opts)    -- 上一个诊断
-                km("n", "]d", vim.diagnostic.goto_next, opts)    -- 下一个诊断
+                km("n", "gd", vim.lsp.buf.definition, opts)
+                km("n", "gr", vim.lsp.buf.references, opts)
+                km("n", "gi", vim.lsp.buf.implementation, opts)
+                km("n", "<leader>rn", vim.lsp.buf.rename, opts)
+                km("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+                km("n", "K", vim.lsp.buf.hover, opts)
+                km("n", "[d", vim.diagnostic.goto_prev, opts)
+                km("n", "]d", vim.diagnostic.goto_next, opts)
         end,
 })
