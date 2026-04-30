@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "aerial.nvim": {
+      "rev": "645d108a5242ec7b378cbe643eb6d04d4223f034",
+      "src": "https://github.com/stevearc/aerial.nvim"
+    },
     "bufswi.nvim": {
       "rev": "6d0ec32f6d5df355fac0aa6f4ba07c0392d39c09",
       "src": "https://github.com/zeroicey/bufswi.nvim.git"
