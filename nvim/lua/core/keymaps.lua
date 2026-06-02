@@ -16,9 +16,9 @@ keymap('n', '<leader>sh', '<C-w>s')                     -- 空格 + sh 新增垂
 keymap('n', '<leader>h', '0', { desc = 'Go to start of line' })
 keymap('n', '<leader>l', '$', { desc = 'Go to end of line' })
 
--- 文件头/文件尾
-keymap('n', '<leader>k', 'gg', { desc = 'Go to top of file' })
-keymap('n', '<leader>j', 'G', { desc = 'Go to bottom of file' })
+-- 快捷上下跳转
+keymap('n', '<leader>k', '10k', { desc = 'Go to top of file' })
+keymap('n', '<leader>j', '10j', { desc = 'Go to bottom of file' })
 
                                                         -- 空格 + c 打开ColorPicker
 -- keymap('n', '<leader>pc', '<cmd>PickColor<CR>',{ noremap = true, silent = true })
