@@ -2,34 +2,80 @@
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 
+window-rule {
+        match title="wf-recorder.sh"
+        open-floating true
+        max-width 100
+        max-height 100
+}
+
+window-rule {
+    match app-id="yazi-picker"
+    open-floating true
+}
+
 layer-rule{
     match namespace="hyprpaper"
     match namespace="wallpaper"
     match namespace="awww-daemon"
     place-within-backdrop true
 }
+
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
     opacity 0.97
     draw-border-with-background false
 }
+
 window-rule {
     match app-id="vivaldi-stable"
     match app-id="krita"
     match app-id="Godot"
     match app-id="Aseprite"
+    match app-id="osu!"
+    match app-id="明日方舟"
+    match app-id="Minecraft* 1.20.1"
+    match title="Chill With You"
+    match title="Endfield"
+    match title="愚者 · The Fool"
     opacity 1.0
 }
+
+window-rule {
+  clip-to-geometry true
+}
+
+debug {
+  honor-xdg-activation-with-invalid-serial
+}
+
 window-rule {
     match app-id="kitty"
-    opacity 0.95
+    match app-id="wechat"
+    match app-id="QQ"
+    match app-id="obsidian"
+    match app-id="Spotify"
+    match app-id="yazi"
+    match title="Cisco Secure Client"
+    // opacity 0.95
+    background-effect {
+        blur true
+    }
 }
+
+window-rule {
+    match app-id="QQ"
+    match app-id="wechat"
+    opacity 0.9
+}
+
 window-rule {
     match app-id="imv"
     open-focused false
     open-floating true
-    }
+}
+
 window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
@@ -37,13 +83,22 @@ window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
 }
+
 window-rule {
     match title="好友列表"
     max-width 450
 }
+
 window-rule {
-    match app-id="fcitx"
+    match title="图片查看器"
+    max-width 2400
+    max-height 1400
+}
+
+window-rule {
     match title="登陆 Steam"
+    match title="login"
+    match title="Login"
     open-focused false
 }
 
@@ -68,6 +123,7 @@ window-rule {
     match app-id="clipse-gui"
     match title="群聊的聊天记录"
     match title="聊天记录"
+    match title="Form"
     match title="日历"
     match title="重命名"
     match app-id="btrfs-assistant"
@@ -101,6 +157,10 @@ window-rule {
     open-floating true
     opacity 1.0
 }
+// window-rule {
+//     match title="图片查看器"
+//     opacity 0.5
+// }
 
 window-rule {
     match app-id="mpv"
