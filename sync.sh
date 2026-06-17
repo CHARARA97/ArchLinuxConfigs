@@ -12,7 +12,7 @@ set -euo pipefail
 # ---------- 默认配置 ----------
 REMOTE="origin"
 BRANCH="main"
-ADD_UNTRACKED=false
+ADD_UNTRACKED=true
 COMMIT_MSG=""
 
 # ---------- 参数解析 ----------
