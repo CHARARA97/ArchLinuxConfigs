@@ -2,6 +2,15 @@
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 
+// Wine explorer 虚拟桌面 → 浮动并忽略焦点
+window-rule {
+    match app-id="wine"
+    match title="explorer.exe"
+    open-floating true
+    open-focused false
+    geometry-corner-radius 0
+}
+
 window-rule {
         match title="wf-recorder.sh"
         open-floating true
@@ -72,6 +81,8 @@ window-rule {
 
 window-rule {
     match app-id="imv"
+    match title="ToastWindow"
+    match title="Form"
     open-focused false
     open-floating true
 }
