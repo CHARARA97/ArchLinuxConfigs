@@ -115,7 +115,7 @@ input {
 
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 12
+    gaps 10
     background-color "transparent"
     //empty-workspace-above-first
     // When to center a column when changing focus, options are:
@@ -204,7 +204,7 @@ layout {
 
         width 2
         active-color "#ff0088"
-        inactive-color "#505050"
+        // inactive-color "#BBEEFF"
 
         // Color of the border around windows that request your attention.
         urgent-color "#9b0000"
@@ -220,7 +220,7 @@ layout {
     // You can enable drop shadows for windows.
     shadow {
         // Uncomment the next line to enable shadows.
-        //on
+        // on
 
         // By default, the shadow draws only around its window, and not behind it.
         // Uncomment this setting to make the shadow draw behind its window.

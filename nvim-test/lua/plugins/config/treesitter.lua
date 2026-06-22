@@ -19,3 +19,10 @@ require('nvim-treesitter').setup({
                 },
         },
 })
+
+-- 手动启动 treesitter 高亮（nvim-treesitter 此版本不含自动启动）
+vim.api.nvim_create_autocmd("FileType", {
+        callback = function(args)
+                pcall(vim.treesitter.start, args.buf)
+        end,
+})
