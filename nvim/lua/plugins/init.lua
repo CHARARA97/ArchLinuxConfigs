@@ -2,6 +2,7 @@ local pckr = require('pckr')
 
 pckr.add('lewis6991/pckr.nvim')                     -- pckr
 pckr.add('folke/tokyonight.nvim')                   -- TokyoNight主题（Night）
+pckr.add('navarasu/onedark.nvim')                   -- Onedark主题（Deep风格）
 pckr.add('nvim-lualine/lualine.nvim')               -- 状态栏指示
 pckr.add('nvim-tree/nvim-web-devicons')             -- 配合lualine的图标
 pckr.add('nvim-neo-tree/neo-tree.nvim')             -- NeoTree

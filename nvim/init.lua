@@ -40,6 +40,7 @@ require('plugins.config.colortils')
 
 -- 加载主题
 require('plugins.config.tokyonight')
+require('plugins.config.onedark')                   -- Onedark 主题（可用 :One 切换）
 vim.cmd("highlight ColorColumn guibg=#222233")
 
 -- 为所有 .conf 文件自动设置文件类型为 dosini
