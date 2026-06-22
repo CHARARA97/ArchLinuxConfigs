@@ -31,7 +31,7 @@ layer-rule{
 }
 
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 0
     clip-to-geometry true
     opacity 0.97
     draw-border-with-background false
