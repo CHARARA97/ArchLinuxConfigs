@@ -29,14 +29,13 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T           hotkey-overlay-title="Kitty"                        { spawn "kitty"; }
     Mod+E           hotkey-overlay-title="Yazi"                         { spawn-sh "kitty -e yazi"; }
-    Mod+Alt+E       hotkey-overlay-title="Nautilus文档管理器"           { spawn-sh "env GSK_RENDERER=gl GTK_IM_MODULE=fcitx nautilus"; }
+    Mod+Alt+E       hotkey-overlay-title="Nautilus文档管理器"           { spawn-sh "nautilus"; }
     Mod+Alt+M       hotkey-overlay-title="任务管理器"                   { spawn "missioncenter";}
     Mod+B           hotkey-overlay-title="Vivaldi"                      { spawn-sh "/usr/bin/vivaldi-stable %U"; }
     Mod+Z           hotkey-overlay-title="任务启动器"                   { spawn-sh "qs ipc call launcher toggle"; }
     Mod+Alt+L       hotkey-overlay-title="锁屏"                         { spawn-sh "qs ipc call lockScreen lock"; }
     Mod+P           hotkey-overlay-title="HyprPicker"                   { spawn-sh "hyprpicker | wl-copy"; }
     Mod+Alt+V       hotkey-overlay-title="剪贴板"                       { spawn-sh "copyq toggle || clipse-gui"; }
-    Mod+Shift+Q     hotkey-overlay-title="QQ"                           { spawn-sh "com.qq.QQ"; }
     Mod+X           hotkey-overlay-title="控制中心"                     { spawn-sh "qs ipc call controlCenter toggle"; }
     Mod+N           hotkey-overlay-title="网络"                         { spawn-sh "qs ipc call network togglePanel"; }
     Mod+Y           hotkey-overlay-title="yay -Syu"                     { spawn-sh "kitty -e yay -Syu"; }
@@ -246,7 +245,7 @@ binds {
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
     Mod+Ctrl+F  { expand-column-to-available-width; }
-    Mod+C { spawn "kitty" "--working-directory" "/home/CHARARA97/ArchLinuxConfigs" "-e" "./sync.sh"; }
+    Mod+C { spawn "kitty" "--working-directory" "~/ArchLinuxConfigs" "-e" "./sync.sh"; }
 
     // Center all fully visible columns on screen.
     Mod+Ctrl+C  { center-visible-columns; }

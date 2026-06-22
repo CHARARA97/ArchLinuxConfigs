@@ -1,0 +1,8 @@
+output "HDMI-A-1" {
+    mode "1920x1080@144"
+}
+
+output "DP-2" {
+    mode "1080x1920@120"
+    transform "90"
+}
