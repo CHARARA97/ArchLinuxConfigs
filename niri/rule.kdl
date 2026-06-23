@@ -66,6 +66,7 @@ window-rule {
     match app-id="obsidian"
     match app-id="Spotify"
     match app-id="yazi"
+    match app-id="anki"
     match title="Cisco Secure Client"
     // opacity 0.95
     background-effect {
