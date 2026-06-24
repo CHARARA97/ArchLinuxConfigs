@@ -20,6 +20,10 @@
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "mini.comment": {
+      "rev": "4677392f091e8b5c18d4b535130220a6d1da4aca",
+      "src": "https://github.com/echasnovski/mini.comment.git"
+    },
     "neo-tree.nvim": {
       "rev": "1b4c40051f2623d0a7dcf19d5b74b997b97b0a9a",
       "src": "https://github.com/nvim-neo-tree/neo-tree.nvim.git"

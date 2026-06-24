@@ -7,6 +7,4 @@ require('config.options')
 require('config.autocmds')
 require('config.keymaps')
 
-
-
 -- vim.notify("Hello CHARARA97/Raikuna!Neovim 0.12 配置已加载！", vim.log.levels.INFO)
