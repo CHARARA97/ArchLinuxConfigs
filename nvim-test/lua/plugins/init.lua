@@ -4,7 +4,6 @@ vim.pack.add({
         "https://github.com/nvim-lua/plenary.nvim.git",
         "https://github.com/MunifTanjim/nui.nvim",
         "https://github.com/nvim-tree/nvim-web-devicons.git",
-
         "https://github.com/nvim-neo-tree/neo-tree.nvim.git",
         "https://github.com/stevearc/oil.nvim.git",
         "https://github.com/folke/tokyonight.nvim.git",
@@ -18,9 +17,11 @@ vim.pack.add({
         "https://github.com/CRAG666/code_runner.nvim.git",
         "https://github.com/Julian/lean.nvim",
         "https://github.com/stevearc/aerial.nvim",
+        "https://github.com/echasnovski/mini.comment.git",
 })
 
 vim.cmd("packadd nvim-treesitter")
+vim.cmd("packadd mini.comment")
 
 require("plugins.config.neo-tree")
 require("plugins.config.oil")
@@ -33,3 +34,4 @@ require("plugins.config.code_runner")
 require("plugins.config.lean")
 require("plugins.config.aerial")
 require("plugins.config.themes")
+require("plugins.config.mini_comment")

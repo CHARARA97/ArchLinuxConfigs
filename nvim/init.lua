@@ -21,6 +21,13 @@ require('core.options')
 require('core.keymaps')
 require('core.autocmds')
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = require('core.comment_separator').target_filetypes,
+    callback = function()
+        require('core.comment_separator').setup_keymaps()
+    end,
+})
+
 -- 加载插件
 require('plugins.init')
 require('plugins.config.lualine')

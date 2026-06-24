@@ -278,7 +278,6 @@ spawn-at-startup    "fcitx5" "-d"
 spawn-sh-at-startup "clipse --listen" 
 spawn-at-startup    "swayosd-server"
 spawn-at-startup    "qs"
-spawn-sh-at-startup "~/.config/niri/scripts/clipboard.sh"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
