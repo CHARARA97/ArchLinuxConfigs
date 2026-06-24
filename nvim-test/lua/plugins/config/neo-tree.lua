@@ -51,7 +51,7 @@ require("neo-tree").setup({
                         ["<CR>"] = "open",
                         ["o"] = "open",
                         ["l"] = "open",
-                        -- ["h"] = "close_node",
+                        ---- ["h"] = "close_node", -------------------------------------------------
                         ["h"] = "navigate_up",
                         ["a"] = "add",
                         ["d"] = "delete",

@@ -1,18 +1,18 @@
--- 主题总管模块
--- 负责：加载所有主题配置 + 切换命令 + 设置默认主题
+---- 主题总管模块 ----------------------------------------------------------------------------------
+---- 负责：加载所有主题配置 + 切换命令 + 设置默认主题 ----------------------------------------------
 
--- 先加载包（vim.pack.add 放在 opt/ 中，需要 packadd 才能 require）
+---- 先加载包（vim.pack.add 放在 opt/ 中，需要 packadd 才能 require） ------------------------------
 vim.cmd("packadd tokyonight.nvim")
 vim.cmd("packadd onedark.nvim")
 
--- 加载各主题的 setup（注册配色参数，不切换）
+---- 加载各主题的 setup（注册配色参数，不切换） ----------------------------------------------------
 require("plugins.config.tokyonight")
 require("plugins.config.onedark")
 
--- 设置默认主题
+---- 设置默认主题 ----------------------------------------------------------------------------------
 vim.cmd("colorscheme tokyonight-night")
 
--- 注册切换命令
+---- 注册切换命令 ----------------------------------------------------------------------------------
 vim.api.nvim_create_user_command('Toku', function()
         vim.cmd("colorscheme tokyonight-night")
         vim.notify('切换到 TokyoNight night', vim.log.levels.INFO)
