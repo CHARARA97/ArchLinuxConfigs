@@ -63,8 +63,7 @@ local function uncomment_line(lnum, line, p)
     local indent, content = line:match(
         "^(%s*)" .. vim.pesc(p) .. "%-%-%-%- (.+) %-+%s*$")
     if indent and content then
-        vim.api.nvim_buf_set_lines(0, lnum - 1, lnum, false,
-            { indent .. content })
+        vim.api.nvim_buf_set_lines(0, lnum - 1, lnum, false, { indent .. content })
     end
 end
 
@@ -76,37 +75,40 @@ if not ok then
     return
 end
 
-local setup_ok, setup_err = pcall(mini_comment.setup, {
-    hooks = {
-        pre = function(info)
-            local ft = vim.bo.filetype
-            if not target[ft] then return end
+local setup_ok, setup_err = pcall( mini_comment.setup,
+        {
+                hooks =
+                {
+                        pre = function(info)
+                        local ft = vim.bo.filetype
+                        if not target[ft] then return end
 
-            local p = prefix()
-            local col = tcol()
-            local lines = vim.api.nvim_buf_get_lines(
-                0, info.line_start - 1, info.line_end, false)
+                        local p = prefix()
+                        local col = tcol()
+                        local lines = vim.api.nvim_buf_get_lines(
+                                0, info.line_start - 1, info.line_end, false)
 
-            ---- 决定每行是注释还是取消注释（toggle 模式逐行判断） ---------------------------------
-            for i, line in ipairs(lines) do
-                local lnum = info.line_start + i - 1
-                if line:match("^%s*$") then
-                    ---- 空白行：跳过 --------------------------------------------------------------
-                elseif is_decorated(line, p) then
-                    ---- 装饰格式 → 恢复原内容（注释→取消） ----------------------------------------
-                    uncomment_line(lnum, line, p)
-                elseif info.action == "uncomment" then
-                    ---- 取消模式但非装饰行：跳过 --------------------------------------------------
-                else
-                    ---- comment 或 toggle 模式，非装饰行 → 套装饰注释 -----------------------------
-                    comment_line(lnum, line, p, col)
-                end
-            end
+                        ---- 决定每行是注释还是取消注释（toggle 模式逐行判断） ---------------------
+                        for i, line in ipairs(lines) do
+                                local lnum = info.line_start + i - 1
+                                if line:match("^%s*$") then
+                                ---- 空白行：跳过 --------------------------------------------------
+                                elseif is_decorated(line, p) then
+                                ---- 装饰格式 → 恢复原内容（注释→取消） ----------------------------
+                                uncomment_line(lnum, line, p)
+                                elseif info.action == "uncomment" then
+                                ---- 取消模式但非装饰行：跳过 --------------------------------------
+                                else
+                                ---- comment 或 toggle 模式，非装饰行 → 套装饰注释 -----------------
+                                comment_line(lnum, line, p, col)
+                                end
+                        end
 
-            return false
-        end,
-    },
-})
+                        return false
+                        end,
+                },
+        }
+)
 
 if not setup_ok then
     vim.notify("mini.comment setup 失败: " .. tostring(setup_err), vim.log.levels.ERROR)
@@ -115,7 +117,7 @@ end
 
 ---- 显式映射 gcc，覆盖 Neovim 0.12 内置的 gcc（否则内置优先，不走 hook） --------------------------
 vim.keymap.set('n', 'gcc', function()
-    mini_comment.toggle_lines(vim.fn.line('.'), vim.fn.line('.'))
+        mini_comment.toggle_lines(vim.fn.line('.'), vim.fn.line('.'))
 end, { desc = 'Comment line (decorated)' })
 
 ---- 可视模式 gc：块注释 ---------------------------------------------------------------------------
@@ -157,13 +159,19 @@ end
 local function apply_block(sl, el, col)
     local lines = vim.api.nvim_buf_get_lines(0, sl - 1, el, false)
     if not lines or #lines == 0 then return end
-    local indent = lines[1]:match("^(%s*)") or ""
+    local min_ind = 999
+    for _, line in ipairs(lines) do
+        local _, e = line:find("^%s*")
+        if e and e < min_ind then min_ind = e end
+        if e == nil then min_ind = 0 break end
+    end
+    local indent = lines[1]:sub(1, min_ind)
     local bopen = "/**"
     local bclose = "*/"
     local result = {}
     result[1] = indent .. bopen .. string.rep("-", col - #indent - #bopen)
     for _, line in ipairs(lines) do
-        result[#result + 1] = indent .. " * " .. (line:match("^%s*(.+)$") or "")
+        result[#result + 1] = indent .. " * " .. line:sub(min_ind + 1)
     end
     local dl = col - #indent - #bclose
     result[#result + 1] = indent .. string.rep("-", dl > 0 and dl or 0) .. bclose
