@@ -1,10 +1,10 @@
 ---- mini.comment 自定义逻辑 -----------------------------------------------------------------------
 ---- 目标语言中 gc/gcc：普通内容 → //---- content -------... (填到 colorcolumn) --------------------
 ----                         再按 gc/gcc → 恢复原内容 ----------------------------------------------
----- 空白行不处理（留给你自己的 <A-c>） ------------------------------------------------------------
 ---- 非目标语言：mini.comment 默认 toggle ----------------------------------------------------------
 
-local target = {
+local target =
+{
     c    = true, cpp    = true, csharp     = true, objc       = true, objcpp = true,
     java = true, kotlin = true, javascript = true, typescript = true,
     javascriptreact     = true, typescriptreact               = true,
@@ -69,9 +69,9 @@ end
 
 ---- mini.comment 配置 -----------------------------------------------------------------------------
 
-local ok, mini_comment = pcall(require, "mini.comment")
+local ok, mini_comment = pcall( require, "mini.comment" )
 if not ok then
-    vim.notify("mini.comment 加载失败: " .. tostring(mini_comment), vim.log.levels.ERROR)
+    vim.notify("mini.comment 加载失败: " .. tostring( mini_comment ), vim.log.levels.ERROR)
     return
 end
 
@@ -79,28 +79,28 @@ local setup_ok, setup_err = pcall( mini_comment.setup,
         {
                 hooks =
                 {
-                        pre = function(info)
+                        pre = function( info )
                         local ft = vim.bo.filetype
                         if not target[ft] then return end
 
                         local p = prefix()
                         local col = tcol()
                         local lines = vim.api.nvim_buf_get_lines(
-                                0, info.line_start - 1, info.line_end, false)
+                                0, info.line_start - 1, info.line_end, false )
 
                         ---- 决定每行是注释还是取消注释（toggle 模式逐行判断） ---------------------
-                        for i, line in ipairs(lines) do
+                        for i, line in ipairs( lines ) do
                                 local lnum = info.line_start + i - 1
-                                if line:match("^%s*$") then
+                                if line:match( "^%s*$" ) then
                                 ---- 空白行：跳过 --------------------------------------------------
-                                elseif is_decorated(line, p) then
+                                elseif is_decorated( line, p ) then
                                 ---- 装饰格式 → 恢复原内容（注释→取消） ----------------------------
-                                uncomment_line(lnum, line, p)
+                                uncomment_line( lnum, line, p )
                                 elseif info.action == "uncomment" then
                                 ---- 取消模式但非装饰行：跳过 --------------------------------------
                                 else
                                 ---- comment 或 toggle 模式，非装饰行 → 套装饰注释 -----------------
-                                comment_line(lnum, line, p, col)
+                                comment_line( lnum, line, p, col )
                                 end
                         end
 
@@ -111,57 +111,58 @@ local setup_ok, setup_err = pcall( mini_comment.setup,
 )
 
 if not setup_ok then
-    vim.notify("mini.comment setup 失败: " .. tostring(setup_err), vim.log.levels.ERROR)
+    vim.notify( "mini.comment setup 失败: " .. tostring( setup_err ), vim.log.levels.ERROR )
     return
 end
 
 ---- 显式映射 gcc，覆盖 Neovim 0.12 内置的 gcc（否则内置优先，不走 hook） --------------------------
-vim.keymap.set('n', 'gcc', function()
-        mini_comment.toggle_lines(vim.fn.line('.'), vim.fn.line('.'))
-end, { desc = 'Comment line (decorated)' })
+vim.keymap.set( 'n', 'gcc', function()
+                mini_comment.toggle_lines(vim.fn.line( '.' ), vim.fn.line( '.' ) )
+        end, { desc = 'Comment line (decorated)' }
+)
 
 ---- 可视模式 gc：块注释 ---------------------------------------------------------------------------
 
 --- 首行匹配块注释开头，返回缩进（匹配时）或 nil
-local function block_open_indent(line)
-    return line:match("^(%s*)/%*%*%-+%s*$")
+local function block_open_indent( line )
+    return line:match( "^(%s*)/%*%*%-+%s*$" )
 end
 
 ---- 尾行匹配块注释结尾（同缩进） ------------------------------------------------------------------
-local function block_close_ok(line, indent)
-    return line:match("^" .. vim.pesc(indent) .. "%-+%*%/%s*$") ~= nil
+local function block_close_ok( line, indent )
+    return line:match( "^" .. vim.pesc( indent ) .. "%-+%*%/%s*$" ) ~= nil
 end
 
 ---- 中间行是块注释内容 ----------------------------------------------------------------------------
-local function is_block_mid(line)
-    return line:match("^%s*%*%s") ~= nil
+local function is_block_mid( line )
+    return line:match( "^%s*%*%s" ) ~= nil
 end
 
 ---- 提取块注释中间行的内容 ------------------------------------------------------------------------
-local function block_mid_content(line)
-    return line:match("^%s*%*%s(.+)$") or line:gsub("^%s*%*%s?", "", 1)
+local function block_mid_content( line )
+    return line:match( "^%s*%*%s(.+)$" ) or line:gsub( "^%s*%*%s?", "", 1 )
 end
 
 ---- 整个选区是否已是块注释格式 --------------------------------------------------------------------
-local function is_block_range(sl, el)
-    local lines = vim.api.nvim_buf_get_lines(0, sl - 1, el, false)
+local function is_block_range( sl, el )
+    local lines = vim.api.nvim_buf_get_lines( 0, sl - 1, el, false )
     if not lines or #lines < 3 then return false end
-    local indent = block_open_indent(lines[1])
+    local indent = block_open_indent( lines[1] )
     if not indent then return false end
-    if not block_close_ok(lines[#lines], indent) then return false end
+    if not block_close_ok( lines[#lines], indent ) then return false end
     for i = 2, #lines - 1 do
-        if not is_block_mid(lines[i]) then return false end
+        if not is_block_mid( lines[i] ) then return false end
     end
     return true
 end
 
 ---- 套块注释（通过 toggle_lines 让 mini.comment 管理 undo/redo） ----------------------------------
-local function apply_block(sl, el, col)
-    local lines = vim.api.nvim_buf_get_lines(0, sl - 1, el, false)
+local function apply_block( sl, el, col )
+    local lines = vim.api.nvim_buf_get_lines( 0, sl - 1, el, false )
     if not lines or #lines == 0 then return end
     local min_ind = 999
-    for _, line in ipairs(lines) do
-        local _, e = line:find("^%s*")
+    for _, line in ipairs( lines ) do
+        local _, e = line:find( "^%s*" )
         if e and e < min_ind then min_ind = e end
         if e == nil then min_ind = 0 break end
     end

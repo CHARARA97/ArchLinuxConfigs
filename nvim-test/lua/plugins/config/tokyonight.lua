@@ -2,10 +2,10 @@
 
 require( 'tokyonight' ).setup(
         {
-                style = "night",
-                transparent = false,
+                style           = "night",
+                transparent     = false,
                 terminal_colors = true,
-                cache = false,
+                cache           = false,
                 styles =
                 {
                         comments  = { italic = true, bold = true },
@@ -82,14 +82,14 @@ require( 'tokyonight' ).setup(
                         local function U(color) return { fg = color, underline = true } end
 
                         ---- 注释(Comment) — Treesitter --------------------------------------------
-                        hl["@comment"]                = S(C.comment, italic)
-                        hl["@comment.documentation"]  = S(C.comment, italic)
-                        hl["@comment.error"]          = S(C.comment_error, italic)
-                        hl["@comment.warning"]        = S(C.comment_warn, italic)
-                        hl["@comment.todo"]           = S(C.comment_todo, bi)
-                        hl["@comment.note"]           = S(C.comment_note, italic)
-                        hl["@comment.info"]           = S(C.comment_info, italic)
-                        hl["@comment.hint"]           = S(C.comment_hint, italic)
+                        hl["@comment"]                = S( C.comment, italic )
+                        hl["@comment.documentation"]  = S( C.comment, italic )
+                        hl["@comment.error"]          = S( C.comment_error, italic )
+                        hl["@comment.warning"]        = S( C.comment_warn,  italic )
+                        hl["@comment.todo"]           = S( C.comment_todo,  bi )
+                        hl["@comment.note"]           = S( C.comment_note,  italic )
+                        hl["@comment.info"]           = S( C.comment_info,  italic )
+                        hl["@comment.hint"]           = S( C.comment_hint,  italic )
 
                         ---- 关键字(Keyword) — Treesitter ------------------------------------------
                         hl["@keyword"]                = S(C.keyword, bold)
