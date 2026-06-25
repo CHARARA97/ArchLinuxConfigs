@@ -18,11 +18,13 @@ vim.pack.add(
                 "https://github.com/Julian/lean.nvim",
                 "https://github.com/stevearc/aerial.nvim",
                 "https://github.com/echasnovski/mini.comment.git",
+                "https://github.com/norcalli/nvim-colorizer.lua.git",
         }
 )
 
 vim.cmd( "packadd nvim-treesitter" )
 vim.cmd( "packadd mini.comment" )
+vim.cmd( "packadd nvim-colorizer.lua" )
 
 require( "plugins.config.neo-tree" )
 require( "plugins.config.oil" )
@@ -36,3 +38,4 @@ require( "plugins.config.lean" )
 require( "plugins.config.aerial" )
 require( "plugins.config.themes" )
 require( "plugins.config.mini_comment" )
+require( "plugins.config.colorizer" )
