@@ -40,7 +40,7 @@ binds {
     Mod+N           hotkey-overlay-title="网络"                         { spawn-sh "qs ipc call network togglePanel"; }
     Mod+Y           hotkey-overlay-title="yay -Syu"                     { spawn-sh "kitty -e yay -Syu"; }
     Mod+Shift+D     hotkey-overlay-title="CodeWhale"                    { spawn-sh "kitty -e codewhale"; }
-    Ctrl+Alt+S      hotkey-overlay-title="切换屏幕录制"                 { spawn-sh "kitty -e ~/.config/waybar/scripts/wf-recorder.sh toggle"; }
+    // Ctrl+Alt+S      hotkey-overlay-title="切换屏幕录制"                 { spawn-sh "kitty -e ~/.config/waybar/scripts/wf-recorder.sh toggle"; }
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
@@ -240,7 +240,7 @@ binds {
     Mod+Shift+R     { switch-preset-window-height; }
     Mod+Ctrl+R      { reset-window-height; }
     Mod+F  hotkey-overlay-title="最大化"    { maximize-column; }
-    Mod+Alt+F hotkey-overlay-title="全屏"   { fullscreen-window; }
+    Mod+Space hotkey-overlay-title="全屏"   { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
