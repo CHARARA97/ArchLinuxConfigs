@@ -1,6 +1,8 @@
-return {
+return
+{
         name = "dosini_ls",
-        config = {
+        config =
+        {
                 cmd = { "dosini-lsp", "--stdio" },
                 filetypes = { "dosini", "ini" },
                 root_markers = { ".git" },

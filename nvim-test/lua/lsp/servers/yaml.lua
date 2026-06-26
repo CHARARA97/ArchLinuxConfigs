@@ -1,6 +1,8 @@
-return {
+return
+{
         name = "yamlls",
-        config = {
+        config =
+        {
                 cmd = { "yaml-language-server", "--stdio" },
                 filetypes = { "yaml", "yml" },
                 root_markers = { ".git" },

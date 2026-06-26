@@ -1,3 +1,4 @@
-vim.g.lean_config = {
+vim.g.lean_config =
+{
         mappings = true,
 }

@@ -1,6 +1,8 @@
-return {
+return
+{
         name = "intelephense",
-        config = {
+        config =
+        {
                 cmd = { "intelephense", "--stdio" },
                 filetypes = { "php" },
                 root_markers = { "composer.json", ".git" },
