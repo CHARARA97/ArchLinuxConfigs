@@ -7,7 +7,7 @@
 ---- dark_red   =#992525  dark_yellow=#8F610D  dark_purple=#862AA1  diff_add   =#27341C ------------
 ---- diff_delete=#331C1E  diff_change=#102B40  diff_text  =#1C4A6E ---------------------------------
 
-require('onedark').setup({
+require( 'onedark' ).setup({
         style = 'deep',
         transparent = false,
         terminal_colors = true,

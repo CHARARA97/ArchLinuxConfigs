@@ -1,6 +1,8 @@
-return {
+return
+{
         name = "pyright",
-        config = {
+        config =
+        {
                 cmd = { "pyright-langserver", "--stdio" },
                 filetypes = { "python" },
                 root_markers = { ".git", "pyproject.toml", "setup.py", "requirements.txt" },

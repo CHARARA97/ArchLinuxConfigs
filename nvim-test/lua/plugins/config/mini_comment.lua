@@ -15,55 +15,54 @@ local target =
 ---- 注释前缀： "// %s" → "//" ---------------------------------------------------------------------
 local function prefix()
     local cs = vim.bo.commentstring or ""
-    if cs == "" then cs = vim.filetype.get_option(vim.bo.filetype, "commentstring") or "// %s" end
+    if cs == "" then cs = vim.filetype.get_option( vim.bo.filetype, "commentstring" ) or "// %s" end
     if cs == "" then cs = "// %s" end
-    local p = cs:match("^(.-)%%s")
-    return p and vim.trim(p) or "//"
+    local p = cs:match( "^(.-)%%s" )
+    return p and vim.trim( p ) or "//"
 end
 
 ---- 目标列宽 --------------------------------------------------------------------------------------
 local function tcol()
     local cc = vim.opt.colorcolumn:get()
-    if type(cc) == "table" and #cc > 1 then return tonumber(cc[2]) or 100
-    elseif type(cc) == "string" and cc ~= "" then
-        local parts = vim.split(cc, ",")
-        return tonumber(parts[2] or parts[1]) or 100
+    if type( cc ) == "table" and #cc > 1 then return tonumber( cc[2] ) or 100
+    elseif type( cc ) == "string" and cc ~= "" then
+        local parts = vim.split( cc, "," )
+        return tonumber( parts[2] or parts[1] ) or 100
     end
     return 100
 end
 
 ---- 完整左前缀： "//---- " ------------------------------------------------------------------------
-local function full_left(p)
+local function full_left( p )
     return p .. "---- "
 end
 
 ---- 是否匹配装饰注释格式： //---- content ----------... -------------------------------------------
-local function is_decorated(line, p)
-    return line:find("^%s*" .. vim.pesc(p) .. "%-%-%-%- .+ %-+%s*$") ~= nil
+local function is_decorated( line, p )
+    return line:find( "^%s*" .. vim.pesc( p ) .. "%-%-%-%- .+ %-+%s*$" ) ~= nil
 end
 
 ---- 给单行套上装饰注释 ----------------------------------------------------------------------------
-local function comment_line(lnum, line, p, col)
-    local indent = line:match("^(%s*)") or ""
-    local content = line:sub(#indent + 1)
-    local left = full_left(p)
-    local prefix_len = vim.api.nvim_strwidth(indent .. left .. content .. " ")
+local function comment_line( lnum, line, p, col )
+    local indent = line:match( "^(%s*)" ) or ""
+    local content = line:sub( #indent + 1 )
+    local left = full_left( p )
+    local prefix_len = vim.api.nvim_strwidth( indent .. left .. content .. " " )
     local pad_len = col - prefix_len
     local pad = ""
     if pad_len > 0 then
-        pad = string.rep("-", pad_len)
+        pad = string.rep( "-", pad_len )
     end
     local result = indent .. left .. content .. " " .. pad
-    vim.api.nvim_buf_set_lines(0, lnum - 1, lnum, false, { result })
+    vim.api.nvim_buf_set_lines( 0, lnum - 1, lnum, false, { result } )
 end
 
 ---- 给单行解码装饰注释 ----------------------------------------------------------------------------
-local function uncomment_line(lnum, line, p)
+local function uncomment_line( lnum, line, p )
     -- 匹配缩进 + //---- content ---...
-    local indent, content = line:match(
-        "^(%s*)" .. vim.pesc(p) .. "%-%-%-%- (.+) %-+%s*$")
+    local indent, content = line:match( "^(%s*)" .. vim.pesc( p ) .. "%-%-%-%- (.+) %-+%s*$" )
     if indent and content then
-        vim.api.nvim_buf_set_lines(0, lnum - 1, lnum, false, { indent .. content })
+        vim.api.nvim_buf_set_lines( 0, lnum - 1, lnum, false, { indent .. content } )
     end
 end
 
@@ -71,7 +70,7 @@ end
 
 local ok, mini_comment = pcall( require, "mini.comment" )
 if not ok then
-    vim.notify("mini.comment 加载失败: " .. tostring( mini_comment ), vim.log.levels.ERROR)
+    vim.notify( "mini.comment 加载失败: " .. tostring( mini_comment ), vim.log.levels.ERROR )
     return
 end
 
@@ -166,47 +165,47 @@ local function apply_block( sl, el, col )
         if e and e < min_ind then min_ind = e end
         if e == nil then min_ind = 0 break end
     end
-    local indent = lines[1]:sub(1, min_ind)
+    local indent = lines[1]:sub( 1, min_ind )
     local bopen = "/**"
     local bclose = "*/"
     local result = {}
-    result[1] = indent .. bopen .. string.rep("-", col - #indent - #bopen)
-    for _, line in ipairs(lines) do
-        result[#result + 1] = indent .. " * " .. line:sub(min_ind + 1)
+    result[1] = indent .. bopen .. string.rep( "-", col - #indent - #bopen )
+    for _, line in ipairs( lines ) do
+        result[#result + 1] = indent .. " * " .. line:sub( min_ind + 1 )
     end
     local dl = col - #indent - #bclose
-    result[#result + 1] = indent .. string.rep("-", dl > 0 and dl or 0) .. bclose
-    vim.api.nvim_buf_set_lines(0, sl - 1, el, false, result)
+    result[#result + 1] = indent .. string.rep( "-", dl > 0 and dl or 0 ) .. bclose
+    vim.api.nvim_buf_set_lines( 0, sl - 1, el, false, result )
 end
 
 ---- 解块注释 --------------------------------------------------------------------------------------
-local function remove_block(sl, el)
-    local lines = vim.api.nvim_buf_get_lines(0, sl - 1, el, false)
+local function remove_block( sl, el )
+    local lines = vim.api.nvim_buf_get_lines( 0, sl - 1, el, false )
     if not lines or #lines < 3 then return end
-    local indent = block_open_indent(lines[1])
+    local indent = block_open_indent( lines[1] )
     if not indent then return end
     local result = {}
     for i = 2, #lines - 1 do
-        result[#result + 1] = indent .. block_mid_content(lines[i])
+        result[#result + 1] = indent .. block_mid_content( lines[i] )
     end
-    vim.api.nvim_buf_set_lines(0, sl - 1, el, false, result)
+    vim.api.nvim_buf_set_lines( 0, sl - 1, el, false, result )
 end
 
 ---- 必须先删除 mini.comment 和内置的 x gc 映射，否则 expr=true 的映射可能抢走优先 -----------------
-pcall(vim.keymap.del, 'x', 'gc')
+pcall( vim.keymap.del, 'x', 'gc' )
 vim.keymap.set('x', 'gc', function()
-    local sl = vim.fn.line("v")
-    local el = vim.fn.line(".")
+    local sl = vim.fn.line( "v" )
+    local el = vim.fn.line( "." )
     if el < sl then sl, el = el, sl end
 
     if not target[vim.bo.filetype] then
-        mini_comment.toggle_lines(sl, el)
+        mini_comment.toggle_lines( sl, el )
         return
     end
 
-    if is_block_range(sl, el) then
-        remove_block(sl, el)
+    if is_block_range( sl, el ) then
+        remove_block( sl, el )
     else
-        apply_block(sl, el, tcol())
+        apply_block( sl, el, tcol() )
     end
 end, { desc = 'Block comment (decorated)' })

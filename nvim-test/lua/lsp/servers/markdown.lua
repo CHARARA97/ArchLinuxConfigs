@@ -1,6 +1,8 @@
-return {
+return
+{
         name = "marksman",
-        config = {
+        config =
+        {
                 cmd = { "marksman" },
                 filetypes = { "markdown" },
                 root_markers = { ".git" },

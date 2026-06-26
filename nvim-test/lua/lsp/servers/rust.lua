@@ -1,4 +1,5 @@
-return {
+return
+{
         name = "rust_analyzer",
         config = {
                 cmd = { "rust-analyzer" },

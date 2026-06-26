@@ -1,6 +1,8 @@
-return {
+return
+{
         name = "jdtls",
-        config = {
+        config =
+        {
                 cmd = { "jdtls" },
                 filetypes = { "java" },
                 root_markers = { "pom.xml", "build.gradle", ".git" },

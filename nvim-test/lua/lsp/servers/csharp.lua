@@ -1,6 +1,8 @@
-return {
+return
+{
         name = "omnisharp",
-        config = {
+        config =
+        {
                 cmd = { "omnisharp", "--languageserver" },
                 filetypes = { "cs" },
                 root_markers = { "*.sln", "*.csproj", ".git" },

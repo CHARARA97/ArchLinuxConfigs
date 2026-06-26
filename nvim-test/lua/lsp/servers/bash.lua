@@ -1,6 +1,8 @@
-return {
+return
+{
         name = "bashls",
-        config = {
+        config =
+        {
                 cmd = { "bash-language-server", "start" },
                 filetypes = { "sh", "zsh" },
                 root_markers = { ".git" },

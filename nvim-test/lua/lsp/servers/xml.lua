@@ -1,6 +1,8 @@
-return {
+return
+{
         name = "lemminx",
-        config = {
+        config =
+        {
                 cmd = { "lemminx" },
                 filetypes = { "xml" },
                 root_markers = { ".git" },
