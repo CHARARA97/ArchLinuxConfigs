@@ -11,19 +11,18 @@ binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
     Mod+Shift+Slash                                 { show-hotkey-overlay; }
-    //niriswitcher
     Alt+Tab repeat=true                             { spawn "niriswitcherctl" "show" "--window";}
     Mod+F10 hotkey-overlay-title="随机切换壁纸"     { spawn "waypaper" "--random";}
     Mod+F2 hotkey-overlay-title="刷新QuickShell"    { spawn-sh "pkill qs || true && qs"; }
     Mod+F3 hotkey-overlay-title="Yazi文件选择"      { spawn-sh "~/.config/scripts/wechat-file-picker.sh"; }
-    XF86AudioPlay { spawn-sh "qs ipc call media playPause"; }
-    Ctrl+Alt+P    { spawn-sh "qs ipc call media playPause"; }
-    Ctrl+Alt+L    { spawn-sh "qs ipc call media next"; }
-    Ctrl+Alt+H    { spawn-sh "qs ipc call media previous"; }
-    Ctrl+Alt+K    { spawn-sh "qs ipc call volume increase"; }
-    Ctrl+Alt+J    { spawn-sh "qs ipc call volume decrease"; }
-    Mod+M         { spawn-sh "qs ipc call media toggle"; }
-    Mod+Shift+N   { spawn-sh "qs ipc call notifications dismissOldest"; }
+    XF86AudioPlay       { spawn-sh "qs ipc call media playPause"; }
+    Ctrl+Alt+P          { spawn-sh "qs ipc call media playPause"; }
+    Ctrl+Alt+L          { spawn-sh "qs ipc call media next"; }
+    Ctrl+Alt+H          { spawn-sh "qs ipc call media previous"; }
+    Ctrl+Alt+K          { spawn-sh "qs ipc call volume increase"; }
+    Ctrl+Alt+J          { spawn-sh "qs ipc call volume decrease"; }
+    Mod+M               { spawn-sh "qs ipc call media toggle"; }
+    Mod+Shift+N         { spawn-sh "qs ipc call notifications dismissOldest"; }
 
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
@@ -240,7 +239,7 @@ binds {
     Mod+Shift+R     { switch-preset-window-height; }
     Mod+Ctrl+R      { reset-window-height; }
     Mod+F  hotkey-overlay-title="最大化"    { maximize-column; }
-    Mod+Space hotkey-overlay-title="全屏"   { fullscreen-window; }
+    Mod+O hotkey-overlay-title="全屏"   { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".

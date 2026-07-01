@@ -134,6 +134,82 @@ let g:netrw_list_hide = '.*\.pyc$,__pycache__,$\.o$,$\.class$'
 
 
 " ============================================================
+" 函数: 括号内加空格 (从 nvim-test bracket_pad.lua 迁移)
+function! PadBrackets()
+    let cur = getpos('.')
+    let cline = cur[1]
+    let ccol = cur[2]
+    let lines = getline(1, '$')
+    " 向后扫描找最近的未闭合 (
+    let open_line = 0
+    let open_col = 0
+    let depth = 0
+    for line in range(cline, 1, -1)
+        let txt = lines[line]
+        let start = (line == cline) ? ccol : strlen(txt)
+        let pos = start
+        while pos >= 1
+            let ch = txt[pos - 1]
+            if ch == ')'
+                let depth = depth + 1
+            elseif ch == '('
+                if depth == 0
+                    let open_line = line
+                    let open_col = pos
+                    break
+                endif
+                let depth = depth - 1
+            endif
+            let pos = pos - 1
+        endwhile
+        if open_line > 0 | break | endif
+    endfor
+    if open_line == 0 | return | endif
+    " 向前扫描匹配的 )
+    let close_line = 0
+    let close_col = 0
+    let depth = 0
+    for line in range(open_line, len(lines))
+        let txt = lines[line]
+        let start = (line == open_line) ? (open_col + 1) : 1
+        " Vimscript 字符串索引从 0 开始
+        let pos = start - 1
+        while pos < strlen(txt)
+            let ch = txt[pos]
+            if ch == '('
+                let depth = depth + 1
+            elseif ch == ')'
+                if depth == 0
+                    let close_line = line
+                    let close_col = pos + 1
+                    break
+                endif
+                let depth = depth - 1
+            endif
+            let pos = pos + 1
+        endwhile
+        if close_line > 0 | break | endif
+    endfor
+    if close_line == 0 | return | endif
+    " 确认光标在括号内
+    if cline < open_line || cline > close_line | return | endif
+    if cline == open_line && ccol <= open_col | return | endif
+    if cline == close_line && ccol >= close_col | return | endif
+    " 插入空格
+    if open_line == close_line
+        let l = getline(open_line)
+        let l = l[:open_col-1] . ' ' . l[open_col:close_col-2] . ' ' . l[close_col-1:]
+        call setline(open_line, l)
+    else
+        let ol = getline(open_line)
+        let cl = getline(close_line)
+        call setline(open_line,  ol[:open_col-1] . ' ' . ol[open_col:])
+        call setline(close_line, cl[:close_col-2] . ' ' . cl[close_col-1:])
+    endif
+endfunction
+nnoremap S :call PadBrackets()<CR>
+vnoremap S :<C-u>call PadBrackets()<CR>
+
 " 函数: 切换 Quickfix 窗口 (从 nvim-test 迁移)
 " ============================================================
 function! ToggleQF()
