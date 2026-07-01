@@ -19,12 +19,14 @@ vim.pack.add(
                 "https://github.com/stevearc/aerial.nvim",
                 "https://github.com/echasnovski/mini.comment.git",
                 "https://github.com/norcalli/nvim-colorizer.lua.git",
+                "https://github.com/keaising/im-select.nvim",
         }
 )
 
 vim.cmd( "packadd nvim-treesitter" )
 vim.cmd( "packadd mini.comment" )
 vim.cmd( "packadd nvim-colorizer.lua" )
+vim.cmd( "packadd im-select.nvim" )
 
 require( "plugins.config.neo-tree" )
 require( "plugins.config.oil" )
@@ -40,3 +42,4 @@ require( "plugins.config.themes" )
 require( "plugins.config.mini_comment" )
 require( "plugins.config.colorizer" )
 require( "plugins.config.bracket_pad" )
+require( "plugins.config.im_select" )
