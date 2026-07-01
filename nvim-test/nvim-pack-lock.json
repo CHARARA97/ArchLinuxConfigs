@@ -12,6 +12,10 @@
       "rev": "faeea87f6038307eabbe1d1ea97ab6b1d6fd33b5",
       "src": "https://github.com/CRAG666/code_runner.nvim.git"
     },
+    "im-select.nvim": {
+      "rev": "963a4e9d528ef8a8d328eeff690593b0146d30e2",
+      "src": "https://github.com/keaising/im-select.nvim"
+    },
     "lean.nvim": {
       "rev": "b2a473ccd12f1edb799e2758ea4a35d99664851a",
       "src": "https://github.com/Julian/lean.nvim"
