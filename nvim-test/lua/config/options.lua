@@ -19,21 +19,8 @@ opt.ignorecase = true                   ---- 搜索时忽略大小写 ----------
 opt.smartcase = true                    ---- 如果搜索包含大写，则开启大小写敏感 --------------------
 
 -- opt.mouse = 'a'                      ---- 启用鼠标支持 ------------------------------------------
----- opt.clipboard = "unnamedplus"      ---- 与系统共享剪切板 --------------------------------------
-vim.g.clipboard =
-{
-        name = 'osc52',
-        copy =
-        {
-                ['+'] = require( 'vim.ui.clipboard.osc52' ).copy( '+' ),
-                ['*'] = require( 'vim.ui.clipboard.osc52' ).copy( '*' ),
-        },
-        paste =
-        {
-                ['+'] = require( 'vim.ui.clipboard.osc52' ).paste( '+' ),
-                ['*'] = require( 'vim.ui.clipboard.osc52' ).paste( '*' ),
-        },
-}
+opt.clipboard = "unnamedplus"           ---- 与系统共享剪切板 --------------------------------------
+
 
 
 opt.cursorline = true                   ---- 高亮当前行 --------------------------------------------

@@ -20,13 +20,14 @@ vim.pack.add(
                 "https://github.com/echasnovski/mini.comment.git",
                 "https://github.com/norcalli/nvim-colorizer.lua.git",
                 "https://github.com/keaising/im-select.nvim",
+                "https://github.com/archibate/lualine-time",
         }
 )
 
-vim.cmd( "packadd nvim-treesitter" )
-vim.cmd( "packadd mini.comment" )
-vim.cmd( "packadd nvim-colorizer.lua" )
-vim.cmd( "packadd im-select.nvim" )
+cmd( "packadd nvim-treesitter" )
+cmd( "packadd mini.comment" )
+cmd( "packadd nvim-colorizer.lua" )
+cmd( "packadd im-select.nvim" )
 
 require( "plugins.config.neo-tree" )
 require( "plugins.config.oil" )

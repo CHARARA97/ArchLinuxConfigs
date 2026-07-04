@@ -13,6 +13,8 @@ environment {
     GDK_DPI_SCALE "1.25"
     GTK_CSD "0"
     EDITOR "NVIM_APPNAME='nvim-test' nvim"
+    XDG_RUNTIME_DIR "/run/user/1000"
+    WAYLAND_DISPLAY "wayland-1"
 }
 
 cursor {
@@ -303,6 +305,9 @@ blur {
     saturation 2
 }
 
+overview {
+    zoom 0.25
+}
 
 
 
