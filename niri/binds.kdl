@@ -10,10 +10,10 @@ binds {
     // `niri msg action do-something`.
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
+    // Mod+F10 hotkey-overlay-title="随机切换壁纸"     { spawn "waypaper" "--random";}
     Mod+Shift+Slash                                 { show-hotkey-overlay; }
     Alt+Tab repeat=true                             { spawn "niriswitcherctl" "show" "--window";}
-    Mod+F10 hotkey-overlay-title="随机切换壁纸"     { spawn "waypaper" "--random";}
-    Mod+F2 hotkey-overlay-title="刷新QuickShell"    { spawn-sh "pkill qs || true && qs"; }
+    Mod+F2 hotkey-overlay-title="刷新QuickShell"    { spawn-sh "pkill qs && qs"; }
     Mod+F3 hotkey-overlay-title="Yazi文件选择"      { spawn-sh "~/.config/scripts/wechat-file-picker.sh"; }
     XF86AudioPlay       { spawn-sh "qs ipc call media playPause"; }
     Ctrl+Alt+P          { spawn-sh "qs ipc call media playPause"; }
@@ -28,7 +28,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T           hotkey-overlay-title="Kitty"                        { spawn "kitty"; }
     Mod+E           hotkey-overlay-title="Yazi"                         { spawn-sh "kitty -e yazi"; }
-    Mod+Alt+E       hotkey-overlay-title="Nautilus文档管理器"           { spawn-sh "nautilus"; }
+    Mod+Alt+E       hotkey-overlay-title="Nautilus文档管理器"           { spawn "nautilus"; }
     Mod+Alt+M       hotkey-overlay-title="任务管理器"                   { spawn "missioncenter";}
     Mod+B           hotkey-overlay-title="Vivaldi"                      { spawn-sh "/usr/bin/vivaldi-stable %U"; }
     Mod+Z           hotkey-overlay-title="任务启动器"                   { spawn-sh "qs ipc call launcher toggle"; }
@@ -44,12 +44,11 @@ binds {
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
     Super+Alt+S     allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
-    //Super+Alt+V {spawn "copyq" "toggle";}
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
     // Using spawn-sh allows to pass multiple arguments together with the command.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
@@ -69,20 +68,20 @@ binds {
     Mod+K       hotkey-overlay-title="将焦点上移" { focus-window-up; }
     Mod+L       hotkey-overlay-title="将焦点右移" { focus-column-right; }
 
-    Mod+Ctrl+Left   hotkey-overlay-title="将窗口左移" { move-column-left; }
-    Mod+Ctrl+Down   hotkey-overlay-title="将窗口下移" { move-window-down; }
-    Mod+Ctrl+Up     hotkey-overlay-title="将窗口上移" { move-window-up; }
-    Mod+Ctrl+Right  hotkey-overlay-title="将窗口右移" { move-column-right; }
-    Mod+Ctrl+H      hotkey-overlay-title="将窗口左移" { move-column-left; }
-    Mod+Ctrl+J      hotkey-overlay-title="将窗口下移" { move-window-down; }
-    Mod+Ctrl+K      hotkey-overlay-title="将窗口上移" { move-window-up; }
-    Mod+Ctrl+L      hotkey-overlay-title="将窗口右移" { move-column-right; }
-    Mod+Ctrl+A      hotkey-overlay-title="将窗口左移" { move-column-left; }
+    Mod+Ctrl+Left   hotkey-overlay-title="将窗口左移"   { move-column-left; }
+    Mod+Ctrl+Down   hotkey-overlay-title="将窗口下移"   { move-window-down; }
+    Mod+Ctrl+Up     hotkey-overlay-title="将窗口上移"   { move-window-up; }
+    Mod+Ctrl+Right  hotkey-overlay-title="将窗口右移"   { move-column-right; }
+    Mod+Ctrl+H      hotkey-overlay-title="将窗口左移"   { move-column-left; }
+    Mod+Ctrl+J      hotkey-overlay-title="将窗口下移"   { move-window-down; }
+    Mod+Ctrl+K      hotkey-overlay-title="将窗口上移"   { move-window-up; }
+    Mod+Ctrl+L      hotkey-overlay-title="将窗口右移"   { move-column-right; }
+    Mod+Ctrl+A      hotkey-overlay-title="将窗口左移"   { move-column-left; }
     Mod+S           hotkey-overlay-title="将工作区下移" { focus-window-or-workspace-down; }
     Mod+W           hotkey-overlay-title="将工作区上移" { focus-window-or-workspace-up; }
-    Mod+Ctrl+S      hotkey-overlay-title="将窗口下移" { move-window-down; }
-    Mod+Ctrl+W      hotkey-overlay-title="将窗口上移" { move-window-up; }
-    Mod+Ctrl+D      hotkey-overlay-title="将窗口右移" { move-column-right; }
+    Mod+Ctrl+S      hotkey-overlay-title="将窗口下移"   { move-window-down; }
+    Mod+Ctrl+W      hotkey-overlay-title="将窗口上移"   { move-window-up; }
+    Mod+Ctrl+D      hotkey-overlay-title="将窗口右移"   { move-column-right; }
     // Alternative commands that move across workspaces when reaching
     // the first or last window in a column.
     //Mod+J     { focus-window-or-workspace-down; }
@@ -140,8 +139,8 @@ binds {
     Mod+Page_Up        { focus-workspace-up; }
     Mod+U              { focus-workspace-down; }
     Mod+I              { focus-workspace-up; }
-    Mod+Ctrl+Page_Down         { move-column-to-workspace-down; }
-    Mod+Ctrl+Page_Up         { move-column-to-workspace-up; }
+    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+U         { move-column-to-workspace-down; }
     Mod+Ctrl+I         { move-column-to-workspace-up; }
 
@@ -194,24 +193,24 @@ binds {
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
-    Mod+Ctrl+6 { move-column-to-workspace 6; }
-    Mod+Ctrl+7 { move-column-to-workspace 7; }
-    Mod+Ctrl+8 { move-column-to-workspace 8; }
-    Mod+Ctrl+9 { move-column-to-workspace 9; }
+    Mod+1       { focus-workspace 1; }
+    Mod+2       { focus-workspace 2; }
+    Mod+3       { focus-workspace 3; }
+    Mod+4       { focus-workspace 4; }
+    Mod+5       { focus-workspace 5; }
+    Mod+6       { focus-workspace 6; }
+    Mod+7       { focus-workspace 7; }
+    Mod+8       { focus-workspace 8; }
+    Mod+9       { focus-workspace 9; }
+    Mod+Ctrl+1  { move-column-to-workspace 1; }
+    Mod+Ctrl+2  { move-column-to-workspace 2; }
+    Mod+Ctrl+3  { move-column-to-workspace 3; }
+    Mod+Ctrl+4  { move-column-to-workspace 4; }
+    Mod+Ctrl+5  { move-column-to-workspace 5; }
+    Mod+Ctrl+6  { move-column-to-workspace 6; }
+    Mod+Ctrl+7  { move-column-to-workspace 7; }
+    Mod+Ctrl+8  { move-column-to-workspace 8; }
+    Mod+Ctrl+9  { move-column-to-workspace 9; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
@@ -227,19 +226,17 @@ binds {
     Mod+A               { consume-or-expel-window-left; }
     Mod+D               { consume-or-expel-window-right; }
     // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma       { consume-window-into-column; }
+    Mod+Comma           { consume-window-into-column; }
     // Mod+Shift+A     { consume-window-into-column; }
     // Expel the bottom window from the focused column to the right.
-    Mod+Period      { expel-window-from-column; }
+    Mod+Period          { expel-window-from-column; }
     // Mod+Shift+D     { expel-window-from-column; }
     
-    Mod+R  hotkey-overlay-title="按预设切换宽度" { switch-preset-column-width; }
-    // Cycling through the presets in reverse order is also possible.
-    // Mod+R { switch-preset-column-width-back; }
-    Mod+Shift+R     { switch-preset-window-height; }
-    Mod+Ctrl+R      { reset-window-height; }
-    Mod+F  hotkey-overlay-title="最大化"    { maximize-column; }
-    Mod+O hotkey-overlay-title="全屏"   { fullscreen-window; }
+    Mod+R               hotkey-overlay-title="按预设切换宽度"   { switch-preset-column-width; }
+    Mod+Shift+R                                                 { switch-preset-window-height; }
+    Mod+Ctrl+R                                                  { reset-window-height; }
+    Mod+F               hotkey-overlay-title="最大化"           { maximize-column; }
+    Mod+Backspace       hotkey-overlay-title="全屏"             { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
