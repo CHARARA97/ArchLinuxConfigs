@@ -25,6 +25,16 @@ function _G.toggle_qf()
         end
 end
 
+---- Python:使用 4 空格缩进（PEP 8） ---------------------------------------------------------------
+vim.api.nvim_create_autocmd( "FileType", {
+        pattern = "python",
+        callback = function()
+                vim.bo.tabstop     = 4
+                vim.bo.shiftwidth  = 4
+                vim.bo.softtabstop = 4
+        end,
+} )
+
 function _G.comment_line()
         ---- 取 colorcolumn 第二条提示线，默认 100 -------------------------------------------------
         local cc = vim.opt.colorcolumn:get()

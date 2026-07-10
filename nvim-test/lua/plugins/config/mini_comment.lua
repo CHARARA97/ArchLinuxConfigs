@@ -6,7 +6,7 @@
 local target =
 {
     c    = true, cpp    = true, csharp     = true, objc       = true, objcpp = true,
-    java = true, kotlin = true, javascript = true, typescript = true,
+    java = true, kotlin = true, javascript = true, typescript = true, qml    = true,
     javascriptreact     = true, typescriptreact               = true,
     rust = true, go     = true, zig        = true, swift      = true,
     css  = true, scss   = true, less       = true, sass       = true,

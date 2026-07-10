@@ -168,7 +168,8 @@ layout {
         // Uncomment this line to disable the focus ring.
         off
         // How many logical pixels the ring extends out from the windows.
-        width 3
+        width 2
+
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -176,13 +177,13 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        //active-color "@primary"
+        // active-color "@primary"
         active-color "#ff0088ff"
         // Color of the ring on inactive monitors.
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
-        //inactive-color "#505050"
+        inactive-color "#505050"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -204,7 +205,7 @@ layout {
     border {
         // The settings are the same as for the focus ring.
         // If you enable the border, you probably want to disable the focus ring.
-        //off
+        off
 
         width 2
         active-color "#ff0088"
@@ -306,7 +307,7 @@ blur {
 }
 
 overview {
-    zoom 0.25
+    zoom 0.2
 }
 
 

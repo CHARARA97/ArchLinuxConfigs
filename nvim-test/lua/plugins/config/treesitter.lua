@@ -5,7 +5,8 @@ require( 'nvim-treesitter' ).setup(
                                 "c"     , "cpp" , "lua" , "vim"         , "vimdoc"      ,"query",
                                 "python", "rust", "bash", "javascript"  , "typescript"  ,
                                 "html"  , "css" , "json", "yaml"        , "toml"        ,
-                                "markdown"      , "markdown_inline"
+                                "markdown"      , "markdown_inline",
+                                "qmljs"         , "qmldir"
                 },
                 highlight =
                 {

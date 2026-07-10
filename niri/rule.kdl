@@ -34,7 +34,7 @@ window-rule {
     geometry-corner-radius 0
     clip-to-geometry true
     opacity 0.97
-    draw-border-with-background false
+    draw-border-with-background true
 }
 
 window-rule {
@@ -59,6 +59,11 @@ window-rule {
 }
 
 window-rule {
+    match app-id="kitty"
+    opacity 0.99
+}
+
+window-rule {
   clip-to-geometry true
 }
 
@@ -71,7 +76,7 @@ window-rule {
     match app-id="wechat"
     match app-id="QQ"
     match app-id="obsidian"
-    match app-id="Spotify"
+    match app-id="spotify"
     match app-id="yazi"
     match app-id="anki"
     match title="Cisco Secure Client"

@@ -78,8 +78,8 @@ require( 'tokyonight' ).setup(
                         local italic = { italic = true }
                         local bi = { bold = true, italic = true }
 
-                        local function S(color, style) return vim.tbl_extend("force", { fg = color }, style or {}) end
-                        local function U(color) return { fg = color, underline = true } end
+                        local function S( color, style ) return vim.tbl_extend( "force", { fg = color }, style or {} ) end
+                        local function U( color ) return { fg = color, underline = true } end
 
                         ---- 注释(Comment) — Treesitter --------------------------------------------
                         hl["@comment"]                = S( C.comment, italic )
@@ -92,94 +92,94 @@ require( 'tokyonight' ).setup(
                         hl["@comment.hint"]           = S( C.comment_hint,  italic )
 
                         ---- 关键字(Keyword) — Treesitter ------------------------------------------
-                        hl["@keyword"]                = S(C.keyword, bold)
-                        hl["@keyword.function"]       = S(C.keyword_fn)
-                        hl["@keyword.return"]         = S(C.keyword, bold)
-                        hl["@keyword.conditional"]    = S(C.keyword_fn)
-                        hl["@keyword.repeat"]         = S(C.keyword_fn)
-                        hl["@keyword.exception"]      = S(C.keyword_fn)
-                        hl["@keyword.import"]         = S(C.keyword_import, italic)
-                        hl["@keyword.storage"]        = S(C.keyword_storage)
-                        hl["@keyword.directive"]      = S(C.keyword_directive)
-                        hl["@keyword.operator"]       = S(C.operator)
-                        hl["@keyword.coroutine"]      = S(C.keyword, bold)
-                        hl["@keyword.modifier"]       = S(C.keyword_modifier, bold)
-                        hl["@keyword.type"]           = S(C.keyword_import)
+                        hl["@keyword"]                = S( C.keyword, bold )
+                        hl["@keyword.function"]       = S( C.keyword_fn )
+                        hl["@keyword.return"]         = S( C.keyword, bold )
+                        hl["@keyword.conditional"]    = S( C.keyword_fn )
+                        hl["@keyword.repeat"]         = S( C.keyword_fn )
+                        hl["@keyword.exception"]      = S( C.keyword_fn )
+                        hl["@keyword.import"]         = S( C.keyword_import, italic )
+                        hl["@keyword.storage"]        = S( C.keyword_storage )
+                        hl["@keyword.directive"]      = S( C.keyword_directive )
+                        hl["@keyword.operator"]       = S( C.operator )
+                        hl["@keyword.coroutine"]      = S( C.keyword, bold )
+                        hl["@keyword.modifier"]       = S( C.keyword_modifier, bold )
+                        hl["@keyword.type"]           = S( C.keyword_import )
 
                         ---- 字符串(String) — Treesitter -------------------------------------------
-                        hl["@string"]                 = S(C.string)
-                        hl["@string.documentation"]   = S(C.string_doc)
-                        hl["@string.regex"]           = S(C.string_regex)
-                        hl["@string.escape"]          = S(C.string_escape)
-                        hl["@string.special"]         = S(C.string_special)
-                        hl["@string.special.symbol"]  = S(C.string_special)
-                        hl["@string.special.url"]     = U(C.keyword_import)
+                        hl["@string"]                 = S( C.string )
+                        hl["@string.documentation"]   = S( C.string_doc )
+                        hl["@string.regex"]           = S( C.string_regex )
+                        hl["@string.escape"]          = S( C.string_escape )
+                        hl["@string.special"]         = S( C.string_special )
+                        hl["@string.special.symbol"]  = S( C.string_special )
+                        hl["@string.special.url"]     = U( C.keyword_import )
 
                         ---- 字符 / 数字 / 布尔 — Treesitter ---------------------------------------
-                        hl["@character"]              = S(C.string)
-                        hl["@character.special"]      = S(C.string_special)
-                        hl["@number"]                 = S(C.number)
-                        hl["@number.float"]           = S(C.number)
-                        hl["@boolean"]                = S(C.boolean)
+                        hl["@character"]              = S( C.string )
+                        hl["@character.special"]      = S( C.string_special )
+                        hl["@number"]                 = S( C.number )
+                        hl["@number.float"]           = S( C.number )
+                        hl["@boolean"]                = S( C.boolean )
 
                         ---- 函数 / 方法 — Treesitter ----------------------------------------------
-                        hl["@function"]               = S(C.function_def, bold)
-                        hl["@function.call"]          = S(C.function_call)
-                        hl["@function.builtin"]       = S(C.function_builtin)
-                        hl["@function.macro"]         = S(C.function_macro)
-                        hl["@method"]                 = S(C.function_def, bold)
-                        hl["@method.call"]            = S(C.function_call)
-                        hl["@constructor"]            = S(C.constructor)
+                        hl["@function"]               = S( C.function_def, bold )
+                        hl["@function.call"]          = S( C.function_call )
+                        hl["@function.builtin"]       = S( C.function_builtin )
+                        hl["@function.macro"]         = S( C.function_macro )
+                        hl["@method"]                 = S( C.function_def, bold )
+                        hl["@method.call"]            = S( C.function_call )
+                        hl["@constructor"]            = S( C.constructor )
 
                         ---- 类型 — Treesitter -----------------------------------------------------
-                        hl["@type"]                   = S(C.type)
-                        hl["@type.builtin"]           = S(C.type_builtin)
-                        hl["@type.definition"]        = S(C.type)
-                        hl["@type.qualifier"]         = S(C.keyword)
+                        hl["@type"]                   = S( C.type )
+                        hl["@type.builtin"]           = S( C.type_builtin )
+                        hl["@type.definition"]        = S( C.type )
+                        hl["@type.qualifier"]         = S( C.keyword )
 
                         ---- 变量 — Treesitter -----------------------------------------------------
-                        hl["@variable"]               = S(C.variable)
-                        hl["@variable.builtin"]       = S(C.variable_builtin)
-                        hl["@variable.member"]        = S(C.variable_member)
-                        hl["@variable.parameter"]     = S(C.variable_param)
-                        hl["@variable.parameter.builtin"] = S("#DAB484")
+                        hl["@variable"]               = S( C.variable )
+                        hl["@variable.builtin"]       = S( C.variable_builtin )
+                        hl["@variable.member"]        = S( C.variable_member )
+                        hl["@variable.parameter"]     = S( C.variable_param )
+                        hl["@variable.parameter.builtin"] = S( "#DAB484" )
 
                         ---- 常量 / 属性 / 枚举 / 模块 — Treesitter --------------------------------
-                        hl["@constant"]               = S(C.constant)
-                        hl["@constant.builtin"]       = S(C.function_builtin)
-                        hl["@constant.macro"]         = S(C.function_macro)
-                        hl["@property"]               = S(C.property)
-                        hl["@enum"]                   = S(C.type)
-                        hl["@enum.member"]            = S(C.keyword_fn)
-                        hl["@namespace"]              = S(C.keyword_import)
-                        hl["@namespace.builtin"]      = S(C.variable_builtin)
-                        hl["@module"]                 = S(C.keyword_import)
-                        hl["@module.builtin"]         = S(C.function_builtin)
+                        hl["@constant"]               = S( C.constant )
+                        hl["@constant.builtin"]       = S( C.function_builtin )
+                        hl["@constant.macro"]         = S( C.function_macro )
+                        hl["@property"]               = S( C.property )
+                        hl["@enum"]                   = S( C.type )
+                        hl["@enum.member"]            = S( C.keyword_fn )
+                        hl["@namespace"]              = S( C.keyword_import )
+                        hl["@namespace.builtin"]      = S( C.variable_builtin )
+                        hl["@module"]                 = S( C.keyword_import )
+                        hl["@module.builtin"]         = S( C.function_builtin )
 
                         ---- 预处理器 / 宏 — Treesitter --------------------------------------------
-                        hl["@preproc"]                = S(C.keyword_import)
-                        hl["@macro"]                  = S(C.keyword_import)
-                        hl["@define"]                 = S(C.keyword_import)
-                        hl["@include"]                = S(C.keyword_import)
+                        hl["@preproc"]                = S( C.keyword_import )
+                        hl["@macro"]                  = S( C.keyword_import )
+                        hl["@define"]                 = S( C.keyword_import )
+                        hl["@include"]                = S( C.keyword_import )
 
                         ---- HTML/XML 标签 — Treesitter --------------------------------------------
-                        hl["@tag"]                    = S(C.tag)
-                        hl["@tag.attribute"]          = S(C.tag_attr)
-                        hl["@tag.delimiter"]          = S(C.tag_delim)
+                        hl["@tag"]                    = S( C.tag )
+                        hl["@tag.attribute"]          = S( C.tag_attr )
+                        hl["@tag.delimiter"]          = S( C.tag_delim )
 
                         ---- 运算符 / 标点 — Treesitter --------------------------------------------
-                        hl["@operator"]               = S(C.operator)
-                        hl["@punctuation.delimiter"]  = S(C.punctuation_delim)
-                        hl["@punctuation.bracket"]    = S(C.punctuation_bracket)
-                        hl["@punctuation.special"]    = S(C.punctuation_delim)
-                        hl["@label"]                  = S(C.label)
-                        hl["@attribute"]              = S(C.attribute)
-                        hl["@decorator"]              = S(C.decorator)
+                        hl["@operator"]               = S( C.operator )
+                        hl["@punctuation.delimiter"]  = S( C.punctuation_delim )
+                        hl["@punctuation.bracket"]    = S( C.punctuation_bracket )
+                        hl["@punctuation.special"]    = S( C.punctuation_delim )
+                        hl["@label"]                  = S( C.label )
+                        hl["@attribute"]              = S( C.attribute )
+                        hl["@decorator"]              = S( C.decorator )
 
                         ---- Diff — Treesitter -----------------------------------------------------
-                        hl["@diff.plus"]              = S(C.diff_add)
-                        hl["@diff.minus"]             = S(C.diff_del)
-                        hl["@diff.delta"]             = S(C.diff_change)
+                        hl["@diff.plus"]              = S( C.diff_add )
+                        hl["@diff.minus"]             = S( C.diff_del )
+                        hl["@diff.delta"]             = S( C.diff_change )
 
                         ---- LSP Semantic Tokens → 链接到 Treesitter 组 ----------------------------
                         hl["@lsp.type.comment"]        = "@comment"
