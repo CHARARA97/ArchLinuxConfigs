@@ -1,0 +1,152 @@
+#draft-paper-canvas {
+    cursor: crosshair;
+}
+
+/* 橡皮擦光标（局部擦除时显示） */
+.draft-paper-eraser-cursor {
+    position: fixed;
+    border: 2px dashed #ff6666;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    background: rgba(255, 100, 100, 0.12);
+}
+
+/* 工具栏容器：相对定位，作为橡皮擦子工具栏的定位锚点 */
+#draft-paper-toolbar {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10001;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 20px;
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    user-select: none;
+    pointer-events: auto;
+}
+
+/* 工具栏内的各个分组 */
+.dp-tool-group,
+.dp-style-group,
+.dp-mode-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 工具按钮（仅 emoji） */
+#draft-paper-toolbar > .dp-tool-group button,
+#draft-paper-toolbar > .dp-style-group button,
+#draft-paper-toolbar > .dp-mode-group button {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+}
+
+#draft-paper-toolbar button:hover {
+    background: var(--background-modifier-hover);
+}
+
+#draft-paper-toolbar button.active {
+    background: var(--interactive-accent);
+    color: #fff;
+}
+
+/* 带文字的按钮（绘图/阅读切换），通过更高特异性覆盖宽度 */
+#draft-paper-toolbar #dp-mode {
+    width: auto;
+    min-width: 80px;
+    padding: 0 10px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+/* 颜色选择器 */
+#dp-color {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* 粗细、透明度滑块 */
+#dp-width,
+#dp-opacity {
+    width: 70px;
+}
+
+/* 数值标签 */
+#dp-wlbl,
+#dp-olbl {
+    font-size: 11px;
+    color: var(--text-muted);
+    min-width: 35px;
+    text-align: center;
+}
+
+/* 箭头样式下拉 */
+#dp-arrow-style {
+    font-size: 14px;
+    padding: 2px 4px;
+}
+
+
+/* 橡皮擦子工具栏：绝对定位在工具栏上方，不参与布局流 */
+.draft-paper-eraser-subtoolbar {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+    display: none;
+    flex-direction: row;
+    gap: 4px;
+    padding: 6px 10px;
+    background: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    pointer-events: auto;
+    z-index: 10002;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: max-content;
+}
+
+
+.draft-paper-eraser-subtoolbar button {
+    width: auto;
+    height: auto;
+    padding: 4px 10px;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+
+.draft-paper-eraser-subtoolbar button.active {
+    background: var(--interactive-accent);
+    color: #fff;
+}

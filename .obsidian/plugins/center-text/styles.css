@@ -1,0 +1,49 @@
+/* Reading view - constrain the whole content container */
+.center-text-enabled .markdown-reading-view .markdown-preview-section {
+  max-width: var(--center-text-max-width) !important;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* Live preview / source mode - constrain the editor content */
+.center-text-enabled .cm-editor .cm-content {
+  max-width: var(--center-text-max-width) !important;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* for phones */
+@media (max-width: 768px) {
+  .center-text-enabled .markdown-reading-view .markdown-preview-section,
+  .center-text-enabled .cm-editor .cm-content {
+    max-width: 200%;
+  }
+}
+
+/* 阅读模式下的 LaTeX 公式块 */
+.center-text-enabled .markdown-reading-view .math-block,
+.center-text-enabled .markdown-reading-view .mjx-block {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* 实时预览/源码模式下的 LaTeX 公式块 */
+.center-text-enabled .cm-editor .math-block {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* 针对 KaTeX 的特殊处理（如果你使用的是 KaTeX 引擎） */
+.center-text-enabled .markdown-reading-view .katex-display {
+  text-align: left !important;
+  margin: 0.5em 0 !important;
+}
+
+/* 针对 MathJax 的特殊处理（如果你使用的是 MathJax 引擎） */
+.center-text-enabled .markdown-reading-view .MathJax {
+  text-align: left !important;
+}

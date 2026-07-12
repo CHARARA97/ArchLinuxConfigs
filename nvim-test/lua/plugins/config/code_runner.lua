@@ -57,19 +57,22 @@ require( 'code_runner' ).setup(
 
                         ---- 标记语言 / 预览 -------------------------------------------------------
                         markdown = "cd $dir && glow -p $fileName",
-                        html = "cd $dir && xdg-open $fileName 2>/dev/null",
-                        xml = "cd $dir && xmllint --format $fileName",
-                        json = "cd $dir && jq . $fileName",
-                        css = "cd $dir && echo 'CSS 无法直接运行，请配合 HTML 使用'",
-                        yaml = "cd $dir && yamllint $fileName",
+                        html     = "cd $dir && xdg-open $fileName 2>/dev/null",
+                        xml      = "cd $dir && xmllint --format $fileName",
+                        json     = "cd $dir && jq . $fileName",
+                        css      = "cd $dir && echo 'CSS 无法直接运行，请配合 HTML 使用'",
+                        yaml     = "cd $dir && yamllint $fileName",
 
                         ---- 数据库 / 查询 ---------------------------------------------------------
                         sql = "cd $dir && sqlite3 < $fileName",
 
                         ---- 配置 / 其他 -----------------------------------------------------------
                         toml = "cd $dir && taplo lint $fileName",
-                        vim = "cd $dir && echo 'Vimscript 无法直接运行，请使用 :source %'",
-                        ini = "cd $dir && echo 'INI 文件无需运行'",
+                        vim  = "cd $dir && echo 'Vimscript 无法直接运行，请使用 :source %'",
+                        ini  = "cd $dir && echo 'INI 文件无需运行'",
+
+                        ---- QML / Quickshell ------------------------------------------------------
+                        qml  = "cd $dir && qs -p $fileName",
                 },
 
                 before_run_filetype = function()

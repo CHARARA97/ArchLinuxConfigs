@@ -42,10 +42,20 @@ local function is_decorated( line, p )
     return line:find( "^%s*" .. vim.pesc( p ) .. "%-%-%-%- .+ %-+%s*$" ) ~= nil
 end
 
+---- 是否为标准注释（// xxx 但非装饰格式） -----------------------------------------------------------
+local function is_std_comment( line, p )
+    return not is_decorated( line, p )
+       and line:find( "^%s*" .. vim.pesc( p ) .. "%s" ) ~= nil
+end
+
 ---- 给单行套上装饰注释 ----------------------------------------------------------------------------
 local function comment_line( lnum, line, p, col )
     local indent = line:match( "^(%s*)" ) or ""
     local content = line:sub( #indent + 1 )
+    -- 如果已有注释前缀（// 或 # 等），先去掉再套装饰格式
+    if content:find( "^" .. vim.pesc( p ) .. "%s" ) then
+        content = content:sub( #p + 2 )
+    end
     local left = full_left( p )
     local prefix_len = vim.api.nvim_strwidth( indent .. left .. content .. " " )
     local pad_len = col - prefix_len
@@ -93,12 +103,15 @@ local setup_ok, setup_err = pcall( mini_comment.setup,
                                 if line:match( "^%s*$" ) then
                                 ---- 空白行：跳过 --------------------------------------------------
                                 elseif is_decorated( line, p ) then
-                                ---- 装饰格式 → 恢复原内容（注释→取消） ----------------------------
+                                ---- 装饰格式 → 恢复原内容 -----------------------------------------
                                 uncomment_line( lnum, line, p )
+                                elseif is_std_comment( line, p ) then
+                                ---- 标准注释 → 转成装饰格式 ---------------------------------------
+                                comment_line( lnum, line, p, col )
                                 elseif info.action == "uncomment" then
-                                ---- 取消模式但非装饰行：跳过 --------------------------------------
+                                ---- 取消模式但非装饰/非标准注释行：跳过 ---------------------------
                                 else
-                                ---- comment 或 toggle 模式，非装饰行 → 套装饰注释 -----------------
+                                ---- comment 或 toggle 模式 → 套装饰注释 ---------------------------
                                 comment_line( lnum, line, p, col )
                                 end
                         end

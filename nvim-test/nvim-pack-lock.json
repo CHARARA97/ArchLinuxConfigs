@@ -32,9 +32,17 @@
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "markview.nvim": {
+      "rev": "41ecde17c96941fb5b7c97995a10712738e85efe",
+      "src": "https://github.com/OXY2DEV/markview.nvim"
+    },
     "mini.comment": {
       "rev": "4677392f091e8b5c18d4b535130220a6d1da4aca",
       "src": "https://github.com/echasnovski/mini.comment.git"
+    },
+    "nabla.nvim": {
+      "rev": "9b69b709063ccf40ac36fabb4fff7d90b3736475",
+      "src": "https://github.com/jbyuki/nabla.nvim"
     },
     "neo-tree.nvim": {
       "rev": "1b4c40051f2623d0a7dcf19d5b74b997b97b0a9a",
@@ -56,6 +64,10 @@
       "rev": "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
       "src": "https://github.com/nvim-tree/nvim-web-devicons.git"
     },
+    "obsidian.nvim": {
+      "rev": "7687c7e62c3e12617d9eea6401e9e1f190e2ccab",
+      "src": "https://github.com/obsidian-nvim/obsidian.nvim"
+    },
     "oil.nvim": {
       "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim.git"
@@ -67,6 +79,10 @@
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim.git"
+    },
+    "render-markdown.nvim": {
+      "rev": "f422cb5c6855f150e2ddcfaf44e7157b98b34f6a",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "smart-splits.nvim": {
       "rev": "c02d70257e5d6065d4154acd596ec8054a725724",

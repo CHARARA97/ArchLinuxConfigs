@@ -1,0 +1,307 @@
+{
+  "main": {
+    "id": "06ab0867a1cc995e",
+    "type": "split",
+    "children": [
+      {
+        "id": "9e2e239b23d251f3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "10b2ebb70c9b987e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "写作/AI,死亡与机器人/剧情大纲.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "剧情大纲"
+            }
+          },
+          {
+            "id": "1e767c33741fb055",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "大学物理/电学/电容/电容器的电能.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "电容器的电能"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8570c498942ac756",
+    "type": "split",
+    "children": [
+      {
+        "id": "da62c6148f9c06c5",
+        "type": "tabs",
+        "dimension": 74.22680412371135,
+        "children": [
+          {
+            "id": "2c714e7ff7273649",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "998b9c6480e7f72c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          }
+        ]
+      },
+      {
+        "id": "302b93a6d06687a4",
+        "type": "tabs",
+        "dimension": 25.773195876288653,
+        "children": [
+          {
+            "id": "efbab45873b5b3eb",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "right": {
+    "id": "66aec4b29a1e0be7",
+    "type": "split",
+    "children": [
+      {
+        "id": "cd02013765cab06b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ca57054d42e6d289",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "史纲.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "史纲 的出链列表"
+            }
+          },
+          {
+            "id": "6f1912bfa512fa0d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "73a79e8e3986a8fc",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "大学物理/电学/静电场的环路定理.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "静电场的环路定理 的大纲"
+            }
+          },
+          {
+            "id": "b8af3cccbbec3f11",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "2a4da4461a0f350a",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "大学物理/电学/静电场的环路定理.md"
+              },
+              "icon": "lucide-info",
+              "title": "静电场的环路定理的笔记属性"
+            }
+          }
+        ],
+        "currentTab": 4
+      },
+      {
+        "id": "9042e9a276489c47",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d38df39d1efe9ea9",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "大学物理/电学/静电场的环路定理.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "静电场的环路定理 的反向链接列表"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "random-note:开始漫游笔记": false,
+      "audio-recorder:开始/结束录音": false,
+      "workspaces:管理工作区布局": false,
+      "bases:新建数据库": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "copilot:Open Copilot Chat": false,
+      "fuzzy-chinese-pinyin:FuzzySearch": false,
+      "center-text:Toggle center text": false
+    }
+  },
+  "active": "1e767c33741fb055",
+  "lastOpenFiles": [
+    "大学物理/电学/静电场的环路定理.md",
+    "大学物理/电学/电容/电容器的电能.md",
+    "大学物理/电学/电容/电容.md",
+    "大学物理/电学/电容/电场的电能.md",
+    "大学物理/电学/静电场中的电介质/电介质中的高斯定理.md",
+    "大学物理/电学/静电场中的电介质/电偶极矩.md",
+    "大学物理/电学/静电场中的电介质/电位移矢量.md",
+    "大学物理/电学/静电场中的电介质/电极化强度.md",
+    "大学物理/电学/静电场中的电介质/电介质.md",
+    "大学物理/电学/点电荷的电场强度.md",
+    "大学物理/电学/点电荷电场的电势.md",
+    "大学物理/电学/电场的电场强度.md",
+    "大学物理/电学/基础公式.md",
+    "大学物理/电学/电势.md",
+    "大学物理/电学/电偶极子的电场强度.md",
+    "大学物理/电学/电场的叠加原理.md",
+    "大学物理/电学/点电荷所受电场力.md",
+    "写作/AI,死亡与机器人/人设.md",
+    "写作/AI,死亡与机器人/剧情大纲.md",
+    "大学物理/电学/draft-paper/静电场的环路定理.json",
+    "大学物理/电学/draft-paper",
+    "Excalidraw/Drawing 2026-07-12 02.18.07.excalidraw.md",
+    "Excalidraw/Drawing 2026-07-12 02.18.57.excalidraw.md",
+    "大学物理/电学/恒定磁场/毕奥萨伐尔定律.md",
+    "待办/灵光一现.md",
+    "Python3/基础语法/标识符.md",
+    "写作/AI,死亡与机器人",
+    "写作",
+    "Python3/基础语法/保留关键字.md",
+    "Python3/基本数据类型/字符串.md",
+    "Python3/基础语法",
+    "Python3/基本数据类型",
+    "Python3",
+    "大学物理/电学/电动势/电动势.md~",
+    "大学物理/电学/基础公式.md~",
+    "大学物理/电学/点电荷电场的电势.md~",
+    "IMG_20260314_132246.jpg",
+    "DVORAK Dev.png",
+    "6d81800a19d8bc3ecae80137828ba61ea9d3456e.jpeg",
+    "Screenshot_2026-03-05-14-31-16-20_e39d2c7de19156b0683cd93e8735f348.jpg",
+    "Screenshot_2026-03-05-14-31-50-49_e39d2c7de19156b0683cd93e8735f348.jpg",
+    "Screenshot_2026-03-05-14-31-41-85_e39d2c7de19156b0683cd93e8735f348.jpg",
+    "Screenshot_2026-03-05-14-31-32-07_e39d2c7de19156b0683cd93e8735f348.jpg",
+    "dvp1.png",
+    "dvp1（已编辑 {}）.jpeg",
+    "未命名.canvas",
+    "Untitled.canvas"
+  ]
+}

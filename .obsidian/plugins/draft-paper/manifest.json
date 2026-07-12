@@ -1,0 +1,10 @@
+{
+  "id": "draft-paper",
+  "name": "Draft Paper",
+  "version": "2.9.0",
+  "minAppVersion": "0.15.0",
+  "description": "Provides a full-screen transparent canvas layer for hand-drawn sketches and annotations that sync with document scrolling.",
+  "author": "mikuloverfan",
+  "authorUrl": "https://github.com/mikuloverfan",
+  "isDesktopOnly": false
+}
