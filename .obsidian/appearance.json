@@ -1,13 +1,12 @@
 {
   "theme": "obsidian",
   "accentColor": "#ff0088",
-  "interfaceFontFamily": "Maple Mono NF,Microsoft YaHei,JetBrainsMono Nerd Font Mono",
-  "monospaceFontFamily": "Maple Mono NF CN,JetBrainsMono Nerd Font Mono",
-  "textFontFamily": "Maple Mono NF,Microsoft YaHei,JetBrainsMono Nerd Font Mono",
-  "baseFontSize": 14,
+  "interfaceFontFamily": "JetBrainsMono Nerd Font Mono",
+  "monospaceFontFamily": "JetBrainsMono Nerd Font Mono",
+  "textFontFamily": "JetBrainsMono Nerd Font Mono",
+  "baseFontSize": 16,
   "baseFontSizeAction": false,
-  "nativeMenus": false,
+  "nativeMenus": true,
   "showViewHeader": true,
-  "showRibbon": true,
-  "enabledCssSnippets": []
+  "showRibbon": true
 }

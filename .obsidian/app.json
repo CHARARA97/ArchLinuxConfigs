@@ -9,7 +9,6 @@
   "showInlineTitle": true,
   "strictLineBreaks": true,
   "newFileLocation": "current",
-  "attachmentFolderPath": "/",
-  "showUnsupportedFiles": true,
-  "readableLineLength": true
+  "attachmentFolderPath": "./",
+  "showUnsupportedFiles": true
 }

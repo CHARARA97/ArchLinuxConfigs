@@ -40,7 +40,7 @@ km( 'n', '<leader>sh', '<C-w>s',                        { desc = '水平分屏' 
 km( 'n', '<leader>se', '<C-w>=',                        { desc = '使所有窗口等宽等高' } )
 km( 'n', '<leader>sx', '<C-w>c',                        { desc = '关闭当前窗口' } )
 km( 'n', '<leader>ob', function()
-        vim.cmd( 'cd ~/Documents/Obsidian/CHARARA97' )
+        vim.cmd( 'cd ~/Documents/Obsidian/CHARARA97的仓库' )
 end,                                                    { desc = '打开 Obsidian 仓库' } )
 km( 'n', '<leader>swh', splt.swap_buf_left,             { desc = '与左侧窗口交换内容' } )
 km( 'n', '<leader>swj', splt.swap_buf_down,             { desc = '与下方窗口交换内容' } )

@@ -10,10 +10,10 @@ nnoremap <leader>j  20j
 nnoremap <leader>k  20k
 nnoremap <leader>nh :nohl<CR>
 
-nnoremap <A-j>      :m .+1<CR>==
-nnoremap <A-k>      :m .-2<CR>==
-vnoremap <A-j>      :m '>+1<CR>gv=gv
-vnoremap <A-k>      :m '<-2<CR>gv=gv
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " ---- 括号内加空格 S ------------------------------------------
 function! PadBrackets()
