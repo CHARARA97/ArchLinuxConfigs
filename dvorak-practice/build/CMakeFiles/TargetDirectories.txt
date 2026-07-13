@@ -1,0 +1,7 @@
+/home/CHARARA97/dvorak-practice/build/CMakeFiles/dvorak-practice.dir
+/home/CHARARA97/dvorak-practice/build/CMakeFiles/edit_cache.dir
+/home/CHARARA97/dvorak-practice/build/CMakeFiles/rebuild_cache.dir
+/home/CHARARA97/dvorak-practice/build/CMakeFiles/list_install_components.dir
+/home/CHARARA97/dvorak-practice/build/CMakeFiles/install.dir
+/home/CHARARA97/dvorak-practice/build/CMakeFiles/install/local.dir
+/home/CHARARA97/dvorak-practice/build/CMakeFiles/install/strip.dir
