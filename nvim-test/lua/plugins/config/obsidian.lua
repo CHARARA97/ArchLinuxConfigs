@@ -3,8 +3,8 @@ require( 'obsidian' ).setup(
                 workspaces =
                 {
                         {
-                                name = "CHARARA97",
-                                path = "~/Documents/Obsidian/CHARARA97",
+                                name = "CHARARA97的仓库",
+                                path = "~/Documents/Obsidian/CHARARA97的仓库",
                         },
                 },
                 frontmatter = { enabled = false },
