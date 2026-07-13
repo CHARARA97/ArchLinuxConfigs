@@ -4,6 +4,7 @@
     "doublePinyin": "小鹤双拼",
     "fuzzyPinyin": false,
     "fuzzyPinyinSetting": [],
+    "palladius": false,
     "closeWithBackspace": false,
     "autoCaseSensitivity": true
   },
