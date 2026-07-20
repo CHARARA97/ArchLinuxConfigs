@@ -8,7 +8,8 @@ require( 'obsidian' ).setup(
                         },
                 },
                 frontmatter = { enabled = false },
-        legacy_commands = false,
-        ui = { enable = false },
+                legacy_commands = false,
+                ui = { enable = true },
+                footer = { enabled = false },
         }
 )

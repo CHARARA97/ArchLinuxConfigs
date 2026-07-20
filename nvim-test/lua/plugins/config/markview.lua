@@ -1,8 +1,14 @@
-require('markview').setup()
+require('markview').setup(
+        {
+                footnotes = { enable = false },
+                latex     = { enable = false },
+        }
+)
 
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "markdown", "quarto", "rmd" },
-    callback = function()
-        vim.cmd("Markview HybridEnable")
-    end,
-})
+vim.api.nvim_create_autocmd( "FileType",
+        {
+                pattern  = { "markdown", "quarto", "rmd" },
+                callback = function()
+                end,
+        }
+)

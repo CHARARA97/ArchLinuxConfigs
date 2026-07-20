@@ -30,33 +30,8 @@
               "icon": "lucide-file",
               "title": "剧情大纲"
             }
-          },
-          {
-            "id": "1e767c33741fb055",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "大学物理/电学/电容/电容器的电能.md",
-                "mode": "preview",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "电容器的电能"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -121,7 +96,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "66aec4b29a1e0be7",
@@ -252,10 +228,38 @@
       "center-text:Toggle center text": false
     }
   },
-  "active": "1e767c33741fb055",
+  "active": "10b2ebb70c9b987e",
   "lastOpenFiles": [
-    "大学物理/电学/静电场的环路定理.md",
+    "写作/AI,死亡与机器人/人设.md",
+    "写作/AI,死亡与机器人/随想.md",
+    "写作/AI,死亡与机器人/剧情大纲.md",
+    "lua-doc/manual.md",
+    "lua-doc/OSIApproved.png",
+    "mip.md",
+    "lua-doc/lua-guide-zh/highlight/styles/neovim.min.css",
+    "lua-doc/lua-guide-zh/highlight/styles",
+    "lua-doc/lua-guide-zh/highlight/highlight.min.js",
+    "lua-doc/lua-guide-zh/highlight",
+    "lua-doc/lua-guide-zh/css/neovim-hi.css",
+    "lua-doc/lua-guide-zh/css/main.css",
+    "lua-doc/lua-guide-zh/css/help.css",
+    "lua-doc/lua-guide-zh/css/bootstrap.min.css",
+    "lua-doc/lua-guide-zh/css/docsearch.css",
+    "lua-doc/lua-guide-zh/css",
+    "lua-doc/logo.png",
+    "doc/logo.png",
+    "doc/OSIApproved.png",
+    "大学物理/电学/基础公式.md",
+    "五笔字根表.md",
+    "mip学习路径.md",
+    "未命名.md",
+    "大学物理/电学/!点电荷所受电场力.md",
+    "05-编程题.md",
+    "程序设计真题/05-编程题.md",
+    "Tulpa/杂谈/谈侵入性思维&意象.md",
+    "大学物理/电学/电容/电容器.md",
     "大学物理/电学/电容/电容器的电能.md",
+    "大学物理/电学/静电场的环路定理.md",
     "大学物理/电学/电容/电容.md",
     "大学物理/电学/电容/电场的电能.md",
     "大学物理/电学/静电场中的电介质/电介质中的高斯定理.md",
@@ -266,39 +270,12 @@
     "大学物理/电学/点电荷的电场强度.md",
     "大学物理/电学/点电荷电场的电势.md",
     "大学物理/电学/电场的电场强度.md",
-    "大学物理/电学/基础公式.md",
-    "大学物理/电学/电势.md",
-    "大学物理/电学/电偶极子的电场强度.md",
-    "大学物理/电学/电场的叠加原理.md",
-    "大学物理/电学/点电荷所受电场力.md",
-    "写作/AI,死亡与机器人/人设.md",
-    "写作/AI,死亡与机器人/剧情大纲.md",
-    "大学物理/电学/draft-paper/静电场的环路定理.json",
-    "大学物理/电学/draft-paper",
-    "Excalidraw/Drawing 2026-07-12 02.18.07.excalidraw.md",
-    "Excalidraw/Drawing 2026-07-12 02.18.57.excalidraw.md",
-    "大学物理/电学/恒定磁场/毕奥萨伐尔定律.md",
-    "待办/灵光一现.md",
-    "Python3/基础语法/标识符.md",
-    "写作/AI,死亡与机器人",
-    "写作",
-    "Python3/基础语法/保留关键字.md",
-    "Python3/基本数据类型/字符串.md",
-    "Python3/基础语法",
-    "Python3/基本数据类型",
-    "Python3",
-    "大学物理/电学/电动势/电动势.md~",
-    "大学物理/电学/基础公式.md~",
-    "大学物理/电学/点电荷电场的电势.md~",
     "IMG_20260314_132246.jpg",
     "DVORAK Dev.png",
     "6d81800a19d8bc3ecae80137828ba61ea9d3456e.jpeg",
     "Screenshot_2026-03-05-14-31-16-20_e39d2c7de19156b0683cd93e8735f348.jpg",
     "Screenshot_2026-03-05-14-31-50-49_e39d2c7de19156b0683cd93e8735f348.jpg",
     "Screenshot_2026-03-05-14-31-41-85_e39d2c7de19156b0683cd93e8735f348.jpg",
-    "Screenshot_2026-03-05-14-31-32-07_e39d2c7de19156b0683cd93e8735f348.jpg",
-    "dvp1.png",
-    "dvp1（已编辑 {}）.jpeg",
     "未命名.canvas",
     "Untitled.canvas"
   ]

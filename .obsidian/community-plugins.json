@@ -1,7 +1,6 @@
 [
   "fuzzy-chinese-pinyin",
   "cm-chs-patch",
-  "vim-im-select",
   "obsidian-tikzjax",
   "obsidian-excalidraw-plugin",
   "obsidian-vimrc-support",
@@ -11,5 +10,6 @@
   "sidebar-keyboard-navigation",
   "notedraw",
   "obsidian-style-settings",
-  "center-text"
+  "center-text",
+  "vim-im-control"
 ]
