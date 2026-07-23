@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "写作/AI,死亡与机器人/剧情大纲.md",
-                "mode": "source",
+                "file": "写作/AI,死亡与机器人/理论基础.md",
+                "mode": "preview",
                 "source": false,
                 "backlinks": true,
                 "backlinkOpts": {
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "剧情大纲"
+              "title": "理论基础"
             }
           }
         ]
@@ -96,8 +96,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "66aec4b29a1e0be7",
@@ -231,8 +230,9 @@
   "active": "10b2ebb70c9b987e",
   "lastOpenFiles": [
     "写作/AI,死亡与机器人/人设.md",
-    "写作/AI,死亡与机器人/随想.md",
+    "写作/AI,死亡与机器人/理论基础.md",
     "写作/AI,死亡与机器人/剧情大纲.md",
+    "写作/AI,死亡与机器人/未命名.md",
     "lua-doc/manual.md",
     "lua-doc/OSIApproved.png",
     "mip.md",
@@ -269,7 +269,6 @@
     "大学物理/电学/静电场中的电介质/电介质.md",
     "大学物理/电学/点电荷的电场强度.md",
     "大学物理/电学/点电荷电场的电势.md",
-    "大学物理/电学/电场的电场强度.md",
     "IMG_20260314_132246.jpg",
     "DVORAK Dev.png",
     "6d81800a19d8bc3ecae80137828ba61ea9d3456e.jpeg",
