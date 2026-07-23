@@ -1,7 +1,7 @@
 {
   "defaultIM": "keyboard-us",
   "obtainCmd": "fcitx5-remote -n",
-  "switchCmd": "fcitx5-remote -s keyboard-us",
+  "switchCmd": "fcitx5-remote -t",
   "windowsDefaultIM": "",
   "windowsObtainCmd": "",
   "windowsSwitchCmd": ""
