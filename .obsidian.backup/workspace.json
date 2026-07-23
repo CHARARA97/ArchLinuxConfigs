@@ -1,0 +1,279 @@
+{
+  "main": {
+    "id": "06ab0867a1cc995e",
+    "type": "split",
+    "children": [
+      {
+        "id": "531e6d9767339277",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d94da4533442bbae",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "大学物理/电学/电容/球形电容器.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "球形电容器"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8570c498942ac756",
+    "type": "split",
+    "children": [
+      {
+        "id": "da62c6148f9c06c5",
+        "type": "tabs",
+        "dimension": 74.22680412371135,
+        "children": [
+          {
+            "id": "2c714e7ff7273649",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "998b9c6480e7f72c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          }
+        ]
+      },
+      {
+        "id": "302b93a6d06687a4",
+        "type": "tabs",
+        "dimension": 25.773195876288653,
+        "children": [
+          {
+            "id": "efbab45873b5b3eb",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "66aec4b29a1e0be7",
+    "type": "split",
+    "children": [
+      {
+        "id": "cd02013765cab06b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ca57054d42e6d289",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "史纲.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "史纲 的出链列表"
+            }
+          },
+          {
+            "id": "6f1912bfa512fa0d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "73a79e8e3986a8fc",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "大学物理/电学/静电场的环路定理.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "静电场的环路定理 的大纲"
+            }
+          },
+          {
+            "id": "b8af3cccbbec3f11",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "2a4da4461a0f350a",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "大学物理/电学/静电场的环路定理.md"
+              },
+              "icon": "lucide-info",
+              "title": "静电场的环路定理的笔记属性"
+            }
+          }
+        ],
+        "currentTab": 4
+      },
+      {
+        "id": "9042e9a276489c47",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d38df39d1efe9ea9",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "大学物理/电学/静电场的环路定理.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "静电场的环路定理 的反向链接列表"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "random-note:开始漫游笔记": false,
+      "audio-recorder:开始/结束录音": false,
+      "workspaces:管理工作区布局": false,
+      "bases:新建数据库": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "fuzzy-chinese-pinyin:FuzzySearch": false
+    }
+  },
+  "active": "d94da4533442bbae",
+  "lastOpenFiles": [
+    "大学物理/电学/电容/击穿.md",
+    "Tulpa/投影类/JD的投影教程.md",
+    "大学物理/电学/基础公式.md~",
+    "大学物理/电学/均匀电场的电场强度.md~",
+    "Tulpa/入门&科普类/TULPA系统：为何“少即是多”.md~",
+    "大学物理/电学/静电场中的电介质/电极化强度.md",
+    "Tulpa/投影类/JD的投影教程.md~",
+    "大学物理/电学/静电场中的电介质/电位移矢量.md~",
+    "大学物理/电学/静电场中的电介质/电极化强度.md~",
+    "高等数学/多元函数微积分/多元函数微分学/Jacobi矩阵.md~",
+    "高等数学/多元函数微积分/多元函数微分学/Hessian矩阵.md~",
+    "大学物理/电学/恒定磁场/毕奥萨伐尔定律.md~",
+    "人设/Raikuna.md",
+    "高等数学/多元函数微积分/多元函数微分学/Hessian矩阵.md",
+    "高等数学/多元函数微积分/多元函数微分学/Jacobi矩阵.md",
+    "Tulpa/叙述对话类/对话的话题参考.md",
+    "Tulpa/投影类/更好的幻境内化－－内投影.md",
+    "Tulpa/投影类/置入教程.md",
+    "Tulpa/投影类/SHOCKK的描绘教程.md",
+    "Tulpa/投影类/JD的描绘教程.md",
+    "Tulpa/叙述对话类/对话以外的塑造方法.md",
+    "Tulpa/叙述对话类/獻給各位宿主的教程——如何感知TULPA.md",
+    "Tulpa/叙述对话类/一些叙述教程.md",
+    "Tulpa/叙述对话类/SCHLONDARK的叙事教程.md",
+    "Tulpa/叙述对话类/章三：关于成声以及成声以后的TULPA进一步成长.md",
+    "Tulpa/叙述对话类/TULPA成声&表达练习.md",
+    "Tulpa/叙述对话类/从体感出发——如何判断声音_内容是否是T说话.md",
+    "Tulpa/投影类/描繪理論.md",
+    "Tulpa/投影类/面向新人的基础科普(内外投影篇).md",
+    "Tulpa/投影类/MAFAEL的视觉投影教程.md",
+    "Tulpa/投影类/投影专题解答.md",
+    "未命名.md",
+    "Tulpa/投影类",
+    "Tulpa/叙述对话类/未命名.md",
+    "Tulpa/杂谈/谈侵入性思维&意象.md",
+    "Tulpa/入门&科普类/TULPA系统：为何“少即是多”.md",
+    "IMG_20260314_132246.jpg",
+    "DVORAK Dev.png",
+    "6d81800a19d8bc3ecae80137828ba61ea9d3456e.jpeg",
+    "Screenshot_2026-03-05-14-31-16-20_e39d2c7de19156b0683cd93e8735f348.jpg",
+    "Screenshot_2026-03-05-14-31-50-49_e39d2c7de19156b0683cd93e8735f348.jpg",
+    "Screenshot_2026-03-05-14-31-41-85_e39d2c7de19156b0683cd93e8735f348.jpg",
+    "Screenshot_2026-03-05-14-31-32-07_e39d2c7de19156b0683cd93e8735f348.jpg",
+    "dvp1.png",
+    "dvp1（已编辑 {}）.jpeg",
+    "未命名.canvas",
+    "Untitled.canvas"
+  ]
+}

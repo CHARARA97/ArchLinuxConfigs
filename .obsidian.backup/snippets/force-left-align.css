@@ -1,0 +1,7 @@
+/* 强制笔记内容左对齐 */
+.markdown-source-view.mod-cm6 .cm-content,
+.markdown-reading-view .markdown-preview-view {
+    margin-right: auto;
+    margin-left: 0;
+    text-align: left;
+}

@@ -13,6 +13,7 @@ require( 'tokyonight' ).setup(
                         functions = { italic = true, bold = true },
                 },
                 on_highlights = function( hl, c )
+
                         ---- 调色板 ----------------------------------------------------------------
                         local C = {
                                 comment           = "#6A9955",

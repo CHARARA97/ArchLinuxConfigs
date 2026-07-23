@@ -1,0 +1,28 @@
+{
+  "hintChars": "asdghjklqweruiop",
+  "selectors": [
+    ".workspace-tab-header",
+    ".workspace-tab-header-inner",
+    ".side-dock-ribbon-action",
+    ".clickable-icon",
+    ".nav-file-title",
+    ".nav-folder-title",
+    ".tree-item-self",
+    ".menu-item",
+    ".markdown-preview-view a",
+    ".markdown-preview-view .internal-link",
+    ".markdown-preview-view .external-link",
+    ".markdown-preview-view .tag",
+    ".markdown-preview-view .task-list-item-checkbox",
+    ".markdown-preview-view button",
+    ".markdown-embed-link"
+  ],
+  "hintFontSize": 11,
+  "scrollStep": 50,
+  "forceReadingView": true,
+  "enableNativeVim": true,
+  "doubleEscapeMs": 400,
+  "showModeIndicator": false,
+  "keyBindings": [],
+  "terminalCommands": []
+}

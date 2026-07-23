@@ -2,6 +2,7 @@ vim.api.nvim_create_user_command( "Syu", function()
                 require( "vim.pack" ).update()
         end, { desc = "Sync plugins using vim.pack" }
 )
+
 vim.api.nvim_create_autocmd( "VimEnter",
         {
                 callback = function()
@@ -25,15 +26,37 @@ function _G.toggle_qf()
         end
 end
 
----- Python:使用 4 空格缩进（PEP 8） ---------------------------------------------------------------
-vim.api.nvim_create_autocmd( "FileType", {
-        pattern = "python",
-        callback = function()
-                vim.bo.tabstop     = 4
-                vim.bo.shiftwidth  = 4
-                vim.bo.softtabstop = 4
-        end,
-} )
+---- Python:使用 4 空格缩进 ------------------------------------------------------------------------
+vim.api.nvim_create_autocmd( { "FileType", "BufWinEnter" },
+        {
+                pattern = "*",
+                callback = function(args)
+                        if vim.bo.filetype == "python" then
+                                vim.bo.tabstop = 4
+                                vim.bo.shiftwidth = 4
+                                vim.bo.softtabstop = 4
+                        else
+                                vim.bo.tabstop = 8
+                                vim.bo.shiftwidth = 8
+                                vim.bo.softtabstop = 8
+                        end
+                end,
+        }
+)
+
+---- Markdown使用软换行 ----------------------------------------------------------------------------
+vim.api.nvim_create_autocmd( { "FileType", "BufWinEnter" },
+        {
+                pattern = "*",
+                callback = function( args )
+                        if vim.bo.filetype == "markdown" then
+                                vim.opt_local.wrap = true
+                        else
+                                vim.opt_local.wrap = false
+                        end
+                end,
+        }
+ )
 
 function _G.comment_line()
         ---- 取 colorcolumn 第二条提示线，默认 100 -------------------------------------------------

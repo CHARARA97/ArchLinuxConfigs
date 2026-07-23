@@ -22,7 +22,9 @@ vim.pack.add(
                 "https://github.com/archibate/lualine-time",
                 "https://github.com/obsidian-nvim/obsidian.nvim",
                 "https://github.com/OXY2DEV/markview.nvim",
-                        }
+                "https://github.com/Domino881/texmath.nvim",
+                "https://github.com/folke/snacks.nvim",
+        }
 )
 
 cmd( "packadd nvim-treesitter" )
@@ -31,6 +33,7 @@ cmd( "packadd nvim-colorizer.lua" )
 cmd( "packadd im-select.nvim" )
 cmd( "packadd obsidian.nvim" )
 cmd( "packadd markview.nvim" )
+cmd( "packadd snacks.nvim" )
 
 require( "plugins.config.neo-tree" )
 require( "plugins.config.oil" )
@@ -48,4 +51,6 @@ require( "plugins.config.bracket_pad" )
 require( "plugins.config.im_select" )
 require( "plugins.config.obsidian" )
 require( "plugins.config.markview" )
+require( "plugins.config.snacks" )
+require( "plugins.config.texmath" )
 

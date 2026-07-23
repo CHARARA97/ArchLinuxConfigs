@@ -1,0 +1,12 @@
+{
+  "theme": "obsidian",
+  "accentColor": "#ff0088",
+  "interfaceFontFamily": "JetBrainsMono Nerd Font Mono",
+  "monospaceFontFamily": "JetBrainsMono Nerd Font Mono",
+  "textFontFamily": "JetBrainsMono Nerd Font Mono",
+  "baseFontSize": 16,
+  "baseFontSizeAction": false,
+  "nativeMenus": true,
+  "showViewHeader": true,
+  "showRibbon": true
+}

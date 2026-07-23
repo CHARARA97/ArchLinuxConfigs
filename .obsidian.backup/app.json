@@ -1,0 +1,15 @@
+{
+  "defaultViewMode": "preview",
+  "showLineNumber": true,
+  "spellcheck": false,
+  "useTab": false,
+  "vimMode": true,
+  "promptDelete": false,
+  "alwaysUpdateLinks": true,
+  "showInlineTitle": true,
+  "strictLineBreaks": true,
+  "newFileLocation": "current",
+  "attachmentFolderPath": "./",
+  "showUnsupportedFiles": true,
+  "readableLineLength": false
+}
