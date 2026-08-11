@@ -9,7 +9,7 @@
       "src": "https://github.com/zeroicey/bufswi.nvim.git"
     },
     "code_runner.nvim": {
-      "rev": "2a83e56fb6c71461c1a9a008ad35e4bc4e47b4f4",
+      "rev": "97e6c71f3d96baac078ceb516da83258996c1517",
       "src": "https://github.com/CRAG666/code_runner.nvim.git"
     },
     "im-select.nvim": {
@@ -17,7 +17,7 @@
       "src": "https://github.com/keaising/im-select.nvim"
     },
     "jieba.nvim": {
-      "rev": "c80bb2ffc0d772bbf3cf3378575e4b1a425dd410",
+      "rev": "adfb101e645f790acce3e6787e08a85429a31ed4",
       "src": "https://github.com/neo451/jieba.nvim"
     },
     "lean.nvim": {
@@ -49,7 +49,7 @@
       "src": "https://github.com/jbyuki/nabla.nvim"
     },
     "neo-tree.nvim": {
-      "rev": "b01ee1769144c4491ea44bc329cb84040e9793be",
+      "rev": "a4deaea4811b677067f515fb535b47ed3002c849",
       "src": "https://github.com/nvim-neo-tree/neo-tree.nvim.git"
     },
     "nui.nvim": {
@@ -61,15 +61,15 @@
       "src": "https://github.com/norcalli/nvim-colorizer.lua.git"
     },
     "nvim-treesitter": {
-      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "rev": "8b3a191c015dd66a92d51a112ed96af0aac13b63",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-web-devicons": {
-      "rev": "0ca28b61a04fe7426cefbdd52c2647ef0e335b5f",
+      "rev": "2ae6958df7ced50baac5035cec0c15799eedfbf7",
       "src": "https://github.com/nvim-tree/nvim-web-devicons.git"
     },
     "obsidian.nvim": {
-      "rev": "bf1616d46e72477ad978051363fdb5c839c1cce5",
+      "rev": "6156c02ab8b0e4d38ccc7c3776c64b49c3287311",
       "src": "https://github.com/obsidian-nvim/obsidian.nvim"
     },
     "oil.nvim": {
@@ -89,8 +89,12 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "smart-splits.nvim": {
-      "rev": "9493405fb8ee683aa6efd50c529f6296ad8f40ad",
+      "rev": "68861c68f1cf34dab4cdb22f094d4531cd26560a",
       "src": "https://github.com/mrjones2014/smart-splits.nvim"
+    },
+    "snacks.nvim": {
+      "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
+      "src": "https://github.com/folke/snacks.nvim"
     },
     "telescope.nvim": {
       "rev": "427b576c16792edad01a92b89721d923c19ad60f",
@@ -111,10 +115,6 @@
     "vim-tmux-navigator": {
       "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
       "src": "https://github.com/christoomey/vim-tmux-navigator"
-    },
-    "snacks.nvim": {
-      "rev": "e6fd58c82f2f3fcddd3fe81703d47d6d48fc7b9f",
-      "src": "https://github.com/folke/snacks.nvim"
     }
   }
 }

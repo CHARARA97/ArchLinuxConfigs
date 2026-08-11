@@ -1,15 +1,13 @@
 [
-  "fuzzy-chinese-pinyin",
-  "cm-chs-patch",
-  "obsidian-tikzjax",
-  "obsidian-excalidraw-plugin",
-  "obsidian-vimrc-support",
-  "obsidian-latex-suite",
-  "obsidian-relativenumber",
-  "vimium-plus",
-  "sidebar-keyboard-navigation",
-  "notedraw",
-  "obsidian-style-settings",
   "center-text",
-  "vim-im-control"
+  "obsidian-vimrc-support",
+  "vimium-plus",
+  "vim-im-control",
+  "obsidian-style-settings",
+  "sidebar-keyboard-navigation",
+  "obsidian-relativenumber",
+  "notedraw",
+  "obsidian-latex-suite",
+  "fuzzy-chinese-pinyin",
+  "obsidian-excalidraw-plugin"
 ]
