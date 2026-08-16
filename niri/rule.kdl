@@ -23,6 +23,13 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+    match title="提示"
+    open-focused false
+    open-floating false
+}
+
+
 layer-rule{
     match namespace="hyprpaper"
     match namespace="wallpaper"
@@ -45,6 +52,8 @@ window-rule {
     match app-id="osu!"
     match app-id="明日方舟"
     match app-id="Minecraft* 1.20.1"
+    match title="Minecraft"
+    match title="Minecraft* 26.2"
     match title="Endfield"
     match title="愚者 · The Fool"
     opacity 1.0
@@ -163,10 +172,12 @@ window-rule {
     match title="资料卡"
     open-focused false
 }
+
 window-rule {
     match title="鹰角启动器"
     open-floating false
 }
+
 window-rule {
     match title="gsr ui"
     match app-id="waydroid"
@@ -179,6 +190,7 @@ window-rule {
     off
     }
 }
+
 window-rule {
     match title="图片查看器"
     match title="画中画"
