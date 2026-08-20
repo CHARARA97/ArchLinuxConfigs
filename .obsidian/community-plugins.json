@@ -1,13 +1,8 @@
 [
-  "center-text",
   "obsidian-vimrc-support",
-  "vimium-plus",
   "vim-im-control",
-  "obsidian-style-settings",
-  "sidebar-keyboard-navigation",
   "obsidian-relativenumber",
-  "notedraw",
-  "obsidian-latex-suite",
+  "obsidian-excalidraw-plugin",
   "fuzzy-chinese-pinyin",
-  "obsidian-excalidraw-plugin"
+  "obsidian-latex-suite"
 ]

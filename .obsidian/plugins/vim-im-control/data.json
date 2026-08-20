@@ -14,7 +14,7 @@
   "linux": {
     "pathToIMControl": "/usr/bin",
     "cmdOnInsertLeave": "fcitx5-remote -s keyboard-us",
-    "cmdOnInsertEnter": "fcitx5-remote -s shuangpin",
+    "cmdOnInsertEnter": "",
     "cmdGetCurrentIM": "fcitx5-remote -n"
   },
   "isAsync": true,
