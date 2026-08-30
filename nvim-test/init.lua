@@ -1,10 +1,57 @@
-local cmd = vim.cmd
+vim.opt.termguicolors = true
 
----- 加载核心配置 ----------------------------------------------------------------------------------
-require( 'lsp' )
-require( 'plugins' )
-require( 'config.options' )
-require( 'config.autocmds' )
-require( 'config.keymaps' )
+local function bootstrap_pckr()
+    local pckr_path = vim.fn.stdpath("data") .. "/pckr/pckr.nvim"
+    if not (vim.uv or vim.loop).fs_stat(pckr_path) then
+        vim.fn.system({
+            'git',
+            'clone',
+            "--filter=blob:none",
+            'https://github.com/lewis6991/pckr.nvim',
+        pckr_path
+        })
+    end
+    vim.opt.rtp:prepend(pckr_path)
+end
 
----- vim.notify("Hello CHARARA97/Raikuna!Neovim 0.12 配置已加载！", vim.log.levels.INFO) -----------
+bootstrap_pckr()
+
+-- 加载核心配置
+require('core.options')
+require('core.keymaps')
+require('core.autocmds')
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = require('core.comment_separator').target_filetypes,
+--     callback = function()
+--         require('core.comment_separator').setup_keymaps()
+--     end,
+-- })
+
+-- 加载插件
+require('plugins.init')
+require('plugins.config.lualine')
+require('plugins.config.neo-tree')
+require('plugins.config.telescope')
+require('plugins.config.colorizer')
+require('plugins.config.colorpicker')
+require('plugins.config.toggleterm')
+require('plugins.config.code_runner')
+require('plugins.config.flash')
+require('plugins.config.aerial')
+require('plugins.config.im-select')
+require('plugins.config.mason')
+require('plugins.config.lsp')
+require('plugins.config.cmp')
+require('plugins.config.colortils')
+
+-- 加载主题
+require('plugins.config.tokyonight')
+require('plugins.config.onedark')                   -- Onedark 主题（可用 :One 切换）
+vim.cmd("highlight ColorColumn guibg=#222233")
+
+-- 为所有 .conf 文件自动设置文件类型为 dosini
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = "*.conf",
+  command = "set filetype=dosini"
+})

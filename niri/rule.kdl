@@ -30,7 +30,7 @@ window-rule {
 }
 
 
-layer-rule{
+layer-rule {
     match namespace="hyprpaper"
     match namespace="wallpaper"
     match namespace="awww-daemon"
@@ -76,11 +76,12 @@ window-rule {
 
 window-rule {
     match app-id="kitty"
-    opacity 0.99
+    opacity 0.93
 }
 
 window-rule {
-  clip-to-geometry true
+    geometry-corner-radius 8
+    clip-to-geometry true
 }
 
 debug {
@@ -127,8 +128,9 @@ window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
     // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
+    match app-id=r"^org\.wezfurlong\.wezterm$"
+    default-column-width {
+    }
 }
 
 window-rule {
@@ -155,7 +157,7 @@ window-rule {
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id="nm-connection-editor"
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r"firefox$" title="^Picture-in-Picture$"
     match app-id="steam" title="Friends List"
     match app-id="blueberry.py" title="蓝牙"
     match app-id="flameshot"
@@ -190,7 +192,7 @@ window-rule {
     match app-id="waydroid"
     open-fullscreen true
     open-floating true
-    focus-ring{
+    focus-ring {
         off
     }
     shadow {
@@ -236,8 +238,8 @@ window-rule {
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+    match app-id=r"^org\.keepassxc\.KeePassXC$"
+    match app-id=r"^org\.gnome\.World\.Secrets$"
 
     block-out-from "screen-capture"
 

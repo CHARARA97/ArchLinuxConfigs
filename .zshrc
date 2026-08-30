@@ -13,7 +13,7 @@ alias so="source ~/.zshrc"
 alias grep="grep --color=auto"
 alias f="fastfetch"
 alias mpg97="python3 -u ~/scripts/MPG-97.py"
-alias nv='NVIM_APPNAME="nvim-test" nvim'
+alias nv="neovide"
 alias cfsync="cd ~/ArchLinuxConfigs && ./sync.sh -a"
 alias s="steam -shutdown"
 # 设置历史记录文件的路径

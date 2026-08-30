@@ -1,4 +1,12 @@
-prefer-no-csd true
+prefer-no-csd
+
+animations {
+    config-notification-open-close {
+    }
+    slowdown 1.0
+    window-open {
+    }
+}
 include "binds.kdl"
 include "rule.kdl"
 include "output.kdl"
@@ -15,7 +23,7 @@ environment {
     GSK_RENDERER "ql"
     GDK_DPI_SCALE "1.25"
     GTK_CSD "0"
-    EDITOR "NVIM_APPNAME='nvim-test' nvim"
+    EDITOR "nvim"
     XDG_RUNTIME_DIR "/run/user/1000"
     WAYLAND_DISPLAY "wayland-1"
 }
@@ -23,7 +31,7 @@ environment {
 cursor {
     xcursor-theme "Bibata-Modern-Ice"
     xcursor-size 30
-    hide-after-inactive-ms 15000
+    hide-after-inactive-ms 60000
 }
  
 recent-windows {
@@ -46,7 +54,7 @@ recent-windows {
     binds {
         Mod+Tab         { next-window scope="workspace"; }
         Mod+Shift+T     { previous-window scope="workspace"; }
-        Mod+grave       { next-window     filter="app-id"; }
+        Mod+grave       { next-window filter="app-id"; }
         Mod+Shift+grave { previous-window filter="app-id"; }
     }
 }
@@ -123,7 +131,7 @@ input {
 
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 10
+    gaps 14
     background-color "transparent"
     //empty-workspace-above-first
     // When to center a column when changing focus, options are:
@@ -229,7 +237,7 @@ layout {
     // You can enable drop shadows for windows.
     shadow {
         // Uncomment the next line to enable shadows.
-        // on
+        on
 
         // By default, the shadow draws only around its window, and not behind it.
         // Uncomment this setting to make the shadow draw behind its window.
@@ -257,7 +265,7 @@ layout {
         spread 2
 
         // Offset moves the shadow relative to the window.
-        offset x=-4 y=-4
+        offset x=0 y=0
 
         // You can also change the shadow color and opacity.
         color "rgba(0, 0, 0, 0.7)"
@@ -284,10 +292,10 @@ layout {
 //spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri & systemctl --user start xdg-desktop-portal-gnome &&"
 spawn-sh-at-startup "xrdb -merge ~/.Xresources"
-spawn-at-startup    "fcitx5" "-d"
+spawn-at-startup "fcitx5" "-d"
 spawn-sh-at-startup "clipse --listen" 
-spawn-at-startup    "swayosd-server"
-spawn-at-startup    "qs"
+spawn-at-startup "swayosd-server"
+spawn-at-startup "qs"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -305,10 +313,10 @@ hotkey-overlay {
 
 // Global blur settings
 blur {
-    passes 2
+    passes 4
     offset 1.7
     noise 0.01
-    saturation 2
+    saturation 3
 }
 
 overview {
