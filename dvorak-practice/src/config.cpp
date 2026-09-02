@@ -40,6 +40,11 @@ std::string ConfigManager::get_wordlist_dir()
     return get_config_dir() + "/wordlists";
 }
 
+std::string ConfigManager::get_article_dir()
+{
+    return get_config_dir() + "/articles";
+}
+
 std::string ConfigManager::get_history_path()
 {
     return get_config_dir() + "/history.json";
@@ -50,6 +55,7 @@ void ConfigManager::ensure_dirs()
     std::string dir = get_config_dir();
     mkdir(dir.c_str(), 0755);
     mkdir(get_wordlist_dir().c_str(), 0755);
+    mkdir(get_article_dir().c_str(), 0755);
 }
 
 // ──────────────────────────────────────────────
@@ -111,8 +117,11 @@ bool Config::is_valid() const
 
 std::string Config::validation_error() const
 {
-    if (selected_chars.empty()) {
+    if (mode != PracticeMode::ARTICLE && selected_chars.empty()) {
         return "错误: 未选择任何练习字符。请至少选择一个键集。";
+    }
+    if (mode == PracticeMode::ARTICLE && article_path.empty()) {
+        return "错误: 未选择文章文件。请选择一篇文章。";
     }
     if (group_size < 1 || group_size > 100) {
         return "错误: 词长(组大小)必须在 1~100 之间。";
@@ -146,7 +155,9 @@ Config ConfigManager::load()
         Config cfg;
 
         std::string mode_str = j.value("mode", "random");
-        cfg.mode = (mode_str == "wordlist") ? PracticeMode::WORDLIST : PracticeMode::RANDOM;
+        cfg.mode = (mode_str == "wordlist") ? PracticeMode::WORDLIST :
+                   (mode_str == "article") ? PracticeMode::ARTICLE :
+                   PracticeMode::RANDOM;
 
         // 预设名称列表
         if (j.contains("selected_presets") && j["selected_presets"].is_array()) {
@@ -162,6 +173,7 @@ Config ConfigManager::load()
         cfg.total_chars  = j.value("total_chars", 200);
         cfg.allow_backspace = j.value("allow_backspace", true);
         cfg.wordlist_path = j.value("wordlist_path", "");
+        cfg.article_path  = j.value("article_path", "");
 
         // 重新计算选中的字符集
         cfg.selected_chars = merge_key_sets(cfg.selected_preset_names, cfg.custom_chars);
@@ -181,7 +193,8 @@ void ConfigManager::save(const Config& config)
 
     json j;
     j["version"] = 1;
-    j["mode"] = (config.mode == PracticeMode::WORDLIST) ? "wordlist" : "random";
+    j["mode"] = (config.mode == PracticeMode::WORDLIST) ? "wordlist" :
+                 (config.mode == PracticeMode::ARTICLE) ? "article" : "random";
 
     // 预设名称列表
     j["selected_presets"] = config.selected_preset_names;
@@ -190,6 +203,7 @@ void ConfigManager::save(const Config& config)
     j["total_chars"]      = config.total_chars;
     j["allow_backspace"]  = config.allow_backspace;
     j["wordlist_path"]    = config.wordlist_path;
+    j["article_path"]     = config.article_path;
 
     std::ofstream fout(get_config_path());
     fout << j.dump(4) << std::endl;

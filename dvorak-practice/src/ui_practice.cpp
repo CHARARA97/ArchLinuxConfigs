@@ -5,6 +5,7 @@
 #include "history.h"
 #include "keyboard.h"
 #include "wordlist.h"
+#include "article.h"
 #include <ncurses.h>
 #include <algorithm>
 #include <string>
@@ -82,6 +83,99 @@ static std::vector<std::pair<int,int>> compute_line_breaks(
     return breaks;
 }
 
+// ──────────────────────────────────────────────
+// 段落感知分行（文章模式）
+// 返回行区间列表；空行用 {-1,-1} 表示（段落之间的视觉分隔）
+// ──────────────────────────────────────────────
+static std::vector<std::pair<int,int>> compute_paragraph_line_breaks(
+    const std::vector<char>& targets,
+    const std::vector<std::pair<int,int>>& paragraph_bounds,
+    int cols)
+{
+    std::vector<std::pair<int,int>> lines;
+    if (paragraph_bounds.empty()) return lines;
+
+    for (size_t pi = 0; pi < paragraph_bounds.size(); ++pi) {
+        auto [p_start, p_end] = paragraph_bounds[pi];
+        if (p_end <= p_start) continue;
+
+        // 段落之间空一行（非首段）
+        if (!lines.empty()) {
+            lines.push_back({-1, -1});
+        }
+
+        int i = p_start;
+        while (i < p_end) {
+            int line_start = i;
+            int line_end = std::min(p_end, i + cols);
+            if (line_end == p_end) {
+                lines.push_back({line_start, p_end});
+                break;
+            }
+            // 从 line_end 向前找空格（词边界）
+            int break_at = line_end;
+            while (break_at > line_start && targets[break_at] != ' '
+                   && targets[break_at - 1] != ' ') {
+                break_at--;
+            }
+            if (break_at == line_start) {
+                break_at = line_end;  // 长词硬断
+            }
+            lines.push_back({line_start, break_at});
+            i = break_at;
+            // 跳过本段内的词间空格（但不越过段落结尾）
+            while (i < p_end && targets[i] == ' ') i++;
+        }
+    }
+    return lines;
+}
+
+// 通用逐行渲染核心
+static void render_line_range(WINDOW* win,
+                              const std::vector<char>& targets,
+                              const std::vector<CharStatSlot>& slots,
+                              int pos, int row,
+                              int line_start, int line_end, int cols)
+{
+    // 空行（段落分隔）：直接清空
+    if (line_start < 0) {
+        wmove(win, row, 0);
+        wclrtoeol(win);
+        return;
+    }
+
+    int col = 0;
+    for (int i = line_start; i < line_end && col < cols; ++i, ++col) {
+        char ch = targets[i];
+
+        if (i < pos) {
+            if (slots[i].is_correct) {
+                if (i == pos - 1)
+                    wattron(win, COLOR_PAIR(CP_GREEN));
+                else
+                    wattron(win, COLOR_PAIR(CP_WHITE));
+            } else {
+                wattron(win, COLOR_PAIR(CP_RED));
+            }
+        } else if (i == pos) {
+            if (slots[i].has_wrong_attempt)
+                wattron(win, A_BOLD | COLOR_PAIR(CP_RED));
+            else
+                wattron(win, COLOR_PAIR(CP_WHITE));
+        } else {
+            wattron(win, A_DIM | COLOR_PAIR(CP_GRAY));
+        }
+
+        mvwaddch(win, row, col, ch);
+        wattroff(win, A_BOLD | A_DIM | COLOR_PAIR(CP_GREEN) | COLOR_PAIR(CP_RED)
+                     | COLOR_PAIR(CP_WHITE) | COLOR_PAIR(CP_BRIGHT) | COLOR_PAIR(CP_GRAY));
+    }
+    if (col < cols) {
+        wmove(win, row, col);
+        wclrtoeol(win);
+    }
+}
+
 static void render_text(WINDOW* win, const PracticeEngine& engine)
 {
     const auto& targets = engine.get_targets();
@@ -96,15 +190,21 @@ static void render_text(WINDOW* win, const PracticeEngine& engine)
     int total = static_cast<int>(targets.size());
     if (total == 0) return;
 
-    // 预计算分行
-    auto line_breaks = compute_line_breaks(targets, cols);
+    // 根据模式选择行分割策略
+    const auto& pbounds = engine.get_paragraph_bounds();
+    bool article_mode = !pbounds.empty();
+    auto line_breaks = article_mode
+        ? compute_paragraph_line_breaks(targets, pbounds, cols)
+        : compute_line_breaks(targets, cols);
     int num_lines = static_cast<int>(line_breaks.size());
     if (num_lines == 0) return;
 
-    // 找到光标所在行
+    // 找到光标所在行（跳过空行区间）
     int cursor_line = 0;
     for (int L = 0; L < num_lines; ++L) {
-        if (pos < line_breaks[L].second || (L == num_lines - 1 && pos <= line_breaks[L].second)) {
+        auto [ls, le] = line_breaks[L];
+        if (ls >= 0 &&
+            (pos < le || (L == num_lines - 1 && pos <= le))) {
             cursor_line = L;
             break;
         }
@@ -120,41 +220,8 @@ static void render_text(WINDOW* win, const PracticeEngine& engine)
     for (int r = 0; r < rows; ++r) {
         int idx = start_line + r;
         if (idx >= num_lines) break;
-
-        auto [line_start, line_end] = line_breaks[idx];
-        int col = 0;
-
-        for (int i = line_start; i < line_end && col < cols; ++i, ++col) {
-            char ch = targets[i];
-
-            if (i < pos) {
-                if (slots[i].is_correct) {
-                    if (i == pos - 1)
-                        wattron(win, COLOR_PAIR(CP_GREEN));
-                    else
-                        wattron(win, COLOR_PAIR(CP_WHITE));
-                } else {
-                    wattron(win, COLOR_PAIR(CP_RED));
-                }
-            } else if (i == pos) {
-                if (slots[i].has_wrong_attempt)
-                    wattron(win, A_BOLD | COLOR_PAIR(CP_RED));
-                else
-                    wattron(win, COLOR_PAIR(CP_WHITE));
-            } else {
-                wattron(win, A_DIM | COLOR_PAIR(CP_GRAY));
-            }
-
-            mvwaddch(win, r, col, ch);
-            wattroff(win, A_BOLD | A_DIM | COLOR_PAIR(CP_GREEN) | COLOR_PAIR(CP_RED)
-                         | COLOR_PAIR(CP_WHITE) | COLOR_PAIR(CP_BRIGHT) | COLOR_PAIR(CP_GRAY));
-        }
-
-        // 清空行尾
-        if (col < cols) {
-            wmove(win, r, col);
-            wclrtoeol(win);
-        }
+        auto [ls, le] = line_breaks[idx];
+        render_line_range(win, targets, slots, pos, r, ls, le, cols);
     }
 }
 
@@ -357,40 +424,47 @@ void run_practice_session(const Config& config)
 {
     init_practice_colors();
 
-    // 如果是词库模式，加载词库
-    std::vector<std::string> wordlist_words;
+    // 加载素材（词库或文章，取决于模式）
+    std::vector<std::string> material;  // WORDLIST=词库词 / ARTICLE=段落
     if (config.mode == PracticeMode::WORDLIST && !config.wordlist_path.empty()) {
         auto result = WordListManager::load(config.wordlist_path);
         if (result.success) {
-            wordlist_words = WordListManager::filter_by_charset(
+            material = WordListManager::filter_by_charset(
                 result.words, config.selected_chars);
-            if (wordlist_words.empty()) {
-                // 显示错误并返回
+            if (material.empty()) {
                 erase();
                 mvprintw(2, 2, "错误: 词库中没有符合当前键集的单词。请更换词库或调整键集。");
                 mvprintw(4, 2, "按任意键返回主菜单...");
-                refresh();
-                getch();
+                refresh(); getch();
                 return;
             }
         } else {
             erase();
             mvprintw(2, 2, "错误: %s", result.error_msg.c_str());
             mvprintw(4, 2, "按任意键返回主菜单...");
-            refresh();
-            getch();
+            refresh(); getch();
+            return;
+        }
+    } else if (config.mode == PracticeMode::ARTICLE && !config.article_path.empty()) {
+        auto result = ArticleManager::load(config.article_path);
+        if (result.success) {
+            material = result.paragraphs;
+        } else {
+            erase();
+            mvprintw(2, 2, "错误: %s", result.error_msg.c_str());
+            mvprintw(4, 2, "按任意键返回主菜单...");
+            refresh(); getch();
             return;
         }
     }
 
     // 创建练习引擎
-    PracticeEngine engine(config, wordlist_words);
+    PracticeEngine engine(config, material);
     if (engine.get_total() == 0) {
         erase();
         mvprintw(2, 2, "错误: 无法生成练习序列。请检查配置。");
         mvprintw(4, 2, "按任意键返回主菜单...");
-        refresh();
-        getch();
+        refresh(); getch();
         return;
     }
 

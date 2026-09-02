@@ -137,7 +137,10 @@ static void parse_row(int row, const std::string& line,
             }
             // upper 层字符（大写字母加入但仅供键盘显示）
             if (cell.upper != '\0' && cell.upper != cell.lower) {
-                KeyPos kp{row, col, cell.str_index + 1};
+                // 单字符键格（如 "  P"）只显示大写字母，位置就是 str_index；
+                // 双字符键格（如 "$~"）upper 才是 str_index+1
+                bool two_char_cell = (content.size() >= 2);
+                KeyPos kp{row, col, cell.str_index + (two_char_cell ? 1 : 0)};
                 out_char_map[cell.upper] = kp;
                 out_cell_map[cell.upper] = cell;
             }

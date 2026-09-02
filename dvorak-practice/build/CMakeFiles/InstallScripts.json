@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/home/CHARARA97/dvorak-practice/build/cmake_install.cmake"
+		"/home/CHARARA97/ArchLinuxConfigs/dvorak-practice/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

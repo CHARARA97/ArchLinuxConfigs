@@ -42,8 +42,10 @@ struct InputResult {
 // ──────────────────────────────────────────────
 class PracticeEngine {
 public:
+    // mode=RANDOM/WORDLIST: wordlist_words = 词库词列表
+    // mode=ARTICLE: paragraphs = 段落数组（段落间自动以空格相连）
     PracticeEngine(const Config& config,
-                   const std::vector<std::string>& wordlist_words = {});
+                   const std::vector<std::string>& paragraphs_or_words = {});
 
     // ── 核心输入处理 ──
     InputResult process_input(char ch);
@@ -72,6 +74,7 @@ public:
     double get_elapsed_seconds() const;       // 排除暂停时间
     int get_dropped_samples() const;
     int get_current_word() const;             // 当前是第几个词
+    const std::vector<std::pair<int,int>>& get_paragraph_bounds() const; // ARTICLE 模式：每段的 [start,end)
     int get_total_words() const;
     double get_current_target_time() const;   // 当前候打字符的已用(s)
 
@@ -79,6 +82,7 @@ private:
     // 序列生成
     void generate_random_sequence();
     void generate_wordlist_sequence();
+    void generate_article_sequence(const std::vector<std::string>& paragraphs);
 
     // 计时
     void start_char_timer();
@@ -101,6 +105,10 @@ private:
 
     // 词库相关（仅词库模式）
     std::vector<std::string> valid_words_;
+
+    // 文章段落边界（仅 ARTICLE 模式），每段 [start,end) 于 targets_
+    std::vector<std::pair<int,int>> paragraph_bounds_;
+    std::vector<std::string> cached_paragraphs_; // ARTICLE 模式段落缓存（重置用）
 
     // 统计计数
     int attempts_ = 0;

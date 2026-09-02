@@ -1,8 +1,9 @@
 CMakeFiles/dvorak-practice.dir/src/ui_menu.cpp.o: \
- /home/CHARARA97/dvorak-practice/src/ui_menu.cpp \
- /usr/include/stdc-predef.h /home/CHARARA97/dvorak-practice/src/ui_menu.h \
- /home/CHARARA97/dvorak-practice/src/config.h /usr/include/c++/16/string \
- /usr/include/c++/16/bits/requires_hosted.h \
+ /home/CHARARA97/ArchLinuxConfigs/dvorak-practice/src/ui_menu.cpp \
+ /usr/include/stdc-predef.h \
+ /home/CHARARA97/ArchLinuxConfigs/dvorak-practice/src/ui_menu.h \
+ /home/CHARARA97/ArchLinuxConfigs/dvorak-practice/src/config.h \
+ /usr/include/c++/16/string /usr/include/c++/16/bits/requires_hosted.h \
  /usr/include/c++/16/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/16/x86_64-pc-linux-gnu/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -105,14 +106,15 @@ CMakeFiles/dvorak-practice.dir/src/ui_menu.cpp.o: \
  /usr/include/c++/16/bits/node_handle.h \
  /usr/include/c++/16/bits/stl_set.h \
  /usr/include/c++/16/bits/stl_multiset.h \
- /home/CHARARA97/dvorak-practice/src/keyboard.h \
+ /home/CHARARA97/ArchLinuxConfigs/dvorak-practice/src/keyboard.h \
  /usr/include/c++/16/unordered_map \
  /usr/include/c++/16/bits/unordered_map.h \
  /usr/include/c++/16/bits/hashtable.h \
  /usr/include/c++/16/bits/hashtable_policy.h \
  /usr/include/c++/16/bits/enable_special_members.h \
- /home/CHARARA97/dvorak-practice/src/wordlist.h /usr/include/curses.h \
- /usr/include/ncurses_dll.h \
+ /home/CHARARA97/ArchLinuxConfigs/dvorak-practice/src/wordlist.h \
+ /home/CHARARA97/ArchLinuxConfigs/dvorak-practice/src/article.h \
+ /usr/include/curses.h /usr/include/ncurses_dll.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/stdint-uintn.h \
  /usr/include/bits/stdint-least.h \

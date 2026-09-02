@@ -28,6 +28,7 @@ set(SOURCES
     src/keyboard.cpp
     src/config.cpp
     src/wordlist.cpp
+    src/article.cpp
     src/practice.cpp
     src/statistics.cpp
     src/history.cpp

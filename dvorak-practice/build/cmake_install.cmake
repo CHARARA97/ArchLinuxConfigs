@@ -1,4 +1,4 @@
-# Install script for directory: /home/CHARARA97/dvorak-practice
+# Install script for directory: /home/CHARARA97/ArchLinuxConfigs/dvorak-practice
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -49,7 +49,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/dvorak-practice"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/CHARARA97/dvorak-practice/build/dvorak-practice")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/CHARARA97/ArchLinuxConfigs/dvorak-practice/build/dvorak-practice")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/dvorak-practice" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/dvorak-practice")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -59,13 +59,13 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/CHARARA97/dvorak-practice/build/CMakeFiles/dvorak-practice.dir/install-cxx-module-bmi-noconfig.cmake" OPTIONAL)
+  include("/home/CHARARA97/ArchLinuxConfigs/dvorak-practice/build/CMakeFiles/dvorak-practice.dir/install-cxx-module-bmi-noconfig.cmake" OPTIONAL)
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/CHARARA97/dvorak-practice/build/install_local_manifest.txt"
+  file(WRITE "/home/CHARARA97/ArchLinuxConfigs/dvorak-practice/build/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -81,6 +81,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/CHARARA97/dvorak-practice/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/home/CHARARA97/ArchLinuxConfigs/dvorak-practice/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

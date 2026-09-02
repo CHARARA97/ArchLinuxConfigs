@@ -16,6 +16,9 @@ PracticeEngine::PracticeEngine(const Config& config,
 {
     if (mode_ == PracticeMode::RANDOM) {
         generate_random_sequence();
+    } else if (mode_ == PracticeMode::ARTICLE) {
+        cached_paragraphs_ = wordlist_words;   // 缓存以便重置时重新生成
+        generate_article_sequence(wordlist_words);
     } else {
         valid_words_ = wordlist_words;
         generate_wordlist_sequence();
@@ -26,9 +29,34 @@ PracticeEngine::PracticeEngine(const Config& config,
 }
 
 // ──────────────────────────────────────────────
-// 随机模式: 生成 "词 + 空格" 序列
-// 每个词由 group_size 个随机字符组成
+// 文章模式: 段落依次拼接，段落间以空格相连
 // ──────────────────────────────────────────────
+void PracticeEngine::generate_article_sequence(const std::vector<std::string>& paragraphs)
+{
+    targets_.clear();
+    paragraph_bounds_.clear();
+
+    if (paragraphs.empty()) return;
+
+    for (size_t i = 0; i < paragraphs.size(); ++i) {
+        int start = static_cast<int>(targets_.size());
+        const std::string& p = paragraphs[i];
+        for (char c : p) {
+            targets_.push_back(c);
+        }
+        // 段落之间插入一个空格（最后一段不加）
+        if (i + 1 < paragraphs.size()) {
+            targets_.push_back(' ');
+        }
+        // 边界包含段尾空格，保证 pos 始终落在某段内
+        int end = static_cast<int>(targets_.size());
+        paragraph_bounds_.push_back({start, end});
+    }
+
+    slots_.assign(targets_.size(), CharStatSlot{});
+    pos_ = 0;
+}
+
 void PracticeEngine::generate_random_sequence()
 {
     targets_.clear();
@@ -203,9 +231,11 @@ InputResult PracticeEngine::process_backspace()
 // ──────────────────────────────────────────────
 InputResult PracticeEngine::process_reset()
 {
-    // 重新生成
+    // 重新生成（按模式）
     if (mode_ == PracticeMode::RANDOM) {
         generate_random_sequence();
+    } else if (mode_ == PracticeMode::ARTICLE) {
+        generate_article_sequence(cached_paragraphs_);
     } else {
         generate_wordlist_sequence();
     }
@@ -308,6 +338,11 @@ double PracticeEngine::get_elapsed_seconds() const
 }
 
 int PracticeEngine::get_dropped_samples() const { return dropped_samples_; }
+
+const std::vector<std::pair<int,int>>& PracticeEngine::get_paragraph_bounds() const
+{
+    return paragraph_bounds_;
+}
 
 int PracticeEngine::get_current_word() const
 {

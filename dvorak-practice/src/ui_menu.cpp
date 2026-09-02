@@ -1,6 +1,7 @@
 #include "ui_menu.h"
 #include "keyboard.h"
 #include "wordlist.h"
+#include "article.h"
 #include <ncurses.h>
 #include <algorithm>
 #include <cctype>
@@ -134,6 +135,7 @@ bool render_config_menu(Config& config)
         FOCUS_TOTAL,      // 总量
         FOCUS_BACKSPACE,  // 允许退格
         FOCUS_WORDLIST,   // 词库选择（仅词库模式可见）
+        FOCUS_ARTICLE,    // 文章选择（仅文章模式可见）
         FOCUS_SAVE,       // 保存按钮
         FOCUS_DISCARD,    // 放弃按钮
     };
@@ -148,6 +150,7 @@ bool render_config_menu(Config& config)
     int total_chars = config.total_chars;
     bool allow_bs = config.allow_backspace;
     std::string wordlist_path = config.wordlist_path;
+    std::string article_path  = config.article_path;
 
     // 获取所有预设键集
     const auto& all_presets = KeyboardLayout::preset_key_sets();
@@ -160,6 +163,17 @@ bool render_config_menu(Config& config)
         if (wordlists[i].filename == wordlist_path ||
             wordlists[i].full_path == wordlist_path) {
             selected_wordlist = static_cast<int>(i);
+            break;
+        }
+    }
+
+    // 获取可用文章
+    auto articles = ArticleManager::list_available();
+    int selected_article = 0;
+    for (size_t i = 0; i < articles.size(); ++i) {
+        if (articles[i].filename == article_path ||
+            articles[i].full_path == article_path) {
+            selected_article = static_cast<int>(i);
             break;
         }
     }
@@ -202,9 +216,11 @@ bool render_config_menu(Config& config)
             if (is_focused) attron(A_REVERSE);
             mvprintw(y, 4, "练习模式: ");
             if (cfg_mode == PracticeMode::RANDOM) {
-                printw("[● 随机字符]  [○ 词库模式]");
+                printw("[● 随机字符]  [○ 词库模式]  [○ 文章模式]");
+            } else if (cfg_mode == PracticeMode::WORDLIST) {
+                printw("[○ 随机字符]  [● 词库模式]  [○ 文章模式]");
             } else {
-                printw("[○ 随机字符]  [● 词库模式]");
+                printw("[○ 随机字符]  [○ 词库模式]  [● 文章模式]");
             }
             if (is_focused) attroff(A_REVERSE);
             y += 2;
@@ -305,6 +321,33 @@ bool render_config_menu(Config& config)
             }
         }
 
+        // ── 文章选择（仅文章模式） ──
+        if (cfg_mode == PracticeMode::ARTICLE) {
+            mvprintw(y, 4, "文章文件:");
+            y++;
+            int start_y = y;
+            int max_visible = rows - y - 4;
+            if (articles.empty()) {
+                mvprintw(y, 6, "(暂无文章文件, 请放入 %s 目录)",
+                    ConfigManager::get_article_dir().c_str());
+                y += 2;
+            } else {
+                int article_scroll = std::max(0, selected_article - max_visible / 2);
+                for (int i = article_scroll;
+                     i < static_cast<int>(articles.size()) && i < article_scroll + max_visible;
+                     ++i) {
+                    bool is_focused = (focus == FOCUS_ARTICLE && i == selected_article);
+                    const char* marker = (i == selected_article) ? ">" : " ";
+                    if (is_focused) attron(A_REVERSE);
+                    mvprintw(start_y + (i - article_scroll), 6, "%s %s (%d字 %d段)",
+                        marker, articles[i].filename.c_str(),
+                        articles[i].char_count, articles[i].paragraph_count);
+                    if (is_focused) attroff(A_REVERSE);
+                }
+                y = start_y + std::min(max_visible, static_cast<int>(articles.size())) + 1;
+            }
+        }
+
         // ── 按钮 ──
         {
             y = rows - 3;
@@ -335,23 +378,29 @@ bool render_config_menu(Config& config)
         }
 
         if (ch == '\t' || ch == KEY_BTAB) {
-            // Tab 切换焦点
+            // Tab 切换焦点（跳过不可见区域）
             int dir = (ch == '\t') ? 1 : -1;
-            int max_focus = (cfg_mode == PracticeMode::WORDLIST) ? FOCUS_DISCARD : FOCUS_DISCARD;
+            int max_focus = FOCUS_DISCARD;
             int f = static_cast<int>(focus);
             do {
                 f = (f + dir + max_focus + 1) % (max_focus + 1);
-            } while (f == FOCUS_WORDLIST && cfg_mode != PracticeMode::WORDLIST);
+            } while ((f == FOCUS_WORDLIST && cfg_mode != PracticeMode::WORDLIST) ||
+                     (f == FOCUS_ARTICLE && cfg_mode != PracticeMode::ARTICLE));
             focus = static_cast<FocusArea>(f);
             continue;
         }
 
         switch (focus) {
             case FOCUS_MODE: {
-                // 左右切换模式
-                if (ch == KEY_LEFT || ch == KEY_RIGHT) {
-                    cfg_mode = (cfg_mode == PracticeMode::RANDOM)
-                        ? PracticeMode::WORDLIST : PracticeMode::RANDOM;
+                // 左右切换模式: RANDOM -> WORDLIST -> ARTICLE -> RANDOM
+                if (ch == KEY_LEFT) {
+                    cfg_mode = (cfg_mode == PracticeMode::RANDOM) ? PracticeMode::ARTICLE :
+                                (cfg_mode == PracticeMode::WORDLIST) ? PracticeMode::RANDOM :
+                                PracticeMode::WORDLIST;
+                } else if (ch == KEY_RIGHT) {
+                    cfg_mode = (cfg_mode == PracticeMode::RANDOM) ? PracticeMode::WORDLIST :
+                                (cfg_mode == PracticeMode::WORDLIST) ? PracticeMode::ARTICLE :
+                                PracticeMode::RANDOM;
                 }
                 break;
             }
@@ -445,6 +494,18 @@ bool render_config_menu(Config& config)
                 break;
             }
 
+            case FOCUS_ARTICLE: {
+                if (ch == KEY_UP && selected_article > 0) {
+                    selected_article--;
+                } else if (ch == KEY_DOWN &&
+                           selected_article < static_cast<int>(articles.size()) - 1) {
+                    selected_article++;
+                } else if (ch == '\n' && !articles.empty()) {
+                    article_path = articles[selected_article].full_path;
+                }
+                break;
+            }
+
             case FOCUS_SAVE: {
                 if (ch == '\n' || ch == ' ') {
                     // 保存并返回
@@ -480,6 +541,7 @@ bool render_config_menu(Config& config)
             config.total_chars = total_chars;
             config.allow_backspace = allow_bs;
             config.wordlist_path = wordlist_path;
+            config.article_path  = article_path;
             config.selected_chars = ConfigManager::merge_key_sets(
                 selected_presets, config.custom_chars);
 

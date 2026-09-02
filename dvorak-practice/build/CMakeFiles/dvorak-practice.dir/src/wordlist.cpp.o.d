@@ -1,7 +1,7 @@
 CMakeFiles/dvorak-practice.dir/src/wordlist.cpp.o: \
- /home/CHARARA97/dvorak-practice/src/wordlist.cpp \
+ /home/CHARARA97/ArchLinuxConfigs/dvorak-practice/src/wordlist.cpp \
  /usr/include/stdc-predef.h \
- /home/CHARARA97/dvorak-practice/src/wordlist.h \
+ /home/CHARARA97/ArchLinuxConfigs/dvorak-practice/src/wordlist.h \
  /usr/include/c++/16/string /usr/include/c++/16/bits/requires_hosted.h \
  /usr/include/c++/16/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/16/x86_64-pc-linux-gnu/bits/os_defines.h \
@@ -105,9 +105,10 @@ CMakeFiles/dvorak-practice.dir/src/wordlist.cpp.o: \
  /usr/include/c++/16/bits/node_handle.h \
  /usr/include/c++/16/bits/stl_set.h \
  /usr/include/c++/16/bits/stl_multiset.h \
- /home/CHARARA97/dvorak-practice/src/config.h /usr/include/c++/16/fstream \
- /usr/include/c++/16/istream /usr/include/c++/16/ios \
- /usr/include/c++/16/exception /usr/include/c++/16/bits/exception_ptr.h \
+ /home/CHARARA97/ArchLinuxConfigs/dvorak-practice/src/config.h \
+ /usr/include/c++/16/fstream /usr/include/c++/16/istream \
+ /usr/include/c++/16/ios /usr/include/c++/16/exception \
+ /usr/include/c++/16/bits/exception_ptr.h \
  /usr/include/c++/16/bits/cxxabi_init_exception.h \
  /usr/include/c++/16/typeinfo /usr/include/c++/16/bits/nested_exception.h \
  /usr/include/c++/16/bits/ios_base.h /usr/include/c++/16/ext/atomicity.h \

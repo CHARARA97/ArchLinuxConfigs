@@ -11,6 +11,7 @@
 enum class PracticeMode {
     RANDOM,    // 随机字符模式
     WORDLIST,  // 词库模式
+    ARTICLE,   // 文章模式
 };
 
 // ──────────────────────────────────────────────
@@ -35,6 +36,10 @@ struct Config {
     std::string wordlist_path;  // 词库文件路径（仅 wordlist 模式使用）
     std::vector<std::string> wordlist_words; // 加载到内存的词库内容
 
+    // 文章（仅 article 模式使用）
+    std::string article_path;   // 文章文件路径
+    std::vector<std::string> article_paragraphs; // 加载到内存的段落数组
+
     // ── 验证 ──
     bool is_valid() const;
     std::string validation_error() const;
@@ -48,6 +53,7 @@ public:
     static std::string get_config_dir();
     static std::string get_config_path();
     static std::string get_wordlist_dir();
+    static std::string get_article_dir();
     static std::string get_history_path();
 
     // 加载配置（如果文件不存在则创建默认配置并返回）

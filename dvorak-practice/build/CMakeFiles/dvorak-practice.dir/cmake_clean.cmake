@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/dvorak-practice.dir/link.d"
+  "CMakeFiles/dvorak-practice.dir/src/article.cpp.o"
+  "CMakeFiles/dvorak-practice.dir/src/article.cpp.o.d"
   "CMakeFiles/dvorak-practice.dir/src/config.cpp.o"
   "CMakeFiles/dvorak-practice.dir/src/config.cpp.o.d"
   "CMakeFiles/dvorak-practice.dir/src/history.cpp.o"
