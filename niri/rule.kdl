@@ -76,6 +76,7 @@ window-rule {
 
 window-rule {
     match app-id="kitty"
+    match app-id="neovide"
     opacity 0.93
 }
 
@@ -97,6 +98,7 @@ window-rule {
     match app-id="yazi"
     match app-id="anki"
     match title="Cisco Secure Client"
+    match app-id="neovide"
     // opacity 0.95
     background-effect {
         blur true

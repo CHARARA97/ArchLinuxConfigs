@@ -11,6 +11,11 @@ require( "aerial" ).setup(
                         ["space"] = "actions.toggle",
                         ["<Esc>, q"] = "actions.close",
                         ["<CR>"] = "actions.jump",
-                }
+                },
+                filter_kind =
+                {
+                        "Class", "Constructor", "Enum", "Function", "Interface",
+                        "Module", "Method", "Struct", "Constant", "Variable",
+                },
         }
 )

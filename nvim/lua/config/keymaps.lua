@@ -39,6 +39,10 @@ km( 'n', '<leader>sv', '<C-w>v',                        { desc = '垂直分屏' 
 km( 'n', '<leader>sh', '<C-w>s',                        { desc = '水平分屏' } )
 km( 'n', '<leader>se', '<C-w>=',                        { desc = '使所有窗口等宽等高' } )
 km( 'n', '<leader>sx', '<C-w>c',                        { desc = '关闭当前窗口' } )
+km( 'n', '<leader>te', function()
+        vim.cmd( 'cd ~/tests' )
+end,                                                    { desc = '打开tests文件夹' } )
+
 km( 'n', '<leader>ob', function()
         vim.cmd( 'cd ~/Documents/Obsidian/CHARARA97' )
 end,                                                    { desc = '打开 Obsidian 仓库' } )
