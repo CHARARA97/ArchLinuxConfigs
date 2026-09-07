@@ -90,16 +90,7 @@ debug {
 }
 
 window-rule {
-    match app-id="kitty"
-    match app-id="wechat"
-    match app-id="QQ"
-    match app-id="obsidian"
-    match app-id="Spotify"
-    match app-id="yazi"
-    match app-id="anki"
-    match title="Cisco Secure Client"
-    match app-id="neovide"
-    // opacity 0.95
+    match app-id=".*"
     background-effect {
         blur true
     }
@@ -179,9 +170,18 @@ window-rule {
     match app-id="btrfs-assistant"
     open-floating true
 }
+
 window-rule {
     match title="资料卡"
     open-focused false
+}
+
+window-rule {
+    match title="UIPlatform"
+    open-floating true
+    open-focused false
+    max-width 500
+    max-height 100
 }
 
 window-rule {

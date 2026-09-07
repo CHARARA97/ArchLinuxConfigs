@@ -7,15 +7,18 @@ zstyle ':completion:*' menu select
 autoload -Uz compinit
 compinit
 
-alias icat="kitty +kitten icat"
+alias f="fastfetch"
+alias s="steam -shutdown"
+alias nv="neovide"
+alias cl='activate-conda'
 alias ls="ls --color=auto"
 alias so="source ~/.zshrc"
+alias how="tldr"
 alias grep="grep --color=auto"
-alias f="fastfetch"
+alias icat="kitty +kitten icat"
 alias mpg97="python3 -u ~/scripts/MPG-97.py"
-alias nv="neovide"
 alias cfsync="cd ~/ArchLinuxConfigs && ./sync.sh -a"
-alias s="steam -shutdown"
+
 # 设置历史记录文件的路径
 HISTFILE=~/.zsh_history
 
@@ -51,9 +54,9 @@ function y() {
 [[ -o interactive ]] || return
 
 #环境变量
-export XMODIFIERS=@im=fcitx
 export GIT_TERMINAL_PROMPT=0
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 activate-conda() {
     # 请将下面的路径替换为你的实际 Anaconda 安装路径
     local CONDA_BASE_PATH="/home/CHARARA97/anaconda3"
@@ -68,14 +71,13 @@ activate-conda() {
     echo "Conda 已加载，现在可以使用 conda activate"
 }
 
-alias cl='activate-conda'
-
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     eval "$(ssh-agent -s)" > /dev/null
 fi
 
-
-
+# export LANG=zh_CN.UTF-8
+# export LANGUAGE=zh_CN.UTF-8
+# export LC_ALL=zh_CN.UTF-8
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
