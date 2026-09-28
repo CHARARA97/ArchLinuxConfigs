@@ -52,6 +52,8 @@ window-rule {
     match app-id="osu!"
     match app-id="Minecraft* 1.20.1"
     match title="Minecraft"
+    match app-id="drawy"
+    match app-id="scrcpy"
     match title="Minecraft* 26.2"
     match title="愚者 · The Fool"
     opacity 1.0

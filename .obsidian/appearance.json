@@ -8,5 +8,6 @@
   "baseFontSizeAction": false,
   "nativeMenus": true,
   "showViewHeader": true,
-  "showRibbon": true
+  "showRibbon": true,
+  "cssTheme": "Tokyo Night"
 }
