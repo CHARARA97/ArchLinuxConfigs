@@ -1,3 +1,6 @@
 nvim-test/pckr.nvim
 niri.bak.*/
 *bak.*/
+.obsidian/
+.obsidian.local.bak/
+.obsidin.backup/
