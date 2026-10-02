@@ -297,6 +297,7 @@ layout {
 spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri & systemctl --user start xdg-desktop-portal-gnome"
 spawn-sh-at-startup "xrdb -merge ~/.Xresources"
 spawn-sh-at-startup "clipse --listen" 
+spawn-sh-at-startup "fcitx5 -d" 
 spawn-at-startup "swayosd-server"
 spawn-at-startup "qs"
 

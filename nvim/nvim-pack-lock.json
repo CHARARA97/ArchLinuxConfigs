@@ -4,14 +4,6 @@
       "rev": "28fe6e822ae344544c379d60fcb13c9519a1f08a",
       "src": "https://github.com/stevearc/aerial.nvim"
     },
-    "alpha-nvim": {
-      "rev": "4ba26e41990c11620c96c0e1cff20eab65efde4a",
-      "src": "https://github.com/goolord/alpha-nvim"
-    },
-    "bufswi.nvim": {
-      "rev": "6d0ec32f6d5df355fac0aa6f4ba07c0392d39c09",
-      "src": "https://github.com/zeroicey/bufswi.nvim.git"
-    },
     "code_runner.nvim": {
       "rev": "ae11f6cb469ee5547cd0e076ecb41d74a7322cb8",
       "src": "https://github.com/CRAG666/code_runner.nvim.git"
@@ -19,10 +11,6 @@
     "im-select.nvim": {
       "rev": "963a4e9d528ef8a8d328eeff690593b0146d30e2",
       "src": "https://github.com/keaising/im-select.nvim"
-    },
-    "jieba.nvim": {
-      "rev": "adfb101e645f790acce3e6787e08a85429a31ed4",
-      "src": "https://github.com/neo451/jieba.nvim"
     },
     "lean.nvim": {
       "rev": "3d8027a96ada0fe43bdd01403e1bd4a09d175448",
@@ -40,17 +28,9 @@
       "rev": "5d9fc2aa6dd1c2fbdc7a68bc79b300e9967b21ff",
       "src": "https://github.com/OXY2DEV/markview.nvim"
     },
-    "mdmath.nvim": {
-      "rev": "699acb27fd34bfdf92a43ce0abdd17f0c7a948fe",
-      "src": "https://github.com/Thiago4532/mdmath.nvim"
-    },
     "mini.comment": {
       "rev": "27a29d6b949b9497f80a0a03421e89fed71d8c37",
       "src": "https://github.com/echasnovski/mini.comment.git"
-    },
-    "nabla.nvim": {
-      "rev": "9b69b709063ccf40ac36fabb4fff7d90b3736475",
-      "src": "https://github.com/jbyuki/nabla.nvim"
     },
     "neo-tree.nvim": {
       "rev": "3352e998cb8343a4b8d82eca50c74aa17bc61f5e",
@@ -88,10 +68,6 @@
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim.git"
     },
-    "render-markdown.nvim": {
-      "rev": "4663eb3ecd538bd5062628fb6d95bbe6bdca78f6",
-      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
-    },
     "smart-splits.nvim": {
       "rev": "5e92431aa7f5e618c2f6825f682df6d94f6e0a02",
       "src": "https://github.com/mrjones2014/smart-splits.nvim"
@@ -115,10 +91,6 @@
     "tokyonight.nvim": {
       "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
       "src": "https://github.com/folke/tokyonight.nvim.git"
-    },
-    "vim-tmux-navigator": {
-      "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
-      "src": "https://github.com/christoomey/vim-tmux-navigator"
     }
   }
 }
