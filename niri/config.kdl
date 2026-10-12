@@ -299,7 +299,7 @@ spawn-sh-at-startup "xrdb -merge ~/.Xresources"
 spawn-sh-at-startup "clipse --listen" 
 spawn-sh-at-startup "fcitx5 -d" 
 spawn-at-startup "swayosd-server"
-spawn-at-startup "qs"
+spawn-at-startup "noctalia"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"

@@ -254,3 +254,43 @@ window-rule {
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
 }
+
+// ===========================================================================
+// Noctalia v5 集成（Quickshell/v4 的旧接口已全部换成 `noctalia msg`）
+// 参考: https://docs.noctalia.dev/noctalia/compositor-settings/niri/
+// ===========================================================================
+
+// 设置窗口按官方推荐浮动并固定尺寸
+window-rule {
+    match app-id="dev.noctalia.Noctalia"
+    open-floating true
+    default-column-width { fixed 1080; }
+    default-window-height { fixed 920; }
+}
+
+// niri 的背景模糊（需要 niri 26.04+，本机 26.04 ✓）
+// 官方写法：Noctalia 检测到 ext-background-effects 时会自己发布模糊区域，
+// 这里只需关掉 xray（不采样壁纸），否则圆角边缘会透出壁纸颜色的杂边。
+layer-rule {
+    match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+    background-effect {
+        xray false
+        // blur false   // 想彻底关掉模糊就取消这行注释
+    }
+}
+
+// 窗口切换器是普通 layer，需要显式开 blur
+layer-rule {
+    match namespace="noctalia-window-switcher"
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+// 模糊背景层（backdrop）放进 niri 的 overview backdrop —— 对应 v5 配置里
+// 的 [backdrop] enabled = true（选项 1：overview 里显示模糊壁纸）
+layer-rule {
+    match namespace="^noctalia-backdrop"
+    place-within-backdrop true
+}

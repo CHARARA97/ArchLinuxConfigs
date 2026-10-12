@@ -85,3 +85,8 @@ if [ -s "$NVM_DIR/nvm.sh" ]; then
     pnpm() { lazy_nvm pnpm "$@" }
     yarn() { lazy_nvm yarn "$@" }
 fi
+if [ -z "$XAUTHORITY" ]; then
+    export XAUTHORITY="$XDG_RUNTIME_DIR/gdm/Xauthority"
+fi
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx

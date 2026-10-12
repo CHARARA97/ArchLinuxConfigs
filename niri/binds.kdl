@@ -13,16 +13,16 @@ binds {
     // Mod+F10 hotkey-overlay-title="随机切换壁纸"     { spawn "waypaper" "--random";}
     Mod+Shift+Slash                                 { show-hotkey-overlay; }
     Alt+Tab repeat=true                             { spawn "niriswitcherctl" "show" "--window"; }
-    Mod+F2 hotkey-overlay-title="刷新QuickShell"    { spawn-sh "pkill qs && qs"; }
+    Mod+F2 hotkey-overlay-title="刷新Noctalia"    { spawn-sh "pkill noctalia; sleep 0.3; noctalia -d"; }
     Mod+F3 hotkey-overlay-title="Yazi文件选择"      { spawn-sh "~/.config/scripts/wechat-file-picker.sh"; }
-    XF86AudioPlay       { spawn-sh "qs ipc call media playPause"; }
-    Ctrl+Alt+P          { spawn-sh "qs ipc call media playPause"; }
-    Ctrl+Alt+L          { spawn-sh "qs ipc call media next"; }
-    Ctrl+Alt+H          { spawn-sh "qs ipc call media previous"; }
-    Ctrl+Alt+K          { spawn-sh "qs ipc call volume increase"; }
-    Ctrl+Alt+J          { spawn-sh "qs ipc call volume decrease"; }
-    Ctrl+Shift+M        { spawn-sh "qs ipc call media toggle"; }
-    Mod+Shift+N         { spawn-sh "qs ipc call notifications dismissOldest"; }
+    XF86AudioPlay       { spawn-sh "noctalia msg media toggle"; }
+    Ctrl+Alt+P          { spawn-sh "noctalia msg media toggle"; }
+    Ctrl+Alt+L          { spawn-sh "noctalia msg media next"; }
+    Ctrl+Alt+H          { spawn-sh "noctalia msg media previous"; }
+    Ctrl+Alt+K          { spawn-sh "noctalia msg volume-up"; }
+    Ctrl+Alt+J          { spawn-sh "noctalia msg volume-down"; }
+    Ctrl+Shift+M        { spawn-sh "noctalia msg panel-toggle control-center media"; }
+    Mod+Shift+N         { spawn-sh "noctalia msg notification-clear-active"; }
 
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
@@ -32,12 +32,12 @@ binds {
     Mod+Alt+E hotkey-overlay-title="Nautilus文档管理器"       { spawn "nautilus"; }
     Mod+Alt+M hotkey-overlay-title="任务管理器"               { spawn "missioncenter"; }
     Mod+B hotkey-overlay-title="Vivaldi"                      { spawn-sh "/usr/bin/vivaldi-stable %U"; }
-    Mod+Z hotkey-overlay-title="任务启动器"                   { spawn-sh "qs ipc call launcher toggle"; }
-    Mod+Alt+L hotkey-overlay-title="锁屏"                     { spawn-sh "qs ipc call lockScreen lock"; }
+    Mod+Z hotkey-overlay-title="任务启动器"                   { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+Alt+L hotkey-overlay-title="锁屏"                     { spawn-sh "noctalia msg session lock"; }
     Mod+P hotkey-overlay-title="HyprPicker"                   { spawn-sh "hyprpicker | wl-copy"; }
     Mod+Alt+V hotkey-overlay-title="剪贴板"                   { spawn-sh "copyq toggle || clipse-gui"; }
-    Mod+X hotkey-overlay-title="控制中心"                     { spawn-sh "qs ipc call controlCenter toggle"; }
-    Mod+N hotkey-overlay-title="网络"                         { spawn-sh "qs ipc call network togglePanel"; }
+    Mod+X hotkey-overlay-title="控制中心"                     { spawn-sh "noctalia msg panel-toggle control-center"; }
+    Mod+N hotkey-overlay-title="网络"                         { spawn-sh "noctalia msg panel-toggle control-center network"; }
     Mod+Y hotkey-overlay-title="yay -Syu"                     { spawn-sh "kitty -e yay -Syu"; }
     Mod+Shift+D hotkey-overlay-title="CodeWhale"              { spawn-sh "kitty -e codewhale"; }
     // Ctrl+Alt+S      hotkey-overlay-title="切换屏幕录制"                 { spawn-sh "kitty -e ~/.config/waybar/scripts/wf-recorder.sh toggle"; }
