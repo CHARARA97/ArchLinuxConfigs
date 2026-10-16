@@ -1,5 +1,11 @@
 prefer-no-csd
 
+
+gestures {
+    hot-corners {
+        top-left
+    }
+}
 animations {
     config-notification-open-close {
     }
