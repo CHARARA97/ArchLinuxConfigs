@@ -1,0 +1,4 @@
+/**
+ * Does something.
+ * \a word
+ */

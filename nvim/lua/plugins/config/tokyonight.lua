@@ -92,6 +92,27 @@ require( 'tokyonight' ).setup(
                         hl["@comment.info"]           = S( C.comment_info,  italic )
                         hl["@comment.hint"]           = S( C.comment_hint,  italic )
 
+                        ---- Doxygen(C/C++ 文档注释) — 语言专属高亮组(@xxx.doxygen) ----------------
+                        ---- 来源：nvim-treesitter 的 c/cpp injections.scm 把 /** */ /// //! 注入给
+                        ---- doxygen parser；语言专属组只在 doxygen 里生效，不影响代码里的同名通用组
+                        ---- 标签名：@brief/@param/@return/@note/@warning/@todo/@code ... ----------
+                        hl["@keyword.doxygen"]               = S( C.keyword_import, italic )
+                        hl["@keyword.modifier.doxygen"]      = S( C.keyword_modifier, italic )
+                        ---- @param 后面的参数名 --------------------------------------------------
+                        hl["@variable.parameter.doxygen"]    = S( C.variable_param, italic )
+                        hl["@variable.doxygen"]              = S( C.variable, italic )
+                        ---- 链接/函数引用、@code{.cpp} 的代码块语言 --------------------------------
+                        hl["@function.doxygen"]              = S( C.function_call, italic )
+                        hl["@label.doxygen"]                 = S( C.type, italic )
+                        ---- \a \c 之类转义命令 ----------------------------------------------------
+                        hl["@tag.doxygen"]                   = S( C.tag, italic )
+                        ---- 行内强调(\a word，行首写才稳定生效) ----------------------------------
+                        hl["@markup.italic.doxygen"]         = S( C.string_doc, italic )
+                        ---- 注释内标点/运算符压成注释色 -------------------------------------------
+                        hl["@punctuation.delimiter.doxygen"] = S( C.comment, italic )
+                        hl["@punctuation.bracket.doxygen"]   = S( C.comment, italic )
+                        hl["@operator.doxygen"]              = S( C.comment, italic )
+
                         ---- 关键字(Keyword) — Treesitter ------------------------------------------
                         hl["@keyword"]                = S( C.keyword, bold )
                         hl["@keyword.function"]       = S( C.keyword_fn )
