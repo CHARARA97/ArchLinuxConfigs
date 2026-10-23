@@ -53,6 +53,22 @@ end
 
 vim.lsp.enable( enabled_servers )
 
+---- clangd 扩展：在头文件与源文件之间切换（textDocument/switchSourceHeader）-----------------------
+---- clangd 的 textDocument/implementation 对 C/C++ 实测始终返回空（按 gi 只会提示 No locations
+---- found），真正可靠的「声明 <-> 实现」跳转是它的私有方法；缺点是不带行号，只落到对端文件开头。
+local function switch_source_header()
+        local buf = vim.api.nvim_get_current_buf()
+        vim.lsp.buf_request( buf, "textDocument/switchSourceHeader",
+                { uri = vim.uri_from_bufnr( buf ) },
+                function( _, result )
+                        if not result then
+                                vim.notify( "clangd: 没找到对应的头文件/源文件", vim.log.levels.WARN )
+                                return
+                        end
+                        vim.cmd.edit( vim.fn.fnameescape( vim.uri_to_fname( result ) ) )
+                end )
+end
+
 ---- LspAttach 快捷键保持不变 ----------------------------------------------------------------------
 vim.api.nvim_create_autocmd( "LspAttach",
         {
@@ -63,8 +79,12 @@ vim.api.nvim_create_autocmd( "LspAttach",
                         local buf = args.buf
                         local opts = { buffer = buf }
                         km( "n", "gd", vim.lsp.buf.definition, opts )
+                        km( "n", "gD", vim.lsp.buf.declaration, opts )
                         km( "n", "gr", vim.lsp.buf.references, opts )
                         km( "n", "gi", vim.lsp.buf.implementation, opts )
+                        if client.name == "clangd" then
+                                km( "n", "<leader>gs", switch_source_header, opts )
+                        end
                         km( "n", "<leader>rn", vim.lsp.buf.rename, opts )
                         km( "n", "<leader>ca", vim.lsp.buf.code_action, opts )
                         km( "n", "K", vim.lsp.buf.hover, opts )
