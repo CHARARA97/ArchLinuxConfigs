@@ -53,8 +53,8 @@ km( 'n', '<leader>swl', splt.swap_buf_right,            { desc = '与右侧窗�
 
 ---- 一般键位 ------------------------------------------------------------------
 km( 'n', '-',  '<cmd>Oil<CR>',                          { desc = '使用 Oil 打开当前目录' } )
-km( 'n', 'S',  _G.pad_brackets,                         { desc = "括号内加空格" } )
-km( 'v', 'S',  _G.pad_brackets,                         { desc = "括号内加空格" } )
+km( 'n', '<C-9>',  _G.pad_brackets,                         { desc = "括号内加空格" } )
+km( 'v', '<C-9>',  _G.pad_brackets,                         { desc = "括号内加空格" } )
 km( 'n', '[d', vim.diagnostic.goto_prev,                { desc = '上一个诊断' } )
 km( 'n', ']d', vim.diagnostic.goto_next,                { desc = '下一个诊断' } )
 

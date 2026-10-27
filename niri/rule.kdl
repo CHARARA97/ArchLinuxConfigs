@@ -294,3 +294,11 @@ layer-rule {
     match namespace="^noctalia-backdrop"
     place-within-backdrop true
 }
+window-rule {
+    match app-id="ONLYOFFICE"
+    clip-to-geometry false      // 不裁那圈阴影，改由 niri 正常合成
+    background-effect {
+        blur false              // 空档里别再画模糊壁纸
+        xray false
+    }
+}
