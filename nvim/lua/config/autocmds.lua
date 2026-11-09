@@ -27,14 +27,20 @@ function _G.toggle_qf()
 end
 
 ---- Python:使用 4 空格缩进 ------------------------------------------------------------------------
-vim.api.nvim_create_autocmd( { "FileType", "BufWinEnter" },
-        {
+vim.api.nvim_create_autocmd(
+        { "FileType", "BufWinEnter" }
+        ,{
                 pattern = "*",
-                callback = function(args)
+                callback = function( args )
                         if vim.bo.filetype == "python" then
                                 vim.bo.tabstop = 4
                                 vim.bo.shiftwidth = 4
                                 vim.bo.softtabstop = 4
+
+                        elseif vim.bo.filetype == "html" then
+                                vim.bo.tabstop = 3
+                                vim.bo.shiftwidth = 3
+                                vim.bo.softtabstop = 3
                         else
                                 vim.bo.tabstop = 8
                                 vim.bo.shiftwidth = 8
@@ -45,18 +51,24 @@ vim.api.nvim_create_autocmd( { "FileType", "BufWinEnter" },
 )
 
 ---- Markdown使用软换行 ----------------------------------------------------------------------------
-vim.api.nvim_create_autocmd( { "FileType", "BufWinEnter" },
-        {
+local wrap_filetypes =
+{
+        "markdown",
+        "text",
+        "gitcommit",
+        "norg",
+}
+
+vim.api.nvim_create_autocmd(
+        { "FileType", "BufWinEnter" }
+        ,{
                 pattern = "*",
-                callback = function( args )
-                        if vim.bo.filetype == "markdown" then
-                                vim.opt_local.wrap = true
-                        else
-                                vim.opt_local.wrap = false
-                        end
+                callback = function()
+                        local file_type = vim.bo.filetype
+                        vim.opt_local.wrap = vim.tbl_contains( wrap_filetypes, file_type )
                 end,
         }
- )
+)
 
 function _G.comment_line()
         ---- 取 colorcolumn 第二条提示线，默认 100 -------------------------------------------------
