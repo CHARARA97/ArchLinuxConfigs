@@ -53,8 +53,6 @@ km( 'n', '<leader>swl', splt.swap_buf_right,            { desc = '与右侧窗�
 
 ---- 一般键位 ------------------------------------------------------------------
 km( 'n', '-',  '<cmd>Oil<CR>',                          { desc = '使用 Oil 打开当前目录' } )
-km( 'n', '<C-9>',  _G.pad_brackets,                         { desc = "括号内加空格" } )
-km( 'v', '<C-9>',  _G.pad_brackets,                         { desc = "括号内加空格" } )
 km( 'n', '[d', vim.diagnostic.goto_prev,                { desc = '上一个诊断' } )
 km( 'n', ']d', vim.diagnostic.goto_next,                { desc = '下一个诊断' } )
 
@@ -71,6 +69,8 @@ km( 'n', '<A-S-h>', splt.resize_left,                   { desc = '减小窗口�
 km( 'n', '<A-S-l>', splt.resize_right,                  { desc = '增加窗口宽度' } )
 
 ---- Ctrl + Any 键位 -----------------------------------------------------------
+km( 'n', '<C-9>',  _G.pad_brackets,                     { desc = "括号内加空格" } )
+km( 'v', '<C-9>',  _G.pad_brackets,                     { desc = "括号内加空格" } )
 km( 'n', '<C-h>', splt.move_cursor_left,                { desc = '移动到左侧窗口/面板' } )
 km( 'n', '<C-j>', splt.move_cursor_down,                { desc = '移动到下方窗口/面板' } )
 km( 'n', '<C-k>', splt.move_cursor_up,                  { desc = '移动到上方窗口/面板' } )
@@ -78,3 +78,9 @@ km( 'n', '<C-l>', splt.move_cursor_right,               { desc = '移动到右�
 km( 'i', '<C-.>', '<C-x><C-o>',                         { desc = '手动触发 LSP 补全' } )
 km( 't', '<C-/>', '<C-\\><C-n>',                        { desc = '退出终端模式' } )
 km( 't', '<C-k>', '<C-\\><C-n>',                        { desc = '退出终端模式' } )
+
+
+---- Shift + Any 键位 ------------------------------------------------------------------------------
+km( 'n', '<S-h>', '{',                       { noremap = true, desc = 'Goto next space line' } )
+km( 'n', '<S-l>', '}',                       { noremap = true, desc = 'Goto previous space line' } )
+
