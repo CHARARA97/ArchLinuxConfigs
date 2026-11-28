@@ -45,8 +45,10 @@ local C = {
         operator         = "#EFBD5D",
 
         ---- 关键字（与 tokyonight 一致：return 紫，if/else/continue 浅紫）----------------------------
-        keyword          = "#9D7CD8",
-        keyword_fn       = "#BB9AF7",
+        keyword           = "#9D7CD8",
+        keyword_fn        = "#BB9AF7",
+        keyword_modifier  = "#F65866",
+        keyword_exception = "#FF3333",
 
         ---- 函数定义
         function_def     = "#7AA2F7",
@@ -104,13 +106,13 @@ local H = {
         ---- 关键字(Keyword) — 全白 --------------------------------------------------------------
         ["@keyword"]                     = S( C.keyword, bold ),
         ["@keyword.conditional"]         = S( C.keyword_fn ),
-        ["@keyword.conditional.ternary"] = S( C.keyword_fn ),
+        ["@keyword.conditional.ternary"] = S( C.operator ),
         ["@keyword.coroutine"]           = S( C.keyword, bold ),
         ["@keyword.debug"]               = S( C.keyword ),
-        ["@keyword.exception"]           = S( C.keyword ),
+        ["@keyword.exception"]           = S( C.keyword_exception ),
         ["@keyword.function"]            = S( C.keyword ),
         ["@keyword.import"]              = S( C.macro, italic ),
-        ["@keyword.modifier"]            = S( C.keyword, bold ),
+        ["@keyword.modifier"]            = S( C.white, bold ),
         ["@keyword.operator"]            = S( C.operator ),
         ["@keyword.repeat"]              = S( C.keyword_fn ),
         ["@keyword.return"]              = S( C.keyword, bold ),
@@ -154,8 +156,8 @@ local H = {
         ["@function.method.call"] = S( C.white ),
         ["@method.call"]          = S( C.white ),
         ["@function.builtin"]     = S( C.white ),
-        ["@constructor"]          = S( C.constructor ),
-        ["@constructor.tsx"]      = S( C.constructor ),
+        ["@constructor"]          = S( C.function_def ),
+        ["@constructor.tsx"]      = S( C.function_def ),
 
         ---- 类型(Type) — 全白 ------------------------------------------------------------------
         ["@type"]             = S( C.white ),
